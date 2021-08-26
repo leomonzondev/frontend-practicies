@@ -1,0 +1,144 @@
+:root {
+    --sedans:hsl(31, 77%, 52%);
+    --suvs:hsl(184, 100%, 22%);
+    --luxury:hsl(179, 100%, 13%);
+    --p:hsla(0, 0%, 100%, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body, button {
+    font-family: "Lexen Deca", sans-serif;
+}
+
+h3 {
+    font-family: "Bid Shoulders", sans-serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+}
+
+html {
+    font-size:62.5%;
+}
+
+p {
+    font-size:1.5rem;
+    color: var(--p);
+    line-height: 1.6;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.btn {
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 3rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out ;
+}
+
+
+
+
+
+.card {
+    padding: 3rem;
+}
+
+.card img {
+    margin-bottom: 2.5rem;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+}
+
+.card p {
+    margin-bottom: 3rem ;
+}
+
+.sedans{
+background-color: var(--sedans);
+color: white;
+border-radius: 10px 10px 0 0;
+}
+.sedans .btn {
+    color: var(--sedans);
+}
+
+.sedans:hover {
+    box-shadow: 1px 1px 42px 4px var(--sedans);
+    -webkit-box-shadow: 1px 1px 42px 4px var(--sedans);
+    -moz-box-shadow: 1px 1px 42px 4px var(--sedans);
+}
+
+.suvs:hover {
+    box-shadow: 1px 1px 42px 4px var(--suvs);
+    -webkit-box-shadow: 1px 1px 42px 4px var(--suvs);
+    -moz-box-shadow: 1px 1px 42px 4px var(--suvs);
+}
+
+.luxury:hover {
+    box-shadow: 1px 1px 42px 4px var(--luxury);
+    -webkit-box-shadow: 1px 1px 42px 4px var(--luxury);
+    -moz-box-shadow: 1px 1px 42px 4px var(--luxury);
+}
+
+
+.suvs {
+background-color: var(--suvs);
+color: white;
+
+}
+
+.suvs .btn {
+    color: var(--suvs);
+}
+
+.luxury{
+    background-color: var(--luxury);
+    color: white;
+    border-radius: 0 0 10px 10px ;
+}
+
+.luxury .btn {
+    color: var(--luxury);
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: white;
+}
+
+@media (min-width:992px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        max-width: 900px;
+        margin: auto;
+    }
+    .luxury {
+        border-radius: 0 10px 10px 0;
+    }
+    .sedans {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .card {
+        padding: 4.5rem;
+    }
+
+    .card p {
+        margin-bottom: 8rem;
+    }
+}

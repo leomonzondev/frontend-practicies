@@ -1,0 +1,146 @@
+:root {
+  --background:hsl(233, 47%, 7%); 
+  --container:hsl(244, 38%, 16%);
+  --accent:hsl(277, 64%, 61%); 
+  --white:hsl(0, 0%, 100%);/* MAIN HEADING, STATS*/
+  --transparent1:hsla(0, 0%, 100%, 0.75); /* MAIN PARAGRAPH */
+  --transparent2:hsla(0, 0%, 100%, 0.6); /* STATS HEADINGS */
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Lexen Deca", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.container {
+  background-color: var(--container);
+  border-radius: 10px;
+  display: grid;
+  grid-template: 1fr / repeat(1, 1fr);
+  grid-area:"texts img";
+  max-width: 1100px;
+}
+
+.texts {
+  padding: 5rem;
+  padding-right: 15rem;
+  color: white;
+  display: grid;
+  grid-area: texts;
+  grid-column:1/2;
+  grid-template: 2fr/1fr;
+  grid-template-areas: 
+  "principal"
+  "stats"
+  ;
+}
+
+.principal {
+  display: grid;
+  grid-area:principal;
+}
+
+.principal h1 {
+  font-size: 3.3rem;
+}
+
+.principal span {
+  font-size: 3.3rem;
+  color: var(--accent);
+}
+
+.principal p {
+  font-size: 1.6rem;
+  color: var(--transparent2);
+}
+
+.stats {
+  display: grid;
+  grid-area:stats;
+}
+
+.img {
+  position: relative;
+  display: grid;
+  grid-column: 2/3;
+  grid-area: img;
+ 
+}
+
+.filter {
+  position: absolute;
+  display: grid;
+  grid-column: 2/3;
+  background-color: var(--accent);
+}
+
+.img img{
+  border-radius: 0px 10px 10px 0px;
+  object-fit: contain;
+}
+
+
+.stats {
+ display: flex;
+ justify-content: space-between
+
+}
+
+.stats h2 {
+  font-size: 2.3rem;
+}
+
+.stats p {
+  font-size: 1.1rem;
+  color: var(--transparent1);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.stats h2 {
+
+  padding-bottom: 1rem;
+}
+
+
+@media (max-width:600px) {
+  .container {
+    max-height: 100vh;
+    display: grid;
+    margin: 4rem;
+    grid-template: 3fr / 1fr;
+    grid-template-areas:
+    "img"
+    "text"
+    ;
+  }
+
+  .img{
+    display: grid;
+    grid-area: img;
+  }
+
+  .img img{
+    border-radius: 10px 10px 0 0;
+  }
+
+  .text {
+
+  }
+
+  .stats {
+    display: grid;
+    grid-area: stats;
+  }
+}

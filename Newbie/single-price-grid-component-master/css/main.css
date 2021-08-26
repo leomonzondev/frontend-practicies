@@ -1,0 +1,162 @@
+:root {
+    --cyan:hsl(179, 62%, 43%);
+    --yellow:hsl(71, 73%, 54%);
+    --neutralight:hsl(204, 43%, 93%);
+    --neutralblue:hsl(218, 22%, 67%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-size:62.5%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(236, 236, 236, 0.931);
+    font-family: 'Karla', sans-serif;
+}
+
+.container {
+    display: grid;
+    
+    font-size: 4rem;
+    max-width: 60rem;
+    grid-template: repeat(2,1fr) / repeat(2,1fr);
+    grid-template-areas: 
+    "header header"
+    "price why"
+    ;
+}
+
+
+.header {
+    display: grid;
+    grid-area: header;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 3rem;
+}
+
+.header h2 {
+    padding-bottom: 2rem;
+}
+
+.header h3 {
+    color: var(--yellow);
+    padding-bottom: 1rem;
+}
+
+.header p {
+    color: var(--neutralblue);
+    padding-bottom: 1.2rem;
+    line-height: 2.4rem;
+}
+
+.header h2 {
+    font-size: 3rem;
+    color: var(--cyan);
+}
+
+.price {
+    display: grid;
+    grid-area: price;
+    background-color: rgb(127, 210, 231);
+    color: white;
+    background-color: var(--cyan);   
+    padding: 3rem;
+    border-radius:0 0 0 10px ;
+}
+
+.price h3 {
+    padding-top: 1.3rem;
+}
+
+.price h2 {
+    font-size: 3rem;
+    vertical-align: middle;
+}
+
+.price span {
+    color: #79dbe1;
+    font-size: 1.6rem;
+    vertical-align: 25%;
+}
+
+.price p {
+    padding-bottom: 2rem;
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: var(--yellow);
+    border-style: none;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.why{
+    display: grid;
+    grid-area:why;
+    color: white;
+    padding: 2.8rem;
+    background-color: rgba(74,190,189,255);
+    border-radius: 0 0 10px 0;
+    font-size: 2.3rem;
+}
+
+.why h3 {
+    padding-top: 1.3rem;
+    font-size: 1.6rem;
+}
+
+.why p {
+    padding-top: 2rem;
+    padding-right: 5rem;
+    line-height: 2rem;
+    color: var(--neutralight);
+}
+
+
+@media (max-width:550px) {
+    .container {
+        max-height: 100vh;
+        margin:3rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr;
+        grid-template-areas: 
+        "header"
+        "why"
+        "price"
+        ;
+    }
+    .header {
+        display: grid;
+        grid-area:header;
+    }
+    .price {
+        display: grid;
+        grid-area:price;
+        
+    }
+
+    .price h3{
+        padding-bottom: 2rem;
+    }
+
+    .price h2{
+        padding-bottom: 1rem;
+    }
+
+
+    .why{
+        display: grid;
+        grid-area:why;
+        border-radius: 0 0 0 0;
+    }
+}

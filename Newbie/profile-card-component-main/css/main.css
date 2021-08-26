@@ -1,0 +1,104 @@
+:root {
+    --Darkcyan: hsl(185, 75%, 39%);
+    --Verydarkblue: hsl(229, 23%, 23%);
+    --Darkblue: hsl(227, 10%, 46%);
+    --Neutral:hsl(0, 0%, 59%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: 'Kumbh Sans',sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: auto;
+    background-color: var(--Darkcyan);
+}
+
+.container {
+ background-color: white;
+ border-radius: 15px;
+ position: relative;
+}
+
+
+.profile img {
+    border-radius:50%;
+    border: solid 3px white;
+}
+
+.profile {
+    position: absolute;
+    left: 35%;
+    top: 22%;
+}
+
+
+.banner img{
+    border-radius: 15px 15px 0 0;
+}
+
+.text {
+    margin-top: 5rem;
+    padding: 4rem;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.text h3 { 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.text span {
+    color: var(--Neutral);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding-left: 10px;
+}
+
+.text p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats {
+    border-top: 1px solid hsla(0, 0%, 50%, 0.11) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.stats h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.stats p {
+    color: var(--Neutral);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+}
+
+
+@media  (min-width: 375px){
+    
+}

@@ -1,0 +1,164 @@
+:root {
+    --Moderateviolet: hsl(263, 55%, 52%);
+    --Verydarkgrayishblue: hsl(217, 19%, 35%);
+    --Verydarkblackishblue: hsl(219, 29%, 14%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: "Barlow Semi Condensed",sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 241, 246);
+}
+
+.container {
+    display: grid;
+    font-size: 6rem;
+    margin: 100px;
+    grid-template: repeat(2,1fr) / repeat(4,1fr);
+    grid-template-areas: 
+                        "daniel daniel jonathan kira"
+                        "jeanette patrick patrick kira"
+    ;
+    gap: 20px;
+    width: 1280px;
+}
+
+
+.Daniel, .Jonathan, .Jeanette, .Patrick, .Kira {
+    border-radius: 10px;
+}
+
+.Daniel .name h5, .Jonathan .name h5, .Patrick .name h5 {
+    color: white;
+}
+
+.Daniel {
+    display: grid;
+    grid-area: daniel;
+    background-color: var(--Moderateviolet);
+    padding: 30px;
+    position: relative;
+}
+.quote {
+    position: absolute;
+    
+}
+
+.Daniel h1 {
+    z-index: 3;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 4.5rem;
+}
+
+
+
+.name {
+    margin-left: 20px;
+}
+
+.header img {
+    border-radius: 50%;
+    border: solid 2px white;
+}
+
+.Daniel h1, .Jonathan h1, .Patrick h1 {
+    color: white;
+    font-size: 2rem;
+    margin: 20px auto;
+}
+
+.Kira h1, .Jeanette h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+
+}
+
+
+
+.container p {
+    color: rgb(173, 173, 173);
+    
+}
+
+
+.Jonathan {
+    display: grid;
+    grid-area: jonathan;
+    background-color: var(--Verydarkgrayishblue);
+    padding: 30px;
+}
+
+.Jeanette {
+    display: grid;
+    grid-area: jeanette;
+    background-color: white;
+    padding: 30px;
+}
+
+.Patrick {
+    display: grid;
+    grid-area: patrick;
+    background-color: var(--Verydarkblackishblue);
+    padding: 30px;
+}
+
+.Kira {
+    display: grid;
+    grid-area: kira;
+    background-color: white;
+    padding: 30px;
+}
+
+.content p {
+    font-size: 1.6rem ;
+    
+}
+
+@media (max-width:800px) {
+    .container {
+        display: grid;
+        grid-template: repeat(5,1fr)/ 1fr;
+        grid-template-areas: 
+                            "daniel"
+                            "jonathan"
+                            "jeanette"
+                            "patrick"
+                            "kira";
+    }
+
+    .Daniel{
+        display: grid;
+        grid-area: daniel;
+        
+    }
+    .Jonathan{
+        display: grid;
+        grid-area: jonathan;
+    }
+    .Jeanette{
+        display: grid;
+        grid-area: jeanette;
+    }
+    .Patrick{
+        display: grid;
+        grid-area: patrick;
+    }
+    .Kira {
+        display: grid;
+        grid-area: kira;
+    }
+}
