@@ -1,0 +1,49 @@
+:root {
+    --Pink: hsl(322, 100%, 66%);
+    --VeryPaleCyan: hsl(193, 100%, 96%);
+    --VeryDarkCyan: hsl(192, 100%, 9%);
+    --GrayishBlue: hsl(208, 11%, 55%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+nav {
+    padding: 60px;
+    display: flex;
+    flex-flow: row nowrap;
+    position: relative;
+    justify-content: space-between;
+}
+
+header {
+    
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+
+}
+
+.backimg img {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+h1 {
+
+}
