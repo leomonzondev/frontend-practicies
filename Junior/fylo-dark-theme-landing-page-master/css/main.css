@@ -1,0 +1,170 @@
+:root {
+   /*Primary*/
+
+--intro: hsl(217, 28%, 15%);
+--main: hsl(218, 28%, 13%);
+--footer: hsl(216, 53%, 9%);
+--testimonials: hsl(219, 30%, 18%);
+
+/*Accent*/
+
+--Cyan: #65e2d9;
+--Blue: #339ecc;
+--Light: hsl(0, 100%, 63%);
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #8f54a0 #1b2330;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #1b2330;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #8f54a0;
+    border-radius: 10px;
+    border: 3px none #ffffff;
+  }
+
+
+*{ 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    color: var(--Cyan);
+    background:#8f54a0 ;
+}
+
+body {
+    color: white;
+    font-size: 62.5%;
+    font-family: "Open sans", sans-serif;
+}
+
+nav {
+    style:none;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    font-size: 1rem;
+}
+
+nav ul  {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    
+}
+
+nav ul li {
+    display: flex;
+    padding-left: 50px ;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    background-color: var(--intro);
+    min-height: 100vh;
+    font-family: "Raleway", sans-serif;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+button {
+    border-style: none;
+    border: none;
+    border-radius: 50px;
+    background-image: linear-gradient(to right bottom, #65e2d9, #49d2da, #33c1d8, #2bb0d4, #339ecc);
+    font-weight: 400;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.content button {
+    padding: 15px 60px 15px;
+    margin: 40px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-align: center;
+    
+}
+
+.content h1 {
+    margin: 20px;
+    text-align: center;
+}
+
+.content p {
+    width: 600px;
+    font-size: 1.2rem;
+}
+
+.imgmain{
+    width: 700px;
+    display: flex;
+    margin: auto;
+}
+
+.middle {
+    background-color: var(--main);
+    display: grid;
+    grid-template: repeat(2,1fr)/ repeat(2,1fr);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 40px;
+    font-size: 1.4rem;
+    width: 400px;
+    text-align: center;
+}
+
+.box img {
+    width: 100px;
+    padding-bottom: 20px;
+}
+
+#wave-background {
+    background-image: url(/images/bg-curvy-desktop.svg) no-repeat cover;
+}
+
+
+article {
+    background-color: var(--main);
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+
+.testimonial {
+    background-color: var(--main);
+    display: flex;
+}
