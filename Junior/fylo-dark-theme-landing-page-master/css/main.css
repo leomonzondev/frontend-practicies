@@ -367,6 +367,6 @@ flex-direction: column;
 
 .footer {
     background-color:var(--footer);
-    height: 400px;
-    position: absolute;
+
+
 }
