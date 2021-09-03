@@ -65,6 +65,7 @@ nav ul  {
     display: flex;
     list-style: none;
     justify-content: space-between;
+
     
 }
 
@@ -75,6 +76,11 @@ nav ul li {
 
 a {
     color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: .7;
 }
 
 header {
@@ -110,7 +116,8 @@ header {
     justify-content: center;
     font-size: 1.4rem;
     text-align: center;
-    
+    background: url(/images/bg-curvy-desktop.svg) bottom no-repeat;
+    background-size: 100% 270px;
 }
 
 .content h1 {
@@ -133,7 +140,29 @@ header {
     background-color: var(--main);
     display: grid;
     grid-template: repeat(2,1fr)/ repeat(2,1fr);
+    grid-template-areas: "access security"
+                        "time storage";
     margin-bottom: 150px;
+}
+
+.acces {
+    display: grid;
+    grid-area: access;
+}
+
+.security {
+    display: grid;
+    grid-area: security;
+}
+
+.collaboration {
+    display: grid;
+    grid-area: time;
+}
+
+.storage {
+    display: grid;
+    grid-area: storage;
 }
 
 .box {
@@ -141,8 +170,8 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    padding: 40px;
+    margin: 40px auto;
+
     width: 500px;
     text-align: center;
 }
@@ -251,9 +280,7 @@ article {
     flex-direction: row-reverse;
     position: absolute;
     z-index: -1;
-    left: 140px;
-    
-
+    left: 230px;
 }
 
 .person img {
@@ -313,11 +340,11 @@ flex-direction: column;
 
 
 .action {
-    margin-top: 150px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 850px;
+    width: 860px;
     height: 250px;
     border-radius: 10px;
     background-color: var(--intro);
@@ -326,7 +353,7 @@ flex-direction: column;
     position: relative;
     left: 26%;
     padding: 40px;
-    top: 10px;
+    top: 105px;
 }
 
 .action h2 {
@@ -356,17 +383,116 @@ flex-direction: column;
     padding: 20px 40px;
     border-style: none;
     color: white;
-    font-weight: 700;
+    font-weight: 500;
     margin-left: 40px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .action button:hover {
     opacity: .7;
 }
 
-.footer {
+footer {
     background-color:var(--footer);
+    padding: 100px;
+    font-size: 1rem;
+    list-style: none;
+}
+
+.foot-gral {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#logo-footer {
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.div1 {
+    display: flex;
+    align-items: center;
+}
+
+.div1 img {
+    height: 20px;
+}
+
+.div1 p {
+    width: 350px;
+    padding-left: 20px;
+}
+
+.div2 {
+    display: flex;
+    line-height: 40px;
+    flex-direction: column;
+}
+
+.div2 img {
+    padding-right: 20px;
+}
+
+.phone {
+    display: flex;
+    align-items: center;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+}
+
+.div3 {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+
+}
+
+.div3 ul {
+    list-style: none;
+}
 
 
+
+
+
+.div4 li {
+    display: inline;
+    list-style: none;
+    position: relative;
+    justify-content: center;
+}
+
+.div4 li::before {
+    content: "";
+    padding: 17px 17px;
+    border: solid 1px white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    right:-11px ;
+    top: -6px;
+}
+
+.div4 li:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.div4 {
+    display: flex;
+    align-items: flex-start;
+    
+    width: 150px;
+    justify-content: flex-start;
+}
+
+
+.div4 ul {
+    word-spacing: 40px;
 }
