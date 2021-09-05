@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+
+
+<section>
+
+  <div id="box-input">
+    <div id="bill" class="principal-inputs">
+      <p>Bill</p>
+      <label for="text">
+        <img src="/images/icon-dollar.svg" alt="">
+        <input id="billInput" type="number"> 
+      </label>
+    </div>
+
+    <div id="tip-select">
+      <p>Select Tip %</p>
+      <div id="tip-percentage">
+          <button id="five">5%</button>
+          <button id="ten">10%</button>
+          <button id="fifteen">15%</button>
+          <button id="twentyfive">25%</button>
+          <button id="fifty">50%</button>
+        <div class="custom">
+          <label for="Custom">
+            <input id="customTip" type="number" placeholder="Custom">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="people" class="principal-inputs">
+      <p>Number of People</p>
+      <label for="">
+        <img src="/images/icon-person.svg" alt="">
+        <input id="cantPeople" type="number" onkeyup="">
+      </label>
+    </div>
+  </div>
+
+  <div id="box-output">
+    <div id="amount">
+      <div class="texts">
+        <div class="tips">
+          <p> Tip Amount 
+            <br><span> / person </span></p>
+        </div>
+     
+        
+        <div id="amount-result" class="result">
+          <p>$0.00</p>
+        </div>
+      </div>
+     
+
+    </div>
+    <div id="total">
+      <div class="texts">
+        <div class="tips">
+          <p> Total 
+            <br><span> / person </span></p> 
+        </div>
+        
+        
+        <div id="total-result" class="result">
+          <p>$0.00</p>
+        </div>
+      </div>
+     
+
+    </div>
+    <div id="reset">
+      <button>RESET</button>
+    </div>
+  </div>
+
+</section>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+
+</html>

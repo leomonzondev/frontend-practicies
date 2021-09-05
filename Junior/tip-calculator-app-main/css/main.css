@@ -1,0 +1,249 @@
+:root {
+    --Strongcyan: hsl(172, 67%, 45%);
+    --Verydarkcyan: hsl(183, 100%, 15%);
+    --Darkgrayishcyan1: hsl(186, 14%, 43%);
+    --Darkgrayishcyan2: hsl(184, 14%, 56%);
+    --Lightgrayishcyan1: hsl(185, 41%, 84%);
+    --Lightgrayishcyan2: hsl(189, 41%, 97%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Space Mono",sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+body {
+    font-size: 62.5%;
+    
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Lightgrayishcyan1);
+    
+}
+
+section {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left:30px ;
+    flex-wrap: wrap;
+    box-shadow: 2px 15px 47px -4px rgba(0,0,0,0.17);
+}
+
+#box-input {
+    width: 330px;
+    border-radius: 20px;
+    margin: 10px;
+    margin-right: 40px;
+}
+
+#bill {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#bill img {
+    position: absolute;
+    top: 45px;
+    left: 15px;
+
+}
+
+#bill input {
+    width: 330px;
+    background-color: var(--Lightgrayishcyan2);
+    text-align: right;
+    font-size: 1.4rem;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+    padding-right: 15px;
+    border-style: none;
+    cursor: pointer;
+}
+
+#bill input::focus {
+    border-color: var(--Strongcyan);
+}
+
+
+
+#box-input p {
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--Darkgrayishcyan1);
+    margin-bottom: 10px;
+}
+
+#tip-percentage {
+    max-height: 150px ;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    
+}
+
+#tip-percentage button {
+    width: 100px;
+    height: 40px;
+    color: var(--Lightgrayishcyan2);
+    background-color: var(--Verydarkcyan);
+    border-style: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#tip-percentage button:hover {
+    cursor: pointer;
+}
+
+#tip-percentage button:focus {
+    background-color: var(--Strongcyan);
+}
+
+#tip-percentage input {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    border-style: none;
+    background-color: var(--Lightgrayishcyan2);
+    font-size: 1.4rem;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+}
+
+#tip-percentage input::placeholder {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--Darkgrayishcyan2);
+
+}
+
+#box-input input {
+    border-color: var(--Strongcyan);
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#box-input input:focus {
+    outline: none;
+    border: 2px solid var(--Strongcyan);
+}
+
+#people {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#people img {
+   position: absolute;
+   top: 45px;
+   left: 15px;
+
+}
+
+#people input {
+    width: 330px;
+    background-color: var(--Lightgrayishcyan2);
+    text-align: right;
+    font-size: 1.4rem;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+    padding-right: 15px;
+    border-style: none;
+    cursor: pointer;
+}
+
+
+#box-output {
+    background-color: var(--Verydarkcyan);
+    border-radius: 15px;
+    width: 380px;
+    margin: 10px;
+    padding: 25px;
+}
+
+#amount {
+    margin-top: 20px;
+    margin-bottom:60px;
+}
+
+#total {
+    
+}
+
+
+#reset {
+    margin-top: 105px;
+    display: flex;
+    justify-content: center;
+}
+
+#reset button {
+    width: 310px;
+    display: center;
+    justify-self: center;
+    border-style: none;
+    background-color: var(--Strongcyan);
+    padding: 8px;
+    border-radius: 5px;
+    color: var(--Verydarkcyan);
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#reset button:focus {
+    background-color: var(--Lightgrayishcyan1);
+}
+
+.texts {
+    line-height: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tips p {
+    color: white;
+    font-size: .9rem;
+}
+
+.tips span {
+    color: var(--Darkgrayishcyan2);
+    font-size: .8rem;
+}
+
+.result {
+    color: var(--Strongcyan);
+    font-weight: 700;
+    font-size: 3rem;
+
+}
+
+
+@media (min-width:840px) {
+    section {
+
+    }
+    #box-input {
+
+    }
+}
