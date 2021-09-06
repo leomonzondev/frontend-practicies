@@ -110,9 +110,11 @@ section {
 
 #tip-percentage button:hover {
     cursor: pointer;
+
 }
 
 #tip-percentage button:focus {
+    
     background-color: var(--Strongcyan);
 }
 
