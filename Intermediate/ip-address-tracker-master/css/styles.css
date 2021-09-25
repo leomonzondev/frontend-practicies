@@ -1,0 +1,55 @@
+:root {
+    --VeryDarkGray: hsl(0, 0%, 17%);
+    --DarkGray: hsl(0, 0%, 59%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    font-family: 'Rubik',sans-serif;
+}
+
+#pattern {
+    width: 100%;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: -25vh;
+    flex-direction: column;
+}
+
+.principal h1 {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 1.5vh;
+}
+
+.principal input {
+    width: 40vw;
+    height: 5vh;
+    border-radius: 10px 0px 0px 10px;
+    border-style: none;
+    padding-left: 2vw;
+    
+}
+
+.principal input::placeholder {
+    color: rgb(167, 167, 167);
+}
+
+.principal button {
+    height: 5vh;
+    width: 2vw;
+    border-radius: 0 10px 10px 0;
+    border-style: none;
+    background-color: var(--VeryDarkGray);
+}
