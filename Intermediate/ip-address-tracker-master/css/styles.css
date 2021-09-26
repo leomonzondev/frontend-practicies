@@ -12,29 +12,35 @@
 body {
     font-size: 62.5%;
     font-family: 'Rubik',sans-serif;
+    background-color: black;
 }
 
 #pattern {
     width: 100%;
+    height: 28vh;
 }
 
 .principal {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    margin-top: -25vh;
+    margin: 0 33% ;
+    top: 3vh;
     flex-direction: column;
+    width: 35vw;
 }
 
 .principal h1 {
     color: white;
     font-weight: 500;
-    margin-bottom: 1.5vh;
+    margin-bottom: 2.5vh;
+    font-size: 3.5vh;
+    
 }
 
 .principal input {
-    width: 40vw;
+    width: 31vw;
     height: 5vh;
     border-radius: 10px 0px 0px 10px;
     border-style: none;
@@ -52,4 +58,16 @@ body {
     border-radius: 0 10px 10px 0;
     border-style: none;
     background-color: var(--VeryDarkGray);
+}
+
+section {
+    position: absolute;
+    background-color: white;
+    width: 60vw;
+    height: 15vh;
+    display: flex;
+    top: 20.5vh;
+    left: 20vw;
+    border-radius: 10px;
+    border-style: none;
 }
