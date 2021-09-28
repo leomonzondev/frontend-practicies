@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+#elem {
+
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+    margin: 50px;
+}
+
+.box {
+    width: 15vw;
+    background-color: black;
+    border: solid 2px rgb(250, 189, 21);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    margin: 2vw;
+    height: 25vh;
+}
+
+.box img:hover {
+    transform: scale(1.5);
+    
+}
