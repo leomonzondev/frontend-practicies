@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { login } from '../../actions/auth'
 import { useForm } from '../../hooks/useForm'
+// import { firebase } from "../components/firebase/firebase-config"
 
 export const LoginScreen = () => {
 
@@ -21,6 +22,15 @@ export const LoginScreen = () => {
         
     }
 
+    // const handleGoogleLogin = () => {
+    //     firebase.auth().signInWithPopup( googleAuthProvider)
+    //     .then((re)=>{
+    //         console.log(re)
+    //     })
+    //     .catch((err)=>{
+    //         console.log(err)
+    //     })
+    // }
 
     return (
         <>
@@ -59,6 +69,7 @@ export const LoginScreen = () => {
                     <p>Login with social networks</p>
                         <div 
                             className="google-btn"
+                            // onClick={handleGoogleLogin}
                         >
                             <div className="google-icon-wrapper">
                                 <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
@@ -79,3 +90,4 @@ export const LoginScreen = () => {
         </>
     )
 }
+ 

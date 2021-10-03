@@ -1,5 +1,6 @@
 import React from 'react'
 import { JournalEntries } from './JournalEntries'
+import { Link } from 'react-router-dom'
 
 export const Sidebar = () => {
     return (
@@ -22,6 +23,13 @@ export const Sidebar = () => {
                     New Entry
                 </p>
             </div>
+
+        <Link
+            to="/sandbox/fire"
+            className="link btn"
+        >
+            SandBox
+        </Link>
 
             <JournalEntries />
         </aside>

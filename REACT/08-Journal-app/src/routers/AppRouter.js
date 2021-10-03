@@ -10,6 +10,7 @@ import {
 import { JournalScreen } from "../components/journal/JournalScreen";
 import { AuthRouter } from "./AuthRouter";
 
+
 export const AppRouter = () => {
     return (
         <Router>
@@ -25,6 +26,8 @@ export const AppRouter = () => {
                         path="/"
                         component= { JournalScreen }
                     />
+
+
 
                     <Redirect
                     to="/auth/login"
