@@ -9,7 +9,7 @@ const ResizeApp = () => {
 
     useEffect(() => {
         window.addEventListener('resize', () => setWindowWidth(window.innerWidth))
-    })
+    },[])
 
 
 
