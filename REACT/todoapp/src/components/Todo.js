@@ -4,8 +4,12 @@ const Todo = ({ todo, todoDelete,todoToggleComplete,setTodoEdit }) => {
 
 
     return (
-        <div className="card mt-2">
-            <div className="card-body ">
+        <div 
+        style={todo.completed ? ({backgroundColor:"#b8b8b8"}) : ({backgroundColor:"white"})}
+        className="card mt-2">
+            <div 
+                
+                className="card-body">
         
                 <h3 className="card-title text-right d-flex justify-content-between">
                     {todo.title}
@@ -23,7 +27,7 @@ const Todo = ({ todo, todoDelete,todoToggleComplete,setTodoEdit }) => {
                 <div className="d-flex justify-content-end">
                     <button 
                         onClick={() => setTodoEdit(todo)}
-                        className="btn btn-sm btn-outline-primary mr-2"
+                        className="btn btn-sm btn-outline-primary me-2"
                         >Editar</button>
                     <button 
                     onClick={() => todoDelete(todo.id)}
