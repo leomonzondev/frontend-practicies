@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const List = ({people}) => {
+
+
+const List = ({people, handleSaludo}) => {
 
     const stilo = {
         backgroundColor:"BLACK"
@@ -24,7 +26,8 @@ return (
                         </div>
                         
                     </article>
-                    <button 
+                    <button
+                    onClick={() => handleSaludo(person.id)}
                     style= {{
                         width:85,
                         height:30,
