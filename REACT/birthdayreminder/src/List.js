@@ -4,11 +4,7 @@ import React, { useState } from 'react';
 
 const List = ({people, handleSaludo}) => {
 
-    const stilo = {
-        backgroundColor:"BLACK"
-    }
 
-    const [negro, setNegro] = useState(null)
 
 return (
     <>
