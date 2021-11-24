@@ -1,22 +1,64 @@
 :root {
   --DarkBlue: hsl(209, 23%, 22%); /*(Dark Mode Elements)*/
-  --VeryDarkBlue: hsl(207, 26%, 17%); /*(Dark Mode Background)*/
-  --VeryDarkBlue: hsl(200, 15%, 8%); /*(Light Mode Text)*/
+  --VeryDarkBlueBack: hsl(207, 26%, 17%); /*(Dark Mode Background)*/
+  --VeryDarkBlueText: hsl(200, 15%, 8%); /*(Light Mode Text)*/
   --DarkGray: hsl(0, 0%, 52%); /*(Light Mode Input)*/
-  --VeryLightGray: hsl(0, 0%, 98%); /*(Light Mode Background)*/
+  --VeryLightGray: hsl(0, 0%, 83%); /*(Light Mode Background)*/
   --White: hsl(0, 0%, 100%); /*(DarkMode Text & Light Mode Elements)*/
 }
 
+*{
+  margin: 0;
+  padding: 0;
 
+}
 
 body {
-  margin: 0;
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--VeryDarkBlueBack);
+  color: white;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  height: 4rem;
+  background-color: var(--DarkBlue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav h2{
+  margin-left: 3rem;
+}
+
+.nav p {
+  margin-right: 3rem;
+}
+
+input {
+  border-style: none;
+  padding: 0.8rem;
+  margin: 2rem 0 2rem 3rem;
+  width: 25rem;
+  background-color: var(--DarkBlue);
+}
+
+::placeholder {
+  color: var(--VeryLightGray);
+  padding-left: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+textarea:focus, input:focus {
+  color:var(--VeryLightGray);
+}
+

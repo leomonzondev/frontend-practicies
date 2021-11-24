@@ -11,13 +11,15 @@ const Call = () => {
             .then(res=> setPost(res))
     },[])
 
-
+    console.log(post)
 
     return (
         <div>
-            {
-                post.map(posti => <div> <p>{posti.name}</p></div>)
-            }
+            <img src="" alt=""/>
+            <h4>asd</h4>
+            <p>a</p>
+            <p>d</p>
+            <p>b</p>
         </div>
     )
 }
