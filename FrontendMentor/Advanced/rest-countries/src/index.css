@@ -62,3 +62,15 @@ textarea:focus, input:focus {
   color:var(--VeryLightGray);
 }
 
+.card {
+  background-color: var(--DarkBlue);
+  width: 300px;
+  height: 450px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.card p {
+  text-align: center;
+}

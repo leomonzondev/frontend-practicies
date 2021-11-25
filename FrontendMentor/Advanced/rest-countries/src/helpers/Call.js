@@ -14,11 +14,11 @@ const Call = () => {
     console.log(post)
 
     return (
-        <div>
+        <div className="card">
             <img src="" alt=""/>
-            <h4>asd</h4>
-            <p>a</p>
-            <p>d</p>
+            <h4> </h4>
+            <p>pais: {post[0].name}</p>
+            <p>capital: {post[0].capital}</p>
             <p>b</p>
         </div>
     )
