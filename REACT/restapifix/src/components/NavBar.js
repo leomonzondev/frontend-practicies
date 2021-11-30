@@ -1,10 +1,15 @@
-import React from 'react'
+
+import React, { useState } from 'react'
 
 const NavBar = () => {
+
+    const [mode, setMode] = useState(false)
+
     return (
         <div className="nav">
             <h2>Where in the world?</h2>
-            <p><i class="fas fa-moon"></i> Dark Mode</p>
+            
+            <button onClick={() => setMode(!mode)}>{mode ? `${<i class="fas fa-moon"></i>} 'Dark mode'` : 'Light mode'}</button>
         </div>
     )
 }

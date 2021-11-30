@@ -8,11 +8,14 @@ const Filter = () => {
 
     const [search, setSearch] = useState('')
 
+    // const filteredCountries = Countries.filter(country => {
+    //     return country.name.toLowerCase().includes(search.toLowerCase())
+    // })
 
     return (
         <section className="filter">
             <form className="form-control">
-            {search}
+            
                 <input type="text" name="search" id="search" 
                 defaultValue={filter} placeholder="Search for a country"
                 onChange={ e => setSearch(e.target.value)}

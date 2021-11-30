@@ -46,8 +46,17 @@ img {
   margin-left: 3rem;
 }
 
-.nav p {
+.nav button {
   margin-right: 3rem;
+  border-style: none;
+  background: none;
+  color: var(--VeryLightGray);
+  font-size: 15px;
+}
+
+.nav button:hover {
+  cursor: pointer;
+  color: var(--White);
 }
 
 input {
