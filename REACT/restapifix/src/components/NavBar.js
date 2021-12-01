@@ -9,7 +9,7 @@ const NavBar = () => {
         <div className="nav">
             <h2>Where in the world?</h2>
             
-            <button onClick={() => setMode(!mode)}>{mode ? `${<i class="fas fa-moon"></i>} 'Dark mode'` : 'Light mode'}</button>
+            <button onClick={() => setMode(!mode)}>{mode ? <i class="fas fa-moon"> Dark mode</i> : 'Light mode'}</button>
         </div>
     )
 }
