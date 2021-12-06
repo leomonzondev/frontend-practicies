@@ -2,38 +2,48 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 
-const url= `https://api.shrtco.de/v2/shorten?url=`
+
 
 const Searcher = () => {
 
-    const [result, setResult] = useState([])
+    const [inputValue, setInputValue] = useState([])
 
-    // const fetchita = async () => {
-    //     const res = await fetch(url)
-    //     const data = await res.json()
+    const [result, SetResult] = useState([])
+    
+    const fetchita = async () => {
+        const url= `https://api.shrtco.de/v2/shorten?url=${inputValue}`
+        const res = await fetch(url)
+        const data = await res.json()
 
-    //     console.log(data)
-    // }
+        console.log(data)
 
-    useEffect(() => {
+        SetResult(data.result[7])
+        }
 
-    },[])
+    const handleInput = (e) => {
+        setInputValue(e.target.value)
+    }
 
-    let textInput = React.useRef()
-
-    console.log(result)
-
-    const handleClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(textInput.current.value)
+        console.log(inputValue)
+
     }
     
     return (
         <div>
-            <form>
-                <input placeholder="Shorten a link here..."></input>
-                <button onClick={(e)=> handleClick(e)}>Shorten it!</button>
+            <form onSubmit={handleSubmit}>
+                <input
+                    placeholder="Shorten a link here..."
+                    value={inputValue}
+                    onChange={handleInput}
+                    />
+                <button onClick={fetchita}>Shorten it!</button>
             </form>
+
+            <ol>
+                {result}
+            </ol>
         </div>
     )
 }
