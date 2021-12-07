@@ -19,13 +19,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: hsl(0, 5%, 92%);
+}
 
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  
+  background-color: white;
 }
 
 li {
@@ -59,7 +62,9 @@ button:hover {
 main {
   display: flex;
   justify-content: space-between;
-  margin: 0 20px 0 20px;
+  background-color: white;
+  width: 100%;
+  
 }
 
 main h1 {
@@ -67,7 +72,7 @@ main h1 {
   font-size: 4rem;
   line-height: 80px;
   color: var(--VeryDarkBlue);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 main p {
@@ -78,10 +83,40 @@ main p {
 main button {
   margin-top: 40px;
   padding: 10px 30px;
+  margin-bottom: 300px;
 }
 
 .hero-izq {
   width: 800px;
   margin-top: 100px;
+  margin-left: 50px;
 }
+
+form {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  padding: 70px 30px;
+  background-color: darkmagenta;
+  width: 90%;
+  border-radius: 10px;
+  margin: -100px auto;
+}
+
+form button {
+  margin-left: 20px;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+
+input {
+  width: 60%;
+  border-radius: 10px;
+}
+
+input::placeholder {
+  padding: 0 25px;
+}
+
+
 

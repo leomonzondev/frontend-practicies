@@ -17,7 +17,7 @@ const Searcher = () => {
 
         console.log(data)
 
-        SetResult(data.result[7])
+        SetResult(data.result.short_link)
         }
 
     const handleInput = (e) => {
