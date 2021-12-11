@@ -9,6 +9,21 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+
+/*NAV BAR*/
+
+nav {
+    width: 500px;
+    margin-right: 5px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+
 .hero {
     height: 100vh;
     background-color: blueviolet;
@@ -36,8 +51,10 @@
 
 .footer__hero img{
     width: 105px;
+    opacity: 0.5;
 }
 
 img:hover {
-    filter: brightness(0.4);
+    opacity: 1;
+    cursor: pointer;
 }

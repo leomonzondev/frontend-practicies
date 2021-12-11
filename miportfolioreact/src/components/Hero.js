@@ -6,6 +6,13 @@ import ytimg from '../images/youtube.svg'
 export const Hero = () => {
     return (
         <div className="hero">
+            <nav>
+                <ul>
+                    <li>Blog</li>
+                    <li>Projects</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
             <div className="title__hero">
                 <h1>Conecto ideas para los usuarios del mundo</h1>
                 
