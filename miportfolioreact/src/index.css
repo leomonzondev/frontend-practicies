@@ -11,6 +11,8 @@
 
 
 /*NAV BAR*/
+/*NAV BAR*/
+/*NAV BAR*/
 
 nav {
     
@@ -36,10 +38,10 @@ nav li {
 nav li:hover {
     cursor: pointer;
     color: var(--active);
-
-    /*COLOR PRINCIPAL CON EASE IN OUT*/
 }
 
+/* HEROE TITULO*/
+/* HEROE TITULO*/
 /* HEROE TITULO*/
 
 .hero {
@@ -101,4 +103,84 @@ img:hover {
     opacity: 1;
     cursor: pointer;
 
+}
+
+
+
+
+/*PROJECTS*/
+/*PROJECTS*/
+/*PROJECTS*/
+
+.projects {
+    display: grid;
+    margin: auto;
+    padding: 2vw;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5em;
+    grid-template-rows: 1fr;
+    /* grid-template-areas:
+            ". cajita1 cajita2 ."
+            ". cajita3 cajita4 ."; */
+    
+    width: 100%;
+    background-color: rgb(163, 91, 91);
+}
+
+.cajita {
+    margin: auto;
+    width: 40rem;
+    height: 35rem;
+    background-color: blueviolet;
+}
+
+.cajita img {
+    height: 30%;
+    width: 40rem;
+    background-color: rgb(39, 37, 46);
+}
+
+
+/*PARALLAX TEXT*/
+/*PARALLAX TEXT*/
+/*PARALLAX TEXT*/
+
+#parallax-text-container {
+    min-height: 45vh;
+    background-color: rgb(39, 37, 46);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+}
+
+#parallax-text {
+    
+    color: #fb7201;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    -moz-user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+#parallax-text li {
+    margin: 2vw;
+    list-style: none;
+    display: inline;
+    font-size: 8vh;
+    line-height: 1.8em;
+    overflow: hidden;
+    font-weight: 900;
+}
+
+#parallax-text li:nth-child(even) {
+    color: rgb(153, 24, 125);
 }
