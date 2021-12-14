@@ -1,0 +1,54 @@
+:root {
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+
+}
+
+
+body {
+  background-image: url(../src/images/wp3328593-world-map-black-wallpaper-hd.jpg) ;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+/*SEARCHER*/
+/*SEARCHER*/
+/*SEARCHER*/
+.searcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50vh;
+}
+
+.searcher input {
+  width: 15vw;
+  padding: 20px;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 40px;
+}
+
+.searcher button {
+  background: none;
+  padding: 10px 20px;
+  border-color:greenyellow ;
+  border-radius: 10px;
+}
+
+/*FOOTER*/
+/*FOOTER*/
+/*FOOTER*/
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: white;
+}
+
