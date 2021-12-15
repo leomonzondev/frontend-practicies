@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/153617cb2b2fe729b4225369e2dfa936?family=ITC+Machine+Std);
+
 :root {
 
 }
@@ -12,9 +14,70 @@
 body {
   background-image: url(../src/images/wp3328593-world-map-black-wallpaper-hd.jpg) ;
   background-repeat: no-repeat;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'ITC Machine Std', sans-serif;
+  color: white;
+  background-color: rgb(39, 39, 39);
 }
 
+
+/*MYIP*/
+/*MYIP*/
+/*MYIP*/
+.myip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40vh;
+  text-transform: uppercase;
+}
+
+.myip__text {
+  text-align: center;
+  font-size: 5vh;
+}
+
+.myip__text button {
+  padding: 10px 30px;
+  background: none;
+  color: white;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: 'ITC Machine Std', sans-serif;
+  border: 4px solid white;
+
+}
+
+.myip__text button:hover {
+  background-color: white;
+  color: rgb(34, 34, 34);
+  border: 4px solid rgb(34, 34, 34);
+  cursor: pointer;
+}
+
+.myip__text button:after {
+  content: "Copied";
+  position: absolute;
+  background-color: greenyellow ;
+  margin-left: 50px;
+  display: none;
+}
+
+.myip__text button:before {
+  content:"";
+  position: absolute;
+  background: greenyellow;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  margin-left: 136px;
+  margin-top: 25px;
+  display: none;
+}
+
+.myip__text.active button:before,
+.myip__text.active button:after {
+  display: block;
+}
 
 
 /*SEARCHER*/
@@ -25,14 +88,21 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50vh;
+  
+}
+
+.searcher form {
+  display: flex;
+  align-items: center;
 }
 
 .searcher input {
-  width: 15vw;
+  width: 20vw;
   padding: 20px;
   border-radius: 10px;
   border-style: none;
   font-size: 40px;
+
 }
 
 .searcher button {
@@ -40,6 +110,9 @@ body {
   padding: 10px 20px;
   border-color:greenyellow ;
   border-radius: 10px;
+  height: 70px;
+  margin-left: 20px;
+  color:greenyellow ;
 }
 
 /*FOOTER*/
@@ -50,5 +123,19 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   color: white;
+  margin-left: 80vw;
+  margin-top: 26vh;
+  font-size: 5vh;
 }
 
+
+.foot a {
+  text-decoration: inherit;
+  color: rgb(78, 78, 78);
+}
+
+.foot a:hover {
+  cursor: pointer;
+  color: rgb(78, 78, 78);
+  border-style: 5px solid white;
+}
