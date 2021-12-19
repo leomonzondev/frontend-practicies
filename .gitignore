@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.psd
 
 *fontawesome-free-5.15.4-web
 
