@@ -1,0 +1,189 @@
+:root {
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Bowlby One SC', sans-serif;
+  color: white;
+}
+
+
+
+
+
+/*COUNTER*/
+/*COUNTER*/
+/*COUNTER*/
+
+.rounds {
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 38px;
+  text-shadow: 5px 4px 1px #9b8027;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(../src/images/backgroundblur.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.counter__gral {
+  text-align: center;
+  height: 900px;
+  width: 800px;
+}
+
+
+
+
+.tableroo {
+  background: url(../src/images/TABLERO.png) ;
+  background-size: 800px 900px;
+}
+
+
+/*ENERGY*/
+/*ENERGY*/
+/*ENERGY*/
+
+.reflect {
+  position: absolute;
+  margin-left: 290px;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+.reflect img {
+  width: 50px ;
+  opacity: 0.8;
+}
+
+.energy {
+  height: 270px;
+  width: 270px;
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.energy h1 {
+  text-align: center;
+  font-size: 140px;
+  position: absolute;
+  display: flex;
+  justify-self: center;
+  margin-left: 514px;
+  margin-top: 35px;
+  text-shadow: 5px 4px 1px #af7a18;
+  word-spacing: -8px;
+}
+
+.energy img {
+  width: 100%;
+  height: 100%;
+  margin-left:520px ;
+}
+
+
+
+
+/*BUTTONS*/
+/*BUTTONS*/
+/*BUTTONS*/
+
+button {
+  border: 5px solid #5e340c;
+  border-radius: 20px;
+}
+
+.btn__counter {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.btn__counter button {
+  width: 180px;
+}
+
+.btn__sus {
+  background-color: #dd1155;
+  margin-right: 20px;
+  text-shadow: 5px 4px 1px #b62958;
+}
+
+.btn__sus:hover {
+
+  opacity: 0.6;
+}
+
+.btn__plus {
+  background-color: #00b1cb;
+  margin-left: 20px;
+  text-shadow: 5px 4px 1px #2391a1;
+}
+
+.btn__plus:hover {
+
+  opacity: 0.6;
+}
+
+
+
+
+.btn__counter button {
+  padding: 10px 50px;
+  font-size: 80px;
+  
+}
+
+
+.btn__end {
+  width: 400px;
+  margin-top: 30px;
+  font-size: 40px;
+  padding: 20px 30px;
+  text-shadow: 5px 4px 1px #b48327;
+  margin-bottom: 20px;
+  background-color: #f0a61c;
+
+}
+
+.btn__undo {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 10px;
+  padding: 10px ;
+  border-radius: 50px;
+}
+
+.btn__undo img {
+  width: 40px;
+  display: flex;
+  justify-self: center;
+}
+
+
+.btn__reset {
+  background-color: #772ec0;
+  text-shadow: 5px 4px 1px #532086;
+  font-size: 30px;
+  width: 400px;
+  padding: 15px 20px;
+}
+
+.btn__reset:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
