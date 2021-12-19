@@ -51,6 +51,15 @@ export const Counter = () => {
     } else if (round <= 0) {
         setRound(1)
         setCount(3)
+    } else if (round >= 10) {
+        // const bloodText = styled.body`
+        // color:#ad013a`
+        
+        // const bloodBack = [
+        //     {
+        //         background
+        //     }
+        // ]
     }
 
 
@@ -60,16 +69,16 @@ export const Counter = () => {
             <div className='tableroo'>
 
                     <div className='counter__gral'>
-
-                        <div className='rounds'>
-                            <h1>Round {round}</h1>
+                        <div className='ball__container'>
+                            <div className='rounds'>
+                                <h1>Round {round}</h1>
+                            </div>
+                            <div className='reflect'><img src={reflect} /></div>
+                            <div className='energy'>
+                                <h1>{count}</h1>
+                                <img src={energy} />
+                            </div>
                         </div>
-                        <div className='reflect'><img src={reflect} /></div>
-                        <div className='energy'>
-                            <h1>{count}</h1>
-                            <img src={energy} />
-                        </div>
-
                         <div className='btn__counter'>
                             <button className='btn__sus' onClick={handleSus}>-</button>
                             <button className='btn__plus' onClick={handleSum}>+</button>     

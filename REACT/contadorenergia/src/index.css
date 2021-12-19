@@ -36,6 +36,8 @@
 
 }
 
+
+
 .counter__gral {
   text-align: center;
   height: 900px;
@@ -54,6 +56,10 @@
 /*ENERGY*/
 /*ENERGY*/
 /*ENERGY*/
+
+.ball__container {
+  margin-bottom: -20px;
+}
 
 .reflect {
   position: absolute;
@@ -96,7 +102,6 @@
 
 
 
-
 /*BUTTONS*/
 /*BUTTONS*/
 /*BUTTONS*/
@@ -104,18 +109,26 @@
 button {
   border: 5px solid #5e340c;
   border-radius: 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+button:active {
+  box-shadow: inset 0 0 100px 100px rgba(224, 224, 224, 0.2);
 }
 
 .btn__counter {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 48px;
 
 }
 
 .btn__counter button {
-  width: 180px;
+  padding: 5px 63px;
+  font-size: 80px;
 }
+  
 
 .btn__sus {
   background-color: #dd1155;
@@ -123,10 +136,7 @@ button {
   text-shadow: 5px 4px 1px #b62958;
 }
 
-.btn__sus:hover {
 
-  opacity: 0.6;
-}
 
 .btn__plus {
   background-color: #00b1cb;
@@ -134,19 +144,7 @@ button {
   text-shadow: 5px 4px 1px #2391a1;
 }
 
-.btn__plus:hover {
 
-  opacity: 0.6;
-}
-
-
-
-
-.btn__counter button {
-  padding: 10px 50px;
-  font-size: 80px;
-  
-}
 
 
 .btn__end {
@@ -183,7 +181,7 @@ button {
   padding: 15px 20px;
 }
 
-.btn__reset:hover {
-  cursor: pointer;
-  opacity: 0.6;
+
+@media (max-width: 800px) {
+
 }
