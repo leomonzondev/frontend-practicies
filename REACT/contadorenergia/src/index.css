@@ -7,6 +7,8 @@
   margin: 0;
   font-family: 'Bowlby One SC', sans-serif;
   color: white;
+  -moz-user-select:none;
+  user-select:none;
 }
 
 
@@ -38,7 +40,7 @@
 
 .counter__gral {
   text-align: center;
-  height: 900px;
+  height: 920px;
   width: 800px;
 }
 
@@ -47,7 +49,8 @@
 
 .tableroo {
   background: url(../src/images/TABLERO.png) ;
-  background-size: 800px 900px;
+  background-size: 800px 920px;
+  background-position: cover;
 }
 
 /*ENERGY*/
@@ -116,29 +119,30 @@ button:active {
 
 .btn__counter {
   display: flex;
-  justify-content: center;
-  margin-top: 48px;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-left: 200px;
+  width: 400px;
 
 }
 
 .btn__counter button {
-  padding: 5px 63px;
-  font-size: 80px;
+  padding: 0 61px 0 61px;
 }
   
 
 .btn__sus {
   background-color: #dd1155;
-  margin-right: 20px;
   text-shadow: 5px 4px 1px #b62958;
+  font-size: 90px;
 }
 
 
 
 .btn__plus {
   background-color: #00b1cb;
-  margin-left: 20px;
   text-shadow: 5px 4px 1px #2391a1;
+  font-size: 90px;
 }
 
 
@@ -146,40 +150,62 @@ button:active {
 
 .btn__end {
   width: 400px;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 40px;
   padding: 20px 30px;
-  text-shadow: 5px 4px 1px #b48327;
+  text-shadow: 5px 4px 1px #417209;
   margin-bottom: 20px;
-  background-color: #f0a61c;
+  background-color: #5f9e0c;
+  margin-left: 50px;
+}
+
+.btn__extra {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 
 }
 
 .btn__undo {
-  position: absolute;
-  margin-top: 30px;
-  margin-left: 10px;
-  padding: 10px ;
+  /* position: absolute;
+  margin-top: -103px;
+  right: 150px; */
   border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-self:center;
+  position: absolute;
+  margin-left: 460px;
 }
 
 .btn__undo img {
-  width: 40px;
-  display: flex;
-  justify-self: center;
+  width:40px;
+  padding:10px ;
 }
 
 
 .btn__reset {
-  background-color: #772ec0;
+  background-color: #743aad; /*772ec0*/
   text-shadow: 5px 4px 1px #532086;
-  font-size: 30px;
   width: 400px;
-  padding: 15px 20px;
+  font-size: 40px;
+  padding: 20px 30px;
 }
 
 
 @media (max-width: 375px) {
+
+  .counter {
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    border: 3px solid #5e340c;
+
+
+  }
 
 
   .rounds {
@@ -195,10 +221,8 @@ button:active {
 
   .tableroo {
     background: url(../src/images/TABLERO.png) no-repeat ;
-    background-size: 356px 620px;
+    background-size: 356px 550px;
   }
-
-
 
   /*ENERGY*/
   .energy  {
@@ -216,45 +240,66 @@ button:active {
   .energy h1 {
     margin-top: 20px;
     font-size: 90px;
-    
-  }
 
+  }
   .btn__counter button {
-    padding: 0px 30px;
-    margin-left: 50px;
+    padding: 0 27px 0 27px;
+    font-size: 50px;
+
   }
 
 
 
   .btn__counter {
-    width: 10px;
-    margin-left: 150px;
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto -10px auto;
+    
   }
 
   .btn__sus {
-    margin-right: 0px;
+
   }
 
   .btn__plus {
-    margin-left: 0px;
+
   }
 
-
+  .btn__extra {
+    width: 220px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+  }
 
   .btn__end {
-    width: 235px;
-    font-size: 25px;
+    width: 180px;
+    font-size: 20px;
     padding: 10px 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
   }
 
   .btn__reset {
-    width: 235px;
-    font-size: 25px;
+    width: 180px;
+    font-size: 20px;
     padding: 10px 20px;
   }
 
   .btn__undo img {
     width: 20px;
+    padding: 3px;
+  }
+
+  .btn__undo {
+    /* margin-top: -52px;
+    right: 53px;
+     */
+    display: flex;
+    align-self:center;
+    position: absolute;
+    margin-left: 205px;
   }
 
 }
