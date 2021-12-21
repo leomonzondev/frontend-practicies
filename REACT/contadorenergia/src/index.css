@@ -36,8 +36,6 @@
 
 }
 
-
-
 .counter__gral {
   text-align: center;
   height: 900px;
@@ -51,7 +49,6 @@
   background: url(../src/images/TABLERO.png) ;
   background-size: 800px 900px;
 }
-
 
 /*ENERGY*/
 /*ENERGY*/
@@ -109,12 +106,12 @@
 button {
   border: 5px solid #5e340c;
   border-radius: 20px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 button:active {
-  box-shadow: inset 0 0 100px 100px rgba(224, 224, 224, 0.2);
+  box-shadow: inset 0 0 100px 100px rgba(224, 224, 224, 0.3);
 }
 
 .btn__counter {
@@ -182,6 +179,82 @@ button:active {
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 375px) {
+
+
+  .rounds {
+    margin-top: 15px;
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .counter__gral {
+    height: 600px;
+    width: 355px;
+  }
+
+  .tableroo {
+    background: url(../src/images/TABLERO.png) no-repeat ;
+    background-size: 356px 620px;
+  }
+
+
+
+  /*ENERGY*/
+  .energy  {
+    height: 170px;
+    width: 170px ;
+    margin-left: -165px;
+  }
+
+  .reflect img {
+    width: 30px;
+    margin-left: -330px;
+    margin-top: -10px;
+  }
+
+  .energy h1 {
+    margin-top: 20px;
+    font-size: 90px;
+    
+  }
+
+  .btn__counter button {
+    padding: 0px 30px;
+    margin-left: 50px;
+  }
+
+
+
+  .btn__counter {
+    width: 10px;
+    margin-left: 150px;
+  }
+
+  .btn__sus {
+    margin-right: 0px;
+  }
+
+  .btn__plus {
+    margin-left: 0px;
+  }
+
+
+
+  .btn__end {
+    width: 235px;
+    font-size: 25px;
+    padding: 10px 20px;
+  }
+
+  .btn__reset {
+    width: 235px;
+    font-size: 25px;
+    padding: 10px 20px;
+  }
+
+  .btn__undo img {
+    width: 20px;
+  }
 
 }
