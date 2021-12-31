@@ -3,16 +3,16 @@ import './navbar.css'
 
 export const NavBar = () => {
     return (
-        <div>
+        <div style={{"color":"white","backgroundColor":"#525252"}}>
             <ul>
                 <li>
-                    <NavLink className={({isActive}) => isActive ? 'active' : '' } to="/home">HOME</NavLink>
+                    <NavLink  to="/">HOME</NavLink>
                 </li>
                 <li>
-                    <NavLink className={({isActive}) => isActive ? 'blue' : '' } to="/about">ABOUT</NavLink>
+                    <NavLink  to="/login">LOGIN</NavLink>
                 </li>
                 <li>
-                    <NavLink className={({isActive}) => isActive ? 'green' : '' } to="/login">LOGIN</NavLink>
+                    <NavLink  to="/register">REGISTER</NavLink>
                 </li>
             </ul>
         </div>
