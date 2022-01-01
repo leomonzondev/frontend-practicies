@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 
 app.post('/register', (req,res) => {
     const {email,password} = req.body
+    bcrypt.hashSync(password, 10)
     const user = new userSchema({email,})
     res.send()
 })
