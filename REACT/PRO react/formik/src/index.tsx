@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GifApp } from './GifApp';
-import './styles.css'
-
-
+import './index.css';
+import { App } from './GifExperApp';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GifApp />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

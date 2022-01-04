@@ -2,6 +2,7 @@ import { Counter } from "./bases/Counter";
 import { CounterBy } from "./bases/CounterBy";
 import { CounterEffect } from './bases/CounterEffect';
 
+
 function App() {
   return (
     <div className="App">
@@ -10,6 +11,8 @@ function App() {
       <CounterBy />
       <hr/>
       <CounterEffect />
+      <hr/>
+      
     </div>
   );
 }
