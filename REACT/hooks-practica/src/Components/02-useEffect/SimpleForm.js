@@ -6,8 +6,6 @@ import { Message } from './Message'
 export const SimpleForm = () => {
 
 
-
-
     const [formState, setFormState] = useState({
         name:'',
         email:''
@@ -16,25 +14,11 @@ export const SimpleForm = () => {
 
     const { name, email } = formState
 
-    useEffect( () => {
-        
-    },[])
-
-    useEffect( () => {
-        console.log('formstatecvambió')
-    },[email])
-
-
-
-
 
     const handleInputChange = ({target}) => {
-
-
-
         setFormState({
             ...formState,
-            [ target.name ]: target.value
+            name: target.value
         })
 
     }
