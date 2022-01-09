@@ -20,7 +20,6 @@ export const SimpleForm = () => {
             ...formState,
             name: target.value
         })
-
     }
 
     return (
