@@ -1,33 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { apicall } from '../helper/apicall'
-
 
 
 
 
 export const Map = () => {
 
+
     const [{longitude, latitude}, setCoords] = useState({
         longitude:'',
         latitude:''
     })
 
-    const url = `https://maps.googleapis.com/maps/api/staticmap?center=${longitude},${latitude}&zoom=12&size=400x400&maptype=satellite&key=AIzaSyBFbBM9_gb7rsDHF2w1el3G6DoVlnWAUHU`
 
     useEffect(() => {
         apicall()
             .then(({longitude,latitude}) => setCoords({longitude,latitude}))
+            
     },[])
 
+    var height = document.body.clientHeight
+    var width = document.body.clientWidth
 
-    let map = new google.maps.Map(document.querySelector('.map'), {
-        center:{lat: latitude, lng: longitude},
-        zoom: 12
-    })
+    if (width > 1280) {
+        width = 1280
+    }
+
+    document.body.style.backgroundImage=`url('https://api.mapbox.com/styles/v1/mapbox/dark-v10/static/${longitude},${latitude},13,0/${width}x${height}?access_token=pk.eyJ1IjoiemVuMXQiLCJhIjoiY2t5YzNrbmt1MGxzODJvbXJsM2t6czRnNyJ9.eXAuk3e4GsHx3S52TV9IOQ')`
+    document.body.style.backgroundSize='cover'
+    
 
     return (
-        <div className='map'>
-            
-        </div>
+        <>
+        </>
+    
     )
 }
