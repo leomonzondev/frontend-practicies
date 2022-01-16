@@ -7,15 +7,17 @@ export const App = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
+
     const newTodo = {
       id: new Date().getTime(),
       text: todo,
       completed: false
     }
-    
+
+    if (todo.trim().length > 2) {
       setTodos([...todos].concat(newTodo))
       setTodo('')
-    
+    }
   }
 
   const handleDelete = (id) => {
@@ -41,8 +43,12 @@ export const App = () => {
             onChange={(e) => setTodo(e.target.value)}
             />
             <button type='submit'>Añadir</button>
-            <button onClick={handleDeleteAll}> Delete All</button>
         </form>
+            <button onClick={handleDeleteAll}> Delete All</button>
+
+        {
+          (todos.length < 1) && <p>Agrega un regalo!</p>
+        }
         
         
           {
