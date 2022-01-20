@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.gifts{
+  display: flex;
+  align-items: center;
+}
+
+.quant {
+  margin-left: 10px;
+}
+
+.gifts button {
+  height: 20px;
+  margin: 10px;
+}
