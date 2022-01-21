@@ -7,7 +7,7 @@ export const App = () => {
   const [quantity, setQuantity] = useState(1)
   const [regaloEdit, setRegaloEdit] = useState(null);
   const [editingText, setEditingText] = useState('');
-
+  const [image, setImage] = useState('');
   
   useEffect(() => {
     const temp = localStorage.getItem('regalos')
@@ -38,7 +38,8 @@ export const App = () => {
     const newRegalo = {
       id: new Date().getTime(),
       quan: quantity,
-      text: input
+      text: input,
+      image: image
     }
 
     if (input.trim().length > 2) {
@@ -98,6 +99,7 @@ export const App = () => {
         <input type="number" value={quantity} />
         <button onClick={handleSub}>-</button>
       <button onClick={handleDeleteAll}>Delete all</button>
+      <input type="text" placeholder='add an image' value={image} onSubmit={() => setImage(image)}/>
 
       {
         (regalos.length < 1) && 'agrega regalo'
@@ -121,7 +123,7 @@ export const App = () => {
           
             : (<p>{text}</p>)
           }
-          
+          <img src={image} alt='gift' />
           <p className='quant'>x{quan}</p>
           <button onClick={() => handleDelete(id)}>X</button>
           <button onClick={() => edit(id,text)}>edit</button>
