@@ -5,12 +5,6 @@ import favF from '../images/favF.png'
 
 
 const blueButton = {
-    border:"none",
-    color:"white",
-    backgroundColor:"#56e0fa",
-    borderRadius:"50px",
-    padding:"10px 20px",
-
 
 }
 
@@ -56,7 +50,7 @@ return (
                 {quant}
                 <button onClick={ () => setQuant(quant + 1) } className='card__quant'>+</button>
             </div>
-            <button style={blueButton}>ADD TO CART</button>
+            <button className='blueButton'>ADD TO CART</button>
         </div>
     </div>
 )

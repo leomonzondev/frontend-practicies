@@ -130,11 +130,16 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction:column ;
+  margin-top: 50px;
+}
+
+.assortment__title {
+  margin-bottom: 20px;
 }
 
 .card {
   background-color: #f8faf9;
-  border-radius: 20px;
+  border-radius: 30px;
   height: 320px;
   width: 250px;
   -webkit-box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.25); 
@@ -149,8 +154,6 @@ nav {
 .card h4 {
   margin-top: 10px;
 }
-
-
 
 .card__favicon {
   height: 30px;
@@ -186,3 +189,73 @@ nav {
   color: white;
 }
 
+/*SLIDER*/
+/*SLIDER*/
+/*SLIDER*/
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.slider__arrow__btn {
+  border: none;
+  background: none;
+  margin: 10px;
+}
+
+.slider__left {
+  transform: rotate(90deg);
+}
+
+.slider__right {
+  transform: rotate(-90deg);
+}
+
+.img__arrow {
+  height: 65px;
+}
+
+/*CHECKOUT*/
+/*CHECKOUT*/
+/*CHECKOUT*/
+
+.checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.25); 
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.25);
+  border-radius: 30px;
+  margin-top: 40px;
+  padding: 50px;
+}
+
+.checkout h2 {
+  margin-bottom: 20px;
+}
+
+
+.checkout__additives {
+  margin-top: 20px;
+}
+
+.checkout__quant {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0;
+}
+
+
+/*GENERAL*/
+
+.blueButton {
+  border:none;
+  color:white;
+  background-color:#56e0fa;
+  border-radius:50px;
+  padding:10px 20px;
+  font-weight:700;
+}
