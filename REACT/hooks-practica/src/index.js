@@ -1,5 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 // import { CallbackHook } from './Components/06-memos/CallbackHook';
 // import { Padre } from './Components/07-tarea-memo/Padre';
 // // import { FormWithCustomHook } from './Components/02-useEffect/FormWithCustomHook';
@@ -13,16 +13,21 @@
 // // import { Layout } from './Components/05-useLayoutEffect/Layout.js';
 // // import { Memorize } from './Components/06-memos/Memorize';
 // // import { MemoHook } from './Components/06-memos/MemoHook';
-// import './index.css';
+import './index.css';
+
+// import './Components/08-useReducer/intro-reducer'
+import { MainApp } from './Components/09-useContext/MainApp';
+import { BrowserRouter } from 'react-router-dom';
+// import { AppRouter } from './Components/09-useContext/AppRouter';
 
 
+ReactDOM.render(
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <Padre />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
+<BrowserRouter>
+    <MainApp />
+</BrowserRouter>,
+
+document.getElementById('root')
+);
 
 
-import './Components/08-useReducer/intro-reducer'
