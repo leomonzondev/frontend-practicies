@@ -1,8 +1,15 @@
 import './Nav.css'
 
-import React from 'react'
+import React, { useContext } from 'react'
+import CartContext from '../Context/Cart/CartContext'
+
+
 
 export const Nav = () => {
+
+    const { cartItems, showHideCart } = useContext(CartContext)
+
+
 return (
     <nav>
         <div className='nav__left'>
@@ -17,7 +24,12 @@ return (
 
         <div className='nav__right'>
             <div className='cart__icon'>
-                <i className='fa fa-shopping-cart' aria-hidden='true' />
+                <i className='fa fa-shopping-cart' aria-hidden='true' onClick={showHideCart} />
+                {
+                    cartItems.length > 0 && <div className='item__count'>
+                    <span>{cartItems.length}</span>
+                    </div>
+                }
             </div>
         </div>
 
