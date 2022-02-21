@@ -1,0 +1,9 @@
+.lista {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.complete {
+    text-decoration: line-through;
+}
