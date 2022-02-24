@@ -1,130 +1,122 @@
 import React, { useEffect, useReducer } from 'react'
-import { todoReducer } from './todoReducer'
-
+import { TodoReducer } from './TodoReducer'
 import './styles.css'
 import { useForm } from './Hooks/useForm'
 
 
-
-
 const init = () => {
-
 
     return JSON.parse(localStorage.getItem('todos')) || []
 
-
-    // return [
-    //     {
-    //     id: new Date().getTime(),
-    //     desc: 'Aprender React',
-    //     done: false,
-    // }]
 }
 
 
 export const TodoApp = () => {
 
+    
 
 
-    const [ todos, dispatch ] = useReducer(todoReducer, [], init)
+    const [ todos, dispatch ] = useReducer(TodoReducer, [], init)
 
     const [ { description }, handleInputChange, reset ] = useForm({
         description: ''
     })
 
-    // console.log(description)
+
+    const handleToggle = (todoId) => {
 
 
-    useEffect(() => {
-            localStorage.setItem('todos', JSON.stringify( todos ))
-    },[todos])
-
-
-    const handleDelete = ( todoId ) => {
-        
-        
-        const action = {
-            type:'delete',
-            payload: todoId
-        }
-        dispatch(action)
-    }
-
-    const handleToggle = (todoId ) => {
 
         dispatch({
-            type:'toggle',
+            type:'TOGGLE',
             payload: todoId
         })
 
     }
 
+    const handleDelete = (todoId) => {
+        dispatch({
+            type:'DELETE',
+            payload:todoId
+        })
+    }
 
 
-    const handleSubmit = ( e ) => {
+
+    const handleSubmit = (e) => {
         e.preventDefault()
-        
 
-        if (description.trim().length <= 1) {
+        if (description.trim() <= 1) {
             return
         }
-
-
+        
         const newTodo = {
             id: new Date().getTime(),
-            desc: description,
-            done: false,
+            desc:description,
+            done: false
         }
 
         const action = {
-            type:'add',
+            type: 'ADD',
             payload: newTodo
         }
 
         dispatch(action)
 
         reset()
+
     }
 
 
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify( todos))
+    },[ todos ])
 
 
-
-
-return (
-    <div className='lista'>
-        <h1>TodoApp ({ todos.length }) </h1>
+  return (
+    <div styles={{display:'flex'}}>
+        <h1>Todo App ({todos.length}) </h1>
         <hr/>
 
-    <div>
+        
         <ul style={{listStyle:'none'}}>
+
             {
-                todos.map((todo, i) => (
+                todos.map((todo,i) => (
+                    <div key={todo.id}>
+
+                    
                     <li
+                        
                         className={todo.done ? 'complete' : ''}
                         onClick={() => handleToggle(todo.id)}
-                        key={todo.id}>
+
+                    >
                         {i + 1} - {todo.desc} &nbsp;
-                        <button onClick={() => handleDelete(todo.id)} >X</button>
+                        
                     </li>
+                    <button onClick={() => handleDelete(todo.id)}>X</button>
+                    </div>
                 ))
             }
         </ul>
-    </div>
+     
 
-
+        <hr />
         <div>
-            <h4>Agregar todo</h4>
-            <hr/>
+            <h2>Agregar</h2>
             <form onSubmit={handleSubmit} >
-                <input 
+                <input
                     value={description}
                     onChange={handleInputChange}
-                    type="text" name='description' placeholder='Agregar...' autoComplete='off' />
-                <button type='submit' >Agregar</button>
+                    type="text"
+                    placeholder='Nueva tarea'
+                    name='description'
+                    autoComplete='off' />
+                <button type='submit' >Añadir</button>
             </form>
+
         </div>
     </div>
   )
 }
-
