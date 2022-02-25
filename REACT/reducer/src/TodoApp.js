@@ -1,122 +1,106 @@
 import React, { useEffect, useReducer } from 'react'
 import { TodoReducer } from './TodoReducer'
-import './styles.css'
 import { useForm } from './Hooks/useForm'
+import './styles.css'
 
 
 const init = () => {
-
     return JSON.parse(localStorage.getItem('todos')) || []
-
 }
+
 
 
 export const TodoApp = () => {
 
+
+
     
+    const [ todos, dispatch ] = useReducer( TodoReducer, [], init)
+    
+ 
 
-
-    const [ todos, dispatch ] = useReducer(TodoReducer, [], init)
-
-    const [ { description }, handleInputChange, reset ] = useForm({
-        description: ''
+    const [ {description}, handleInputChange, reset ]   = useForm({
+        description:''
     })
 
-
-    const handleToggle = (todoId) => {
-
-
+    const handleDelete = (todoId) => {
 
         dispatch({
-            type:'TOGGLE',
+            type:'DELETE',
             payload: todoId
         })
 
     }
 
-    const handleDelete = (todoId) => {
+
+    const handleToggle = (todoId) => {
+
         dispatch({
-            type:'DELETE',
+            type:'TOGGLE',
             payload:todoId
         })
+
+        console.log('first')
+
     }
 
 
-
-    const handleSubmit = (e) => {
+    const handleAdd = (e) => {
         e.preventDefault()
 
-        if (description.trim() <= 1) {
-            return
-        }
-        
         const newTodo = {
             id: new Date().getTime(),
-            desc:description,
+            desc: description,
             done: false
         }
 
         const action = {
-            type: 'ADD',
+            type:'ADD',
             payload: newTodo
         }
 
         dispatch(action)
 
-        reset()
 
+        reset()
     }
 
-
     useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify( todos))
-    },[ todos ])
+        localStorage.setItem('todos', JSON.stringify( todos ))
+    },[todos])
 
 
   return (
-    <div styles={{display:'flex'}}>
-        <h1>Todo App ({todos.length}) </h1>
+    <div>
+        <h1>Todo App</h1>
         <hr/>
 
-        
-        <ul style={{listStyle:'none'}}>
-
+        <ul>
             {
-                todos.map((todo,i) => (
+                todos.map( ( todo,index ) => (
                     <div key={todo.id}>
-
-                    
-                    <li
-                        
-                        className={todo.done ? 'complete' : ''}
-                        onClick={() => handleToggle(todo.id)}
-
-                    >
-                        {i + 1} - {todo.desc} &nbsp;
-                        
-                    </li>
-                    <button onClick={() => handleDelete(todo.id)}>X</button>
+                        <li
+                            onClick={() => handleToggle(todo.id)}
+                            className={todo.done ? 'complete' : ''}
+                            >{index + 1 }-{todo.desc}</li>
+                        <button onClick={() => handleDelete(todo.id)}>X</button>
                     </div>
                 ))
             }
         </ul>
-     
 
-        <hr />
-        <div>
-            <h2>Agregar</h2>
-            <form onSubmit={handleSubmit} >
-                <input
-                    value={description}
-                    onChange={handleInputChange}
-                    type="text"
-                    placeholder='Nueva tarea'
-                    name='description'
-                    autoComplete='off' />
-                <button type='submit' >Añadir</button>
-            </form>
-
-        </div>
+        <hr/>
+        <h2>Agregar </h2>
+        <form onSubmit={handleAdd}>
+            <input
+                type='text'
+                name='description'
+                onChange={handleInputChange}
+                value={description}
+                placeholder='Agregar tarea'
+            />
+            <button>Añadir</button>
+        </form>
     </div>
   )
 }

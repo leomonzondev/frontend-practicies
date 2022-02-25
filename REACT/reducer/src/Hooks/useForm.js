@@ -20,7 +20,7 @@ export const useForm = ( initialState = { }) => {
     }
 
 
-    return [ values, handleInputChange, reset]
+    return [ values, handleInputChange, reset ]
 
 
 }
