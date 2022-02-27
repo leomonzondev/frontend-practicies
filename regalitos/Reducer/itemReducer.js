@@ -5,8 +5,9 @@ export const itemReducer = ( state = [], action ) => {
     switch (action.type) {
         case 'ITEM_ADD':
             return [
-                ...state,
-                action.payload
+                
+                ...state, 
+                action.payload,
             ]
         case 'ITEM_DELETE':
             return state.filter( item => item.id !== action.payload )

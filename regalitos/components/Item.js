@@ -1,0 +1,96 @@
+import Image from 'next/image'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
+
+import iconImg from '../images/icon-img.jpg'
+
+
+import { ImBin } from 'react-icons/im'
+import { itemReducer } from '../Reducer/itemReducer'
+
+
+export const Item = ({ id, title, img, desc, bought}) => {
+
+    const [edit, setEdit] = useState(false)
+
+    const initTitleValue = 'Nombre del regalito'
+    
+    const [titleValue, setTitleValue] = useState(initTitleValue)
+
+    
+
+    const inputRef = useRef()
+
+
+
+    const handleInputChange = (e) => {
+    if (titleValue.trim().length >=3 ) {
+
+    }
+    setTitleValue(e.target.value)
+    
+    }
+
+
+    useEffect(() => {
+
+    const closeEdit = (e) => {
+        if (e.path[0] !== inputRef.current) {
+            setEdit(false)
+        }
+    }
+
+    document.body.addEventListener('click', closeEdit)
+    
+    return () => document.body.removeEventListener('click', closeEdit)
+
+    },[])
+
+
+    useEffect(() => {
+    if( titleValue.trim().length <= 3) {
+        setTitleValue(initTitleValue)
+    }
+
+    if(edit === true) {
+        inputRef.current.select()
+    }
+    },[edit])
+
+
+    const handleEdit = () => {
+
+    setEdit(!edit)
+
+    }
+
+    const handleSubmit = (e) => {
+    e.preventDefault()
+    setEdit(!edit)
+    }
+
+
+    const [ items, dispatch ] = useReducer(itemReducer)
+
+
+    const handleDelete = (id) => {
+        
+        dispatch({
+            type:'ITEM_DELETE',
+            payload:id
+        })
+
+        console.log('BORRADO REY', id)
+    }
+
+
+  return (
+    <div className='item' key={id}>
+        <Image className='img-item' src={iconImg} width='64px' height='64px' />
+        {
+            edit && (<form onSubmit={(e) => handleSubmit(e)}><input ref={inputRef} autoFocus name='editInput' value={titleValue} onChange={handleInputChange} placeholder='Regalo...' /></form>) || (<div onDoubleClick={handleEdit}><h3>{titleValue}</h3></div>)
+        }
+
+        
+    </div>
+  )
+}
