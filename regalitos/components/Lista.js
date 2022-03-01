@@ -7,6 +7,7 @@ import { BsPlusLg } from 'react-icons/bs'
 import { Item } from './Item'
 import { itemReducer } from '../Reducer/itemReducer'
 import { ImBin } from 'react-icons/im'
+import { Searcher } from './Searcher'
 
 
 const init = () => {
@@ -61,6 +62,7 @@ export const Lista = ({titulo}) => {
   return (
     <div>
         <h2> {titulo}</h2>
+        
 
         {
           items.map( ({ id, title, img, desc, bought}) => (

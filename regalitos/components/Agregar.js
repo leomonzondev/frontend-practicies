@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Searcher } from './Searcher'
 
 
     
@@ -16,6 +17,7 @@ export const Agregar = () => {
 
   return (
     <div>
+    <Searcher />
         <p>Agrega un regalo que desees!</p>
         <p>Podés hacerlo mediante link</p>
         <input
