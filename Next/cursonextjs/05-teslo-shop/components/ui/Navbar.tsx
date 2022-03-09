@@ -5,8 +5,14 @@ import NextLink from 'next/link'
 
 
 import { SearchOutlined, ShoppingCart, ShoppingCartOutlined } from '@mui/icons-material'
+import { useState } from "react"
 
 export const Navbar = () => {
+
+
+
+
+
   return (
     <AppBar>
         <Toolbar>
@@ -58,7 +64,7 @@ export const Navbar = () => {
             </NextLink>
 
 
-            <Button>
+            <Button >
               Menu
             </Button>
 

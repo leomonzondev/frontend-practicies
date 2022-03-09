@@ -1,25 +1,32 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+
+
+
 import React, { useEffect } from 'react'
-import styles from '../styles/Home.module.css'
+
+import { Product } from '../product/types';
+import api from '../product/api'
 
 interface Props {
   products: Product[]
 }
 
 
-const IndexRoute: NextPage = () => {
+const IndexRoute: React.FC<Props> = ({products}) => {
   return (
-    <div>A</div>
+    <div>{JSON.stringify(products)}</div>
     
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
+
+  const products = await api.list()
+
   return {
+  
     props: {
-      products: [],
+      products,
     },
   }
 }

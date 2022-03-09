@@ -6,7 +6,7 @@ import { useState } from "react"
 
 export const SideMenu = () => {
 
-    const [open, setOpen] = useState<boolean>(true)
+    const [open, setOpen] = useState<boolean>(false)
 
   return (
     <Drawer

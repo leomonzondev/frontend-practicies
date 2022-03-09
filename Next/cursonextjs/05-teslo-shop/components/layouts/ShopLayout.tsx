@@ -2,7 +2,7 @@
 
 import { maxWidth } from '@mui/system';
 import Head from 'next/head'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Navbar, SideMenu } from '../ui';
 
 
@@ -10,10 +10,21 @@ interface Props {
   title: string;
   pageDescription: string;
   imageFullUrl?: string;
+  
 }
 
 
 export const ShopLayout:FC<Props> = ({ children, title, pageDescription, imageFullUrl }) => {
+  
+  const [open, setOpen] = useState<boolean>(false)
+
+  const handleSide = () => {
+    setOpen(!open)
+    return open
+  }
+
+
+
   return (
     <>
       <Head>
@@ -30,7 +41,7 @@ export const ShopLayout:FC<Props> = ({ children, title, pageDescription, imageFu
       </Head>
 
         <nav>
-          <Navbar />
+          <Navbar func={handleSide}/>
         </nav>
 
       <SideMenu />
