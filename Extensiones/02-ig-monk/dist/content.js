@@ -1,0 +1,1 @@
+const deSuggestions=()=>{document.querySelector("div._8UZ6e").style.display="none"},suggestion="._8UZ6e",disable="{display:none}",enable="{display:initial}",addStyle=e=>{const t=document.createElement("style");t.textContent=e,document.head.append(t)},diSuggestion=()=>{addStyle("._8UZ6e"+disable)};addStyle("._8UZ6e"+disable);

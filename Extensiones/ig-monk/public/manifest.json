@@ -1,0 +1,26 @@
+{
+  "name": "mon_ig",
+  "description":"focus ig mode",
+  "version":"1.0",
+  "manifest_version": 3,
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "content_scripts":
+  [
+    {
+      "matches":
+      [
+        "https://www.instagram.com/*"
+      ],
+      "js":
+      [
+        "../src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action":
+  {
+    "default_popup": "../public/index.html"
+  }
+}

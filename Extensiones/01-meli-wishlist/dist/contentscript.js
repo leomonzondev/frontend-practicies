@@ -1,0 +1,1 @@
+(()=>{"use strict";var e,t;(e=document.querySelector("div.zGtbP.IPQK5.VideM")).parentElement.removeChild(e),(t=document.querySelector("div._8UZ6e")).parentElement.removeChild(t),console.log("BLOCKED")})();
