@@ -1,0 +1,86 @@
+:root {
+    --bg: #110921;
+    --purple: #3720b4;
+    --green: #5ff8c2;
+}
+
+
+body {
+    background-color: var(--bg);
+    color: white;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: rgb(253, 152, 1);
+    margin-left: 15px;
+}
+
+
+ul {
+    list-style: none;
+    
+}
+
+ul p {
+    margin-left: 15px;
+    padding-right:15px ;
+}
+
+.hr {
+    width: 100%;
+    
+    border: 1px solid rgb(30, 16, 68);
+    
+}
+
+ul li {
+    padding-bottom:15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.wrapper {
+    padding: 10px;
+    margin-left: -30px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #2f2950;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.switch::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius:15px ;
+    background-color: white;
+    left: 3px;
+    top: 3px;
+    transition: all .4s;
+}
+
+input[type='checkbox']:checked + .switch::after {
+    transform: translateX(20px);
+    background-color: var(--bg);
+}
+
+input[type='checkbox']:checked + .switch {
+    
+    background-color: var(--green);
+}
+
+.offscreen {
+    position: absolute;
+    left: -999999px;
+}

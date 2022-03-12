@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { resolve } = require('path');
 
@@ -8,16 +8,14 @@ const { resolve } = require('path');
 
 
 module.exports = {
-    mode: 'development',
-    devtool:'cheap-module-source-map',
     entry:{
-        popup: './src/popup.js',
-        contentscript: './src/contentscript.js',
+        popup: './src/popup.jsx',
+        contentscript: './public/contentscript.js',
         
     },
     output: {
-        filename: '[name].js',
         path: resolve(__dirname, '/dist'),
+        filename: '[name].js',
     },
     module: {
         rules: [

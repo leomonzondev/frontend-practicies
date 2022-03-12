@@ -3,20 +3,20 @@
     "description": "Build an Extension!",
     "version": "1.0",
     "manifest_version": 3,
-    "content_scripts": [{
-        "matches":
-        [
-            "https://instagram.com/*"
-        ],
-        "js": ["content.js"]
-        
-    }],
     "action":
     {
         "default_popup": "popup.html"
     },
-    "permissions":
-    [
+    "content_scripts": [{
+        "matches":
+        [
+            
+            "https://www.instagram.com/*"
+        ],
+        "js": ["contentscript.js"]
+        
+    }],
+    "permissions": [
         "storage"
     ]
   }

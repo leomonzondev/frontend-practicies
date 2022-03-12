@@ -21,7 +21,7 @@ const deSuggestions = () => {
 
     const suggestions = document.querySelector("div._8UZ6e")
     suggestions.parentElement.removeChild(suggestions)
-    console.log('BLOCKED')
+    
 }
 
 const addRegalo = () => {

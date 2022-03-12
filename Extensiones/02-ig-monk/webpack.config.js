@@ -2,12 +2,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { resolve } = require("path");
-const { webpack } = require("webpack");
+
 
 module.exports = {
   entry: {
     popup: "./src/popup.jsx",
-    contentscript: './public/content.js'
+    contentscript: './public/contentscript.js'
   },
   output: {
     path: resolve(__dirname, "dist"),
@@ -15,7 +15,8 @@ module.exports = {
   },
   mode: "production",
   module: {
-    rules: [{ 
+    rules: [
+      { 
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -24,7 +25,12 @@ module.exports = {
                 presets: ['@babel/preset-env', ['@babel/preset-react', {"runtime": "automatic"}]]
             }
         } 
-    }],
+    },
+    {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+    },
+  ],
   },
   plugins: [
     new HtmlWebpackPlugin({
