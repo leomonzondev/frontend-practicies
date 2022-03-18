@@ -45,7 +45,7 @@ export const Carousel = () => {
     var settings = {
         focusOnSelect: true,
         className: 'center',
-        centerMode: true,
+
         infinite: true,
         lazyLoad:true,
         speed: 300,
