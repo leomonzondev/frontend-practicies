@@ -1,10 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { data } from '../api/data';
+import useShop from '../context/cart/ShopContext';
 import favE from '../images/favE.png'
 import favF from '../images/favF.png'
 
 
 export const Card = ({img,favorite,title,price}) => {
+
+
+    const { products, addToCart, removeFromCart, } = useShop()
+    const [isInCart, setIsInCart] = useState(false)
+
+    useEffect(() => {
+        const productIsInCart = products.find(product => product.name === title)
+
+        if (productIsInCart) {
+            setIsInCart(true)
+        } else {
+            setIsInCart(false)
+        }
+    },[products, title])
+
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        const product = { title, img, price}
+
+        if (isInCart) {
+            removeFromCart(product)
+        } else {
+            addToCart(product)
+        }
+    }
 
 
 
@@ -46,7 +73,7 @@ return (
                 {quant}
                 <button onClick={ () => setQuant(quant + 1) } className='card__quant'>+</button>
             </div>
-            <button className='blueButton'>ADD TO CART</button>
+            <button className='blueButton' isInCart={isInCart} onClick={(e) => handleClick(e)} >ADD TO CART</button>
         </div>
     </div>
 )
