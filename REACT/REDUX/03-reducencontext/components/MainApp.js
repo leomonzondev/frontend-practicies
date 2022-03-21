@@ -1,18 +1,11 @@
-
 import React from 'react'
-
-import { ShopProvider } from './Context/ShopContext'
+import CartState from '../context/CartState'
 import { HomeScreen } from './HomeScreen'
 
-
 export const MainApp = () => {
-
-
   return (
-
-    <ShopProvider>
+    <CartState>
         <HomeScreen />
-
-    </ShopProvider>
+    </CartState>
   )
 }

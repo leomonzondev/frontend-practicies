@@ -69,8 +69,8 @@ li button {
   flex-direction: column;
 }
 
-li h3 {
-width: 150px;
+li h4 {
+width: 250px;
 }
 
 li p {
@@ -78,3 +78,4 @@ li p {
   color: rgb(23, 143, 23);
   font-weight: bold;
 }
+
