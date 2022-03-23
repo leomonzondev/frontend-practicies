@@ -1,9 +1,6 @@
 import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, TOTAL_PRICE } from "../Types";
 
-export const initialState = {
-    total: 0,
-    products: []
-}
+
 
 const cartReducer = (state, action) => {
 
@@ -32,7 +29,7 @@ const cartReducer = (state, action) => {
             }
 
         default:
-            throw new Error(`No case for type ${type} found in cartReducer`)
+            return state
     }
 
 

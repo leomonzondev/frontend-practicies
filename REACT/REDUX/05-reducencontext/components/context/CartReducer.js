@@ -6,7 +6,7 @@ const CartReducer = (state,action) => {
         case "ADD_TO_CART":
             return {
                 ...state,
-                cartItems: [...state, action.payload]
+                cartItems: [...state.cartItems, action.payload]
             }
         case "REMOVE_ITEM":
             return {
@@ -15,7 +15,8 @@ const CartReducer = (state,action) => {
             }
         case "SHOW_HIDE_CART":
             return {
-                showCart: false
+                ...state,
+                showCart: !state.showCart
             }
     
         default:
@@ -26,3 +27,5 @@ const CartReducer = (state,action) => {
 
 
 }
+
+export default CartReducer

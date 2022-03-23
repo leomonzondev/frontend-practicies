@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import CartContext from "./CartContext"
+import CartReducer from "./CartReducer"
 
 const CartState = ({children}) => {
 
@@ -19,7 +20,7 @@ const CartState = ({children}) => {
             type: "ADD_TO_CART",
             payload: product
         })
-
+        
     }
 
     const removeItem = (id) => {

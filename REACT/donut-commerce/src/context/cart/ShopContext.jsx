@@ -1,11 +1,17 @@
 
 import { createContext, useReducer, useContext } from "react";
+import cartReducer from "./CartReducer";
 
-import cartReducer, {initialState } from "./CartReducer";
+
+const initialState = {
+    total: 0,
+    products: []
+}
 
 const ShopContext = createContext(initialState)
 
 export const ShopProvider = ({ children }) => {
+
 
     const [ state, dispatch ] = useReducer( cartReducer, initialState)
 
@@ -61,7 +67,7 @@ const useShop = () => {
     const context = useContext(ShopContext)
 
     if (context === undefined) {
-        throw new Error ("useShop must be uysed within ShopContext")
+        throw new Error ("useShop must be used within ShopContext")
     }
 
     return context

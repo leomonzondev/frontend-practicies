@@ -313,3 +313,7 @@ height: 500px;
 .PhoneInputCountryFlag-height{
   height:10px;
 }
+
+button {
+  cursor:pointer;
+}

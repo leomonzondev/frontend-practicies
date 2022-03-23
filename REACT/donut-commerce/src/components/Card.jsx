@@ -22,16 +22,7 @@ export const Card = ({img,favorite,title,price}) => {
     },[products, title])
 
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        const product = { title, img, price}
 
-        if (isInCart) {
-            removeFromCart(product)
-        } else {
-            addToCart(product)
-        }
-    }
 
 
 
@@ -73,7 +64,7 @@ return (
                 {quant}
                 <button onClick={ () => setQuant(quant + 1) } className='card__quant'>+</button>
             </div>
-            <button className='blueButton' isInCart={isInCart} onClick={(e) => handleClick(e)} >ADD TO CART</button>
+            
         </div>
     </div>
 )

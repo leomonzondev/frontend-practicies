@@ -4,6 +4,7 @@ import { data } from '../api/data';
 import arrow from '../images/arrow.png'
 import { Card } from './Card';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
+import useShop from '../context/cart/ShopContext';
 
 export const Carousel = () => {
 
@@ -83,6 +84,19 @@ export const Carousel = () => {
 
     }
 
+
+    const { addToCart } = useShop()
+
+
+
+    const handleClick = (card) => {
+    
+    
+      addToCart(card)
+      
+      console.log(card)
+    }
+
     
 
 return (
@@ -101,6 +115,7 @@ return (
                             title={card.title}
                             price={card.price}
                             />
+                            <button className='blueButton' onClick={() => handleClick(card)} >ADD TO CART</button>
                     </div>))
             }
 
