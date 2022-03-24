@@ -1,4 +1,4 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, TOTAL_PRICE } from "../Types";
+import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, TOTAL_PRICE, QUANT_PLUS, QUANT_SUBS } from "../Types";
 
 
 
@@ -26,6 +26,16 @@ const cartReducer = (state, action) => {
             return {
                 ...state,
                 total: payload.total
+            }
+        case QUANT_PLUS:
+            return {
+                ...state,
+                quant:payload.quant
+            }
+        case QUANT_SUBS:
+            return {
+                ...state,
+                quant:payload.quant
             }
 
         default:

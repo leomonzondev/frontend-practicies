@@ -317,3 +317,20 @@ height: 500px;
 button {
   cursor:pointer;
 }
+
+
+.responsive {
+  height: 100vh;
+  background-color: hotpink;
+}
+
+.responsive_square {
+  width: 40vw;
+  background-color: aqua;
+
+}
+
+.responsive_square img {
+  width: 100%;
+  height: auto;
+}

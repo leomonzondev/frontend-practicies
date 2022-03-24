@@ -5,7 +5,8 @@ import cartReducer from "./CartReducer";
 
 const initialState = {
     total: 0,
-    products: []
+    products: [],
+    quant:0
 }
 
 const ShopContext = createContext(initialState)
@@ -50,11 +51,28 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
+    const quantPlus = (quant) => {
+        dispatch({
+            type:"QUANT_PLUS",
+            payload:quant + 1
+        })
+    }
+
+    const quantSubs = (quant) => {
+        dispatch({
+            type:"QUANT_SUBS",
+            payload:quant - 1
+        })
+    }
+
     const value = {
         total: state.total,
         products: state.products,
+        quant: state.quant,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        quantPlus,
+        quantSubs
     }
 
     return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>

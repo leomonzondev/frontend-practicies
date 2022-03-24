@@ -7,14 +7,19 @@ export const CartShop = () => {
 
   return (
     <div>
-        <h2>Your cart total is ${total} ({products.length})</h2>
         {
             products.map((product, index) => (
                 <div key={index}>
-                    <h3>{product.title}</h3>
+                    <img src={product.img} alt='' width="100px" />
+                    <h3>{product.title} donut</h3>
+                    
                 </div>
             ))
         }
+
+        
+
+
     </div>
   )
 }

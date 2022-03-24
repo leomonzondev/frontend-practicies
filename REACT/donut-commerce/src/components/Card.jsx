@@ -8,7 +8,8 @@ import favF from '../images/favF.png'
 export const Card = ({img,favorite,title,price}) => {
 
 
-    const { products, addToCart, removeFromCart, } = useShop()
+
+    const { products, addToCart, quant, quantSubs, quantPlus } = useShop()
     const [isInCart, setIsInCart] = useState(false)
 
     useEffect(() => {
@@ -23,18 +24,10 @@ export const Card = ({img,favorite,title,price}) => {
 
 
 
-
-
-
     const [fav, setFav] = useState(true);
-    const [quant, setQuant] = useState(1);
+    
     const [disable, setDisable] = useState(true);
     const donuts = data
-
-    const handleSubs = () => {
-        setQuant(quant - 1)
-    }
-
     
 
     useEffect(() => {
@@ -60,9 +53,9 @@ return (
         
         <div className='card__footer'>
             <div className='card__quant__container'>
-                <button disabled={disable} onClick={handleSubs} className='card__quant'>-</button>
+                <button disabled={disable} onClick={() => quantSubs(quant)} className='card__quant'>-</button>
                 {quant}
-                <button onClick={ () => setQuant(quant + 1) } className='card__quant'>+</button>
+                <button onClick={() => quantPlus(quant)} className='card__quant'>+</button>
             </div>
             
         </div>

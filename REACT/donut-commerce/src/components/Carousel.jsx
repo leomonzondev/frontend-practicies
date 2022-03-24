@@ -91,10 +91,8 @@ export const Carousel = () => {
 
     const handleClick = (card) => {
     
-    
       addToCart(card)
-      
-      console.log(card)
+
     }
 
     
