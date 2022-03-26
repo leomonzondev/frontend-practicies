@@ -12,7 +12,7 @@ export const CartShop = () => {
                 <div key={index}>
                     <img src={product.img} alt='' width="100px" />
                     <h3>{product.title} donut</h3>
-                    
+                    <p>{product.amount}</p>
                 </div>
             ))
         }

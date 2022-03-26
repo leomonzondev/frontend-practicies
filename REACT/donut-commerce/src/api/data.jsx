@@ -8,6 +8,7 @@ export const data = [
         favorite:false,
         title:'Chocolate',
         price:12,
+        amount:0
     },
     {
         id:2,
@@ -15,6 +16,7 @@ export const data = [
         favorite:false,
         title:'Strawberry',
         price:12,
+        amount:0
     },
     {
         id:3,
@@ -22,6 +24,7 @@ export const data = [
         favorite:false,
         title:'Anana',
         price:14,
+        amount:0
     },
     {
         id:4,
@@ -29,6 +32,7 @@ export const data = [
         favorite:false,
         title:'Cafe and nuts',
         price:15,
+        amount:0
     },
     
 ]

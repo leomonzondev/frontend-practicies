@@ -1,4 +1,4 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, TOTAL_PRICE, QUANT_PLUS, QUANT_SUBS } from "../Types";
+import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, TOTAL_PRICE, QUANT } from "../Types";
 
 
 
@@ -27,16 +27,11 @@ const cartReducer = (state, action) => {
                 ...state,
                 total: payload.total
             }
-        case QUANT_PLUS:
-            return {
-                ...state,
-                quant:payload.quant
-            }
-        case QUANT_SUBS:
-            return {
-                ...state,
-                quant:payload.quant
-            }
+        case QUANT: 
+        return {
+            ...state,
+            total: payload.quant
+        }
 
         default:
             return state

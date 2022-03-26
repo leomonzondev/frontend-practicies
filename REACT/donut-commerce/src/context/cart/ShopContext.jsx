@@ -5,8 +5,7 @@ import cartReducer from "./CartReducer";
 
 const initialState = {
     total: 0,
-    products: [],
-    quant:0
+    products: []
 }
 
 const ShopContext = createContext(initialState)
@@ -17,6 +16,21 @@ export const ShopProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer( cartReducer, initialState)
 
     const addToCart = (product) => {
+
+      const nextCart = [...state.cart]
+      const existingIndex = nextCart.findIndex(item => item.id === product.id)
+
+        if (existingIndex >= 0) {
+            const newAmount = parseInt(nextCart[existingIndex].amount + product.amount)
+            nextCart[existingIndex] = {
+                ...product,
+                amount: newAmount
+            }
+        } else {
+            nextCart.push(product)
+        }
+
+
         const updateCart = state.products.concat(product)
         totalPrice(updateCart)
 
@@ -51,19 +65,6 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
-    const quantPlus = (quant) => {
-        dispatch({
-            type:"QUANT_PLUS",
-            payload:quant + 1
-        })
-    }
-
-    const quantSubs = (quant) => {
-        dispatch({
-            type:"QUANT_SUBS",
-            payload:quant - 1
-        })
-    }
 
     const value = {
         total: state.total,
@@ -71,8 +72,6 @@ export const ShopProvider = ({ children }) => {
         quant: state.quant,
         addToCart,
         removeFromCart,
-        quantPlus,
-        quantSubs
     }
 
     return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>

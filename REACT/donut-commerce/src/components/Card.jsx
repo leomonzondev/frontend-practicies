@@ -36,6 +36,8 @@ export const Card = ({img,favorite,title,price}) => {
         } else {
             setDisable(false)
         }
+
+        console.log(quant)
         
     },[quant])
 
