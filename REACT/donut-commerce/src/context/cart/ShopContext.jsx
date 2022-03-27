@@ -17,20 +17,6 @@ export const ShopProvider = ({ children }) => {
 
     const addToCart = (product) => {
 
-      const nextCart = [...state.cart]
-      const existingIndex = nextCart.findIndex(item => item.id === product.id)
-
-        if (existingIndex >= 0) {
-            const newAmount = parseInt(nextCart[existingIndex].amount + product.amount)
-            nextCart[existingIndex] = {
-                ...product,
-                amount: newAmount
-            }
-        } else {
-            nextCart.push(product)
-        }
-
-
         const updateCart = state.products.concat(product)
         totalPrice(updateCart)
 

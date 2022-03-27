@@ -9,7 +9,7 @@ export const Card = ({img,favorite,title,price}) => {
 
 
 
-    const { products, addToCart, quant, quantSubs, quantPlus } = useShop()
+    const { products, addToCart, quant } = useShop()
     const [isInCart, setIsInCart] = useState(false)
 
     useEffect(() => {
