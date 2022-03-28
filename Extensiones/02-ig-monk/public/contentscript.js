@@ -50,80 +50,79 @@ const enExplorer = () => {
 
 
 
-
 const init = () => {
-
-    chrome.storage.sync.get(['story'], function (result) {
-        if (result.story === true) {
-            deStories()
-        }
-    })
-
-    chrome.storage.sync.get(['feed'], function (result) {
-        if (result.feed === true) {
-            deFeed()
-        }
-    })
-
-    chrome.storage.sync.get(['suggestions'], function (result) {
-        if (result.suggestions === true) {
-            deSuggestions()
-        }
-    })
-
-    chrome.storage.sync.get(['explorer'], function(result){
-        if (result.explorer === true) {
-            deExplorer()
-        }
-      })    
-
-    chrome.storage.onChanged.addListener(function (changes){
-        for (var key in changes) {
-            var storageChange = changes[key]
-
-            if (key === 'story') {
-                var newValue = storageChange.newValue
-                if (newValue === true) {
-                    deStories()
-                }
-                if (newValue === false) {
-                    enStories()
-                }
+    
+        chrome.storage.sync.get(['story'], function (result) {
+            if (result.story === true) {
+                deStories()
             }
-
-            if (key === 'feed') {
-                var newValue = storageChange.newValue
-                if (newValue === true) {
-                    deFeed()
-                }
-                if (newValue === false) {
-                    enFeed()
-                }
+        })
+    
+        chrome.storage.sync.get(['feed'], function (result) {
+            if (result.feed === true) {
+                deFeed()
             }
-
-            if (key === 'suggestions' ) {
-                var newValue = storageChange.newValue
-                if(newValue === true) {
-                    deSuggestions()
-                }
-                if(newValue === false) {
-                    enSuggestions()
-                }
+        })
+    
+        chrome.storage.sync.get(['suggestions'], function (result) {
+            if (result.suggestions === true) {
+                deSuggestions()
             }
-
-            if (key === 'explorer') {
-                var newValue = storageChange.newValue
-                if(newValue === true) {
-                    deExplorer()
-                }
-                if(newValue === false) {
-                    enExplorer()
-                }
+        })
+    
+        chrome.storage.sync.get(['explorer'], function(result){
+            if (result.explorer === true) {
+                deExplorer()
             }
-
-        }
-    })
-   
-}
+          })    
+    
+        chrome.storage.onChanged.addListener(function (changes){
+            for (var key in changes) {
+                var storageChange = changes[key]
+    
+                if (key === 'story') {
+                    var newValue = storageChange.newValue
+                    if (newValue === true) {
+                        deStories()
+                    }
+                    if (newValue === false) {
+                        enStories()
+                    }
+                }
+    
+                if (key === 'feed') {
+                    var newValue = storageChange.newValue
+                    if (newValue === true) {
+                        deFeed()
+                    }
+                    if (newValue === false) {
+                        enFeed()
+                    }
+                }
+    
+                if (key === 'suggestions' ) {
+                    var newValue = storageChange.newValue
+                    if(newValue === true) {
+                        deSuggestions()
+                    }
+                    if(newValue === false) {
+                        enSuggestions()
+                    }
+                }
+    
+                if (key === 'explorer') {
+                    var newValue = storageChange.newValue
+                    if(newValue === true) {
+                        deExplorer()
+                    }
+                    if(newValue === false) {
+                        enExplorer()
+                    }
+                }
+    
+            }
+        })
+       
+    }
 
 init()

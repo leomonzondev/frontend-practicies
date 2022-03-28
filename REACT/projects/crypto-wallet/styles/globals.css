@@ -10,15 +10,31 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #1e1d23;
-  padding: 10px;
-
-}
-.indexApp {
 
 
 }
 
-.turqoise {
+.index {
+  height: 100vh;
+}
+
+.fulloverview {
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    "prices prices"
+    "marketoverview sellorder"
+    "activities historyorder";
+  gap: 20px;
+}
+
+
+
+/* .turqoise {
   width: 45vw;
   height: 50vh;
   border-radius: 50%;
@@ -26,8 +42,8 @@ body {
   overflow: hidden;
   filter: blur(200px);
   margin-top: -150px;
-
-}
+  z-index: -9999;
+} */
 
 
 /*NAV*/
@@ -118,4 +134,85 @@ nav {
   content: "";
   margin-left: 10px;
   margin-top: -2px;
+}
+
+
+
+/*SIDEBAR*/
+/*SIDEBAR*/
+/*SIDEBAR*/
+
+.sidebar {
+  height: 100%;
+  width: 400px;
+  background-color: orange;
+}
+
+.sidebar-menu {
+
+  background-color: rgb(214, 173, 97);
+}
+
+.sidebar-service {
+
+  background-color: rgb(97, 70, 21);
+}
+
+
+/*MARKET OVERVIEW*/
+/*MARKET OVERVIEW*/
+/*MARKET OVERVIEW*/
+
+
+.marketoverview {
+  width: 600px;
+  background-color: #e42b2b;
+  height: 50vh;
+  grid-area: marketoverview;
+}
+
+/*SELL ORDER*/
+/*SELL ORDER*/
+/*SELL ORDER*/
+
+.sellorder {
+  height: 50vh;
+  background-color: black;
+  width: 500px;
+  grid-area: sellorder;
+}
+
+/*RECENT ACTIVITIES*/
+/*RECENT ACTIVITIES*/
+/*RECENT ACTIVITIES*/
+
+.activities {
+  width: 600px;
+  height: 20vh;
+  background-color: aqua;
+  grid-area: activities;
+}
+
+
+
+
+/*HISTORY ORDER*/
+/*HISTORY ORDER*/
+/*HISTORY ORDER*/
+
+.historyorder {
+  width: 600px;
+  height: 20vh;
+  background-color: aqua;
+}
+
+/*PRICE*/
+/*PRICE*/
+/*PRICE*/
+
+.prices {
+
+  height: 200px;
+  background-color: aquamarine;
+  grid-area: prices;
 }

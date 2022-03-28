@@ -21,7 +21,7 @@ h1 {
 
 ul {
     list-style: none;
-    
+   
 }
 
 ul p {
@@ -34,15 +34,15 @@ ul p {
     border: 1px solid rgb(30, 16, 68);
 }
 
-ul li {
-    padding-bottom:15px;
+li {
+    font-size: 16px;
     display: flex;
     align-items: center;
-    
+    height: 35px;
 }
 
 .wrapper {
-    padding: 10px;
+    
     margin-left: -30px;
 }
 

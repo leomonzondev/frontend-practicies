@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
+import React, { memo, useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { useChromeStorageSync } from 'use-chrome-storage'
 import './styles.css'
 
@@ -35,10 +35,10 @@ export const App = () => {
     addStorage(suggestionsCheck, 'change', 'suggestions')
     addStorage(explorerCheck, 'change', 'explorer')
   }
+
   
   const addStorage = (element, eventName, key) => {
     var data = {}
-  
     element.addEventListener(eventName, (event) => {
       if (event.target.checked) {
         data[key] = true
@@ -50,9 +50,13 @@ export const App = () => {
     })
   }
 
+  const loaded = window.addEventListener('DOMContentLoaded', null)
+
+
   useEffect(() => {
     checkbox()
-  },[])
+
+  },[loaded])
 
   return (
     <div className='app'>
@@ -86,3 +90,4 @@ export const App = () => {
     </div>
   )
 }
+

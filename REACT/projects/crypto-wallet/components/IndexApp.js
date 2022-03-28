@@ -1,12 +1,17 @@
 import React from 'react'
 import { HomeScreen } from './HomeScreen'
+import { MarketOverview } from './MarketOverview'
 import { Nav } from './Nav'
+import { SideBar } from './SideBar'
 
 export const IndexApp = () => {
   return (
-    <div className='indexApp'>
-        <Nav />
+    <div >
+      <Nav />
+      <div className='fulloverview'>
+        <SideBar />
         <HomeScreen />
+      </div>
     </div>
   )
 }

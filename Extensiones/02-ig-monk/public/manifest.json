@@ -1,16 +1,22 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
+    "name": "IG Monk",
+    "description": "Concentrate en lo que te importa",
     "version": "1.0",
     "manifest_version": 3,
     "action":
     {
+        "default_icon": 
+        {
+            "16": "icons/16.png",
+            "32": "icons/32.png",
+            "64": "icons/64.png",
+            "128": "icons/128.png"
+        },
         "default_popup": "popup.html"
     },
     "content_scripts": [{
         "matches":
         [
-            
             "https://www.instagram.com/*"
         ],
         "js": ["contentscript.js"]
