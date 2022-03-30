@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from "./Products.module.css";
 import { connect } from 'react-redux';
+import Product from './Product/Product';
 
-import { Product } from './Product/Product';
+
 
 
 
