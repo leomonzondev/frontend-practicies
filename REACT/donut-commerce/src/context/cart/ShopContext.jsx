@@ -5,7 +5,8 @@ import cartReducer from "./CartReducer";
 
 const initialState = {
     total: 0,
-    products: []
+    products: [],
+
 }
 
 const ShopContext = createContext(initialState)
@@ -17,7 +18,9 @@ export const ShopProvider = ({ children }) => {
 
     const addToCart = (product) => {
 
+
         const updateCart = state.products.concat(product)
+
         totalPrice(updateCart)
 
         dispatch({
@@ -26,6 +29,7 @@ export const ShopProvider = ({ children }) => {
                 products: updateCart
             }
         })
+        console.log(state.products)
     }
 
     const removeFromCart = (product) => {

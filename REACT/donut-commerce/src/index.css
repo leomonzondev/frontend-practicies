@@ -213,8 +213,8 @@ nav {
 
 .slider {
 background-color: rebeccapurple;
-width: 100vw;
-height: 500px;
+max-width: 1280px;
+height: 450px;
 }
 
 

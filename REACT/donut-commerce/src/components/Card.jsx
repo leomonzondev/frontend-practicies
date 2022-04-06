@@ -27,7 +27,7 @@ export const Card = ({img,favorite,title,price}) => {
     const [fav, setFav] = useState(true);
     
     const [disable, setDisable] = useState(true);
-    const donuts = data
+    data
     
 
     useEffect(() => {
