@@ -1,0 +1,21 @@
+.dark_theme .texture {
+    filter: contrast(30%) brightness(70%);
+}
+
+.texture {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    width: 100%;
+    height: calc(100vh + 200px);
+    opacity: 0.10;
+    pointer-events: none;
+    transform: translateY(0px);
+    filter: contrast(120%) brightness(120%);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+

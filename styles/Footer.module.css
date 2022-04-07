@@ -1,0 +1,20 @@
+.footer {
+    background: url('../images/collage.jpg') fixed 100%;
+    color: white;
+    padding-top: 150px;
+    background-size: 844px 390px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.love {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+
+}
+

@@ -1,0 +1,11 @@
+.aurora {
+    position: absolute;
+    background: rgba(15, 247, 255, 0.651);
+    filter: blur(100px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 750px;
+    margin-left: 40px;
+}

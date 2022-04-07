@@ -1,0 +1,31 @@
+.loader_bod {
+	display: flex;
+	background-color: hotpink;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	z-index: 99999;
+	transition: ease;
+}
+
+.loader_circle {
+	background-color: orange;
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	animation: zoom .6s ease;
+}
+
+@keyframes zoom {
+	0%{
+		width: 1em;
+		height: 1em;
+	}
+	100%{
+		width: 100em;
+		height: 100em;
+		transform: scale(1.5);
+	}
+}

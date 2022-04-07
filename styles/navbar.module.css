@@ -1,0 +1,36 @@
+
+.navbar {
+    height: 75px;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    backdrop-filter: blur(3px);
+    transition: all 300ms ease-in-out;
+    position: fixed;
+}
+.navbarActive {
+    background: rgba(0, 0, 0, 0.425);
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    color: rgb(185, 185, 185);
+    gap: 4vh;
+    align-items: center;
+}
+.navbar li{
+    font-size: 2.5vh;
+    font-weight: 800;
+    transition: .5s ease ;
+    list-style: none;
+
+}
+
+.navbar li:hover{
+    cursor: pointer;
+    color: rgb(19, 219, 152);
+}
+
