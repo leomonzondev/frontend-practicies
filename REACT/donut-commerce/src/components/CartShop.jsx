@@ -16,6 +16,7 @@ export const CartShop = () => {
                 </div>
             ))
         }
+            <h3>{total}</h3>
 
         
 
