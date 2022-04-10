@@ -1,7 +1,10 @@
 :root {
     --bg: #110921;
     --purple: #3720b4;
-    --green: #5ff8c2;
+    --green: #fa9907;
+    --blue: rgb(0, 204, 255);
+    
+    /* --green: #5ff8c2; */
 }
 
 
@@ -11,17 +14,36 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    width: 180px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+.powerBtn {
+    cursor: pointer;
+    margin-top: 3px ;
 }
 
 h1 {
     color: rgb(253, 152, 1);
-    margin-left: 15px;
+
 }
 
+h2 {
+    margin-left: 45px;
+    color: #bebebe;
+}
 
 ul {
+    display: flex;
     list-style: none;
-   
+    gap: 10px;
+    flex-direction: column;
 }
 
 ul p {
@@ -39,6 +61,7 @@ li {
     display: flex;
     align-items: center;
     height: 35px;
+
 }
 
 .wrapper {
@@ -70,7 +93,7 @@ li {
 
 input[type='checkbox']:checked + .switch::after {
     transform: translateX(20px);
-    background-color: var(--bg);
+    background-color: white;
 }
 
 input[type='checkbox']:checked + .switch {

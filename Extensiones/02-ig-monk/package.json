@@ -25,6 +25,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "react-icons": "^4.3.1",
     "use-chrome-storage": "^1.0.6"
   }
 }

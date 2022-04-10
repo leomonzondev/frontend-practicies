@@ -1,20 +1,26 @@
-import React, { memo, useEffect, useLayoutEffect, useState, useRef } from 'react'
-import { useChromeStorageSync } from 'use-chrome-storage'
+import React, { useEffect, useState } from 'react'
 import './styles.css'
-
+import {GiPowerButton} from 'react-icons/gi'
 
 
 
 export const App = () => {
+
+  // const [power, setPower] = useState(true)
 
   const checkbox = () => {
     const storiesCheck = document.getElementById('storiesCheck')
     const feedCheck = document.getElementById('feedCheck')
     const suggestionsCheck = document.getElementById('suggestionsCheck')
     const explorerCheck = document.getElementById('explorerCheck')
+    const storiesViews = document.getElementById('storiesViews')
   
     chrome.storage.sync.get(['story'], function (result) {
       storiesCheck.checked = result.story
+    })
+
+    chrome.storage.sync.get(['views'], function (result) {
+      storiesViews.checked = result.views
     })
   
     chrome.storage.sync.get(['feed'], function(result){
@@ -31,6 +37,7 @@ export const App = () => {
   
   
     addStorage(storiesCheck, 'change', 'story')
+    addStorage(storiesViews, 'change', 'views')
     addStorage(feedCheck, 'change', 'feed')
     addStorage(suggestionsCheck, 'change', 'suggestions')
     addStorage(explorerCheck, 'change', 'explorer')
@@ -50,43 +57,66 @@ export const App = () => {
     })
   }
 
-  const loaded = window.addEventListener('DOMContentLoaded', null)
-
-
   useEffect(() => {
     checkbox()
+  },[])
 
-  },[loaded])
+
+  const handlePower = () => {
+    setPower(!power)
+  }
+
+
 
   return (
     <div className='app'>
 
-        <h1>IG Monk</h1>
+
+        <div className='title'>
+          <h1>IG Monk</h1>
+          {/* <GiPowerButton size={22} 
+            className='powerBtn'
+            color={power ? '#fa9907': '#bebebe'}
+            onClick={handlePower}
+          /> */}
+        </div>
         <div className='hr'></div>
         <div className='wrapper'>
-        <ul>
-          <li>
-            <input type="checkbox" id="storiesCheck" className='offscreen'/>
-            <label for="storiesCheck" className='switch' ></label>
-            <p>Stories</p>
-          </li>
-          <li>
-            <input type='checkbox' id='suggestionsCheck' className='offscreen' />
-            <label for="suggestionsCheck" className='switch' ></label>
-            <p>Suggestions</p>
-          </li>
-          <li>
-            <input type='checkbox' id='feedCheck' className='offscreen'/>
-            <label for="feedCheck" className='switch' ></label>
-            <p>Feed</p>
-          </li>
-          <li>
-            <input type='checkbox' id='explorerCheck' className='offscreen'/>
-            <label for="explorerCheck" className='switch' ></label>
-            <p>Explorer</p>
-          </li>
-        </ul>
-        </div>
+        {/* {
+          power
+          ? */}
+          <ul>
+            <li>
+              <input type="checkbox" id="storiesCheck" className='offscreen'/>
+              <label for="storiesCheck" className='switch' ></label>
+              <p>Stories</p>
+            </li>
+            <li>
+              <input type="checkbox" id="storiesViews" className='offscreen'/>
+              <label for="storiesViews" className='switch' ></label>
+              <p>Stories Views</p>
+            </li>
+            <li>
+              <input type='checkbox' id='suggestionsCheck' className='offscreen' />
+              <label for="suggestionsCheck" className='switch' ></label>
+              <p>Suggestions</p>
+            </li>
+            <li>
+              <input type='checkbox' id='feedCheck' className='offscreen'/>
+              <label for="feedCheck" className='switch' ></label>
+              <p>Feed</p>
+            </li>
+            <li>
+              <input type='checkbox' id='explorerCheck' className='offscreen'/>
+              <label for="explorerCheck" className='switch' ></label>
+              <p>Explorer</p>
+            </li>
+          </ul>
+           {/*  <h2>IG MONK OFF</h2> */}
+  
+          </div>
+
+
     </div>
   )
 }
