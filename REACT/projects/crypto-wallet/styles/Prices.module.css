@@ -1,0 +1,6 @@
+.prices {
+  background-color: aqua;
+  display: flex;
+  height: 200px;
+  margin-bottom: 20px;
+}

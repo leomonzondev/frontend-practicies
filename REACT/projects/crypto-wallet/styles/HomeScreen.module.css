@@ -1,0 +1,35 @@
+
+
+.container {
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+.container h2 {
+    padding: 0 0 20px 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.marketSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 850px;
+    height: 600px;
+
+}
+
+.sellSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 0 0 20px;
+    width: 650px;
+    height: 600px;
+}

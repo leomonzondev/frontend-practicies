@@ -1,0 +1,86 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    height: 3em;
+    align-items: center;
+    background-color: rgba(235, 159, 19, 0.801);
+    z-index: 9999;
+  }
+  
+  .izq {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px ;
+    align-items: center;
+  
+  }
+  
+  .izq h1 {
+    text-align: center;
+    font-size: 3.5vh;
+  
+  }
+  
+  .der {
+    display: flex;
+  }
+  
+  .search {
+    border-radius: 20px;
+    border-style: none;
+    height: 35px;
+    padding: 15px;
+  
+  }
+  
+  .search:focus {
+  
+    border-style: none;
+    outline: none;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 9px;
+  }
+  
+  .search::placeholder {
+    padding: 20px;
+  }
+  
+  .icons ul {
+    display: flex;
+    justify-content: space-between;
+    list-style:none;
+    gap: 12px;
+  
+  }
+  
+  .user {
+    display: flex;
+  }
+  
+  .li {
+    color: #a8a8a8;
+    background-color: #1e1d23;
+    padding: 7px;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+  }
+  
+  .msg::after {
+    border-radius: 50%;
+    border: 3px solid #1e1d23;
+    background-color: #e42b2b;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    content: "";
+    margin-left: 10px;
+    margin-top: -2px;
+  }
+  
+  

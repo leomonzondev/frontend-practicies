@@ -1,0 +1,53 @@
+.sidebar {
+    height: 100%;
+    width: 350px;
+    background-color: orange;
+  }
+  
+.menu {
+
+}
+
+.menu li {
+    display: flex;
+
+
+    
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+}
+
+
+.selector {
+    border-radius: 20px;
+    height: 48px;
+    width: 12px;
+    background-color: blue;
+}
+
+#dashboard {
+    background-color: #ff338b;
+}
+
+#wallet {
+    background-color: #ff6b61;
+}
+
+#transactions {
+    background-color: #f7c100;
+}    
+    
+
+#exchange {
+    background-color: #00bbbf;
+}
+
+
+.service {
+
+    background-color: rgb(97, 70, 21);
+}
+
