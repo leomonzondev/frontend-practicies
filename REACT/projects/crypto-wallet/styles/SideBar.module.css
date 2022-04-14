@@ -8,11 +8,16 @@
 
 }
 
+.menu ul {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .menu li {
     display: flex;
-
-
-    
+    width: 100%;  
 }
 
 .option {
@@ -25,7 +30,7 @@
     border-radius: 20px;
     height: 48px;
     width: 12px;
-    background-color: blue;
+
 }
 
 #dashboard {
