@@ -1,0 +1,12 @@
+.listas {
+    display: flex;
+    height: 100vh;
+    background-color: #ededed;
+}
+
+
+. {
+background-color: red;
+width: 100px;
+height: 40px;
+}
