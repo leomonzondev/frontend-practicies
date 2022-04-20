@@ -1,0 +1,54 @@
+
+body {
+  padding: 0;
+  margin: 0;
+
+
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction:column ;
+  align-items: center;
+}
+
+#message-container {
+  width: 80%;
+  max-width: 1200px;
+}
+
+#message-container div {
+  background-color: #CCC;
+  padding: 5px;
+}
+
+#message-container div:nth-child(2n) {
+  background-color: #FFF;
+}
+
+#send-container {
+  position: fixed;
+  padding-bottom: 30px;
+  bottom: 0;
+  background-color: white;
+  max-width: 1200px;
+  width: 80%;
+  display: flex;
+}
+
+#message-input {
+  flex-grow: 1;
+}
+
+input {
+  height: 50px;
+  font-size: 20px;
+}
+
+button {
+  height: 50px;
+  font-size: 20px;
+}

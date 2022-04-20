@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  padding: 24px;
+}
+
+.header h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      margin: 0;
+      margin-bottom: 6px;
+}
+
+.header h3 {
+font-weight: 300;
+font-size: 1.25rem;
+margin: 0;
+
+}
+
+.containerApp {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form input {
+  width: 600px;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+  height: 39px;
+  padding: 7px 60px 9px 15px;
+  border-style: none;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 150px;
+  justify-content: center;
+}
+
+
+
+.imageContainer {
+  width: 256px;
+  height: 256px;
+  background-color: rgb(201, 201, 201);
+  cursor: pointer;
+}
+
+.msgBox {
+  border: 1px solid rgb(206, 206, 206);
+  width: 256px;
+  height: 150px;
+}
+
+
+.searcherContainer {
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
