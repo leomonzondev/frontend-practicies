@@ -1,30 +1,40 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
+import { cardReducer } from "./Reducer";
 
 
-const CardContext = createContext()
+export const CardContext = createContext()
 
 
 const CardState = ({ children }) => {
 
     const initialState = {
-        cardItems: []
+        listItems: []
     }
 
-
-    const addToCard = (product) => {
-
+    const [state, dispatch] = useReducer(cardReducer, initialState)
 
 
+    const addToVote = (product) => {
 
+        dispatch({
+            type:'ADD_TO_VOTE',
+            payload: product
+        })
+        
     }
 
 
 
     return (
         <CardContext.Provider value={{
-            addToCard
-        }}
+            addToVote,
+            listItems: state.listItems
+        }}>
+            {children}
+        </CardContext.Provider>
     )
 
 }
+
+export default CardState
 

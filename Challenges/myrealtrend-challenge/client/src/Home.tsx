@@ -1,7 +1,8 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
 
 import logo from "./assets/logo.svg";
+import CardState, { CardContext } from "./context/State";
 
 import styles from "./Home.module.css";
 import { Products } from "./Products";
@@ -10,59 +11,80 @@ const socket = io("http://localhost:3001");
 
 const Home: React.FC = () => {
 
-  useEffect(() => {
-    socket.on('receive_message', data => {
-    })
-  }, [socket]);
-
-
-
-  const [data, setData] = useState('')
+  const [lista, setLista] = useState('')
   const [input, setInput] = useState('')
-  const [vote, setVote] = useState({
-    voteA: 0,
-    voteB: 0
-  })
+  const [votacion, setVotacion] = useState([])
 
-  useEffect(() => {
-      socket.on('receive_message', data => {
 
-        console.log(data);
-      })
-        if(data == 'PA') {
-          setVote({...vote, voteA: vote.voteA + 1})
-        } else {
-          setVote({...vote, voteB: vote.voteB + 1})
-        }
+  const { addToVote, listItems } = useContext(CardContext)
+    
+    
+    // useEffect(() => {
+      //   socket.on('receive_message', data => {
+        //   })
+  // }, [socket]);
+  
+  // useEffect(() => {
+    //     socket.on('receive_message', data => {
       
-  },[socket])
-
+      //       if(data.message == 'PA') {
+        //         setVote({...vote, voteA: + 2})
+        //       } 
+        //       if(data.message == 'PB') {
+          //         setVote({...vote, voteB:  + 1})
+          //       }
+          //       console.log(data);
+          //     })
+          
+          // },[socket])
   useEffect(() => {
-    console.log(data);
-  },[data])
 
+    socket.on('update', candidates => {
+
+      setVotacion(candidates)
+    })
+
+  },[socket])
+          
+  const vote = (index: number) => {
+    socket.emit('vote', index)
+    
+  }
+          
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value)
   }
-
+  
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const search = () => {
       fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}&limit=5`)
       .then(res => res.json())
-      .then(obj => setData(obj.results))
+      .then(obj => setLista(obj.results))
+      
     }
     search()
+    console.log(lista);
   }
 
   
 
 
-  const handleVote = (option:string) => {
-      socket.emit('send_message', {message: option})
+  // const handleVote = (option:string) => {
+  //     socket.emit('send_message', {message: option})
+  // }
+
+
+  const reset = () => {
+    socket.emit('reset')
+    addToVote([])
   }
 
+  const selectItem = (product) => {
+    addToVote(product)
+    console.log(listItems);
+  }
  
 
   return (
@@ -81,9 +103,12 @@ const Home: React.FC = () => {
         </form>
 
         {
-          data && <div className={styles.searcherContainer}>
+          lista && <div className={styles.searcherContainer}>
             {
-              data.map((product) => <Products img={product.thumbnail} title={product.title} price={product.price} />)
+              lista.map((product) => (
+              <div key={product.id} onClick={() => selectItem(product)} >
+                <Products img={product.thumbnail} title={product.title} price={product.price}/>
+              </div>))
             }
           </div>
         }
@@ -98,11 +123,14 @@ const Home: React.FC = () => {
 
 
           <div className={styles.wrapper}>
+            <button onClick={reset}>RESET</button>
               <div id={styles.productA}  >
                   <h1> {}Product A title</h1>
                   <h3>Product A description</h3>
-                  <div className={styles.imageContainer} onClick={() => handleVote('PA')} ></div>
-                  <p>{vote.voteA} voto(s)</p>
+                  <div className={styles.imageContainer} onClick={() => vote(0)} >
+                    <img src={listItems[0]?.thumbnail} />
+                  </div>
+                  <p>{votacion.voteA} voto(s)</p>
                   <div className={styles.msgBox}>
 
                   </div>
@@ -112,8 +140,8 @@ const Home: React.FC = () => {
               <div id={styles.productB}>
                 <h1>Product B title</h1>
                 <h3>Product B description</h3>
-                <div className={styles.imageContainer} onClick={() => handleVote('PB')}></div>
-                <p>{vote.voteB}  voto(s)</p>
+                <div className={styles.imageContainer} onClick={() => vote(1)}></div>
+                <p>{votacion.voteB}  voto(s)</p>
                 <div className={styles.msgBox}>
 
                 </div>

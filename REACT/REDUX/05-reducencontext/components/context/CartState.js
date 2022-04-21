@@ -3,7 +3,6 @@ import CartContext from "./CartContext"
 import CartReducer from "./CartReducer"
 
 const CartState = ({children}) => {
-
     
     const initialState = {
         cartItems: [],
@@ -11,8 +10,6 @@ const CartState = ({children}) => {
     }
 
     const [state, dispatch] = useReducer(CartReducer, initialState)
-
-    
 
     const addToCart = (product) => {
 
