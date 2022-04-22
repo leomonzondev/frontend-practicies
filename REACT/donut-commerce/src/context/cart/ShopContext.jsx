@@ -17,19 +17,28 @@ export const ShopProvider = ({ children }) => {
     const [ state, dispatch ] = useReducer( cartReducer, initialState)
 
     const addToCart = (product) => {
+        
+        // const inCart = state.products.find(
+        //     productInCart => productInCart.id === product.id
+        // )
 
+        // const amountProduct = {...product, amount: 0}
 
-        const updateCart = state.products.concat(product)
+        // if(inCart) {
+        //     amountProduct.amount += 1
 
-        totalPrice(updateCart)
-
+        // } 
+        
         dispatch({
             type: "ADD_TO_CART",
-            payload: {
-                products: updateCart
-            }
+            payload: product
         })
+
+
+        // totalPrice(product)
+
         console.log(state.products)
+        // console.log(amountProduct)
     }
 
     const removeFromCart = (product) => {
@@ -43,15 +52,13 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
-    const totalPrice = (products) => {
-        let total = 0
-        products.forEach((product) => total += product.price)
+    const totalPrice = (product) => {
+        let totalPrice = state.total
+        state.products.forEach(product => totalPrice += product.price )
 
         dispatch({
             type: "TOTAL_PRICE",
-            payload: {
-                total
-            }
+            payload: totalPrice
         })
     }
 

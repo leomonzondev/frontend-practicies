@@ -14,76 +14,60 @@ const Home: React.FC = () => {
   const [lista, setLista] = useState('')
   const [input, setInput] = useState('')
   const [votacion, setVotacion] = useState([])
+  const [cardProduct, setcardProduct] = useState('')
 
 
-  const { addToVote, listItems } = useContext(CardContext)
+
     
-    
-    // useEffect(() => {
-      //   socket.on('receive_message', data => {
-        //   })
-  // }, [socket]);
   
-  // useEffect(() => {
-    //     socket.on('receive_message', data => {
-      
-      //       if(data.message == 'PA') {
-        //         setVote({...vote, voteA: + 2})
-        //       } 
-        //       if(data.message == 'PB') {
-          //         setVote({...vote, voteB:  + 1})
-          //       }
-          //       console.log(data);
-          //     })
-          
-          // },[socket])
-  useEffect(() => {
-
-    socket.on('update', candidates => {
-
-      setVotacion(candidates)
-    })
-
-  },[socket])
-          
   const vote = (index: number) => {
     socket.emit('vote', index)
-    
   }
-          
+  
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value)
   }
   
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
+    
     const search = () => {
       fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}&limit=5`)
       .then(res => res.json())
       .then(obj => setLista(obj.results))
       
+      
     }
     search()
     console.log(lista);
   }
-
   
+  
+  useEffect(() => {
 
+    socket.on('update', candidates => {
+      setVotacion(candidates)
+    })
 
-  // const handleVote = (option:string) => {
-  //     socket.emit('send_message', {message: option})
-  // }
+    socket.on('update', products => {
+      
+      setcardProduct(products)
+      console.log(products);
+      console.log(cardProduct);
+    })
 
+    
+
+  },[socket])
 
   const reset = () => {
     socket.emit('reset')
-    addToVote([])
+    socket.emit('')
   }
 
-  const selectItem = (product) => {
-    addToVote(product)
-    console.log(listItems);
+  const selectItem = (clientProduct) => {
+    
+    socket.emit('loadProduct', clientProduct)
   }
  
 
@@ -128,11 +112,10 @@ const Home: React.FC = () => {
                   <h1> {}Product A title</h1>
                   <h3>Product A description</h3>
                   <div className={styles.imageContainer} onClick={() => vote(0)} >
-                    <img src={listItems[0]?.thumbnail} />
+                    <img src={cardProduct ? cardProduct.productA.image : '' }/>
                   </div>
                   <p>{votacion.voteA} voto(s)</p>
                   <div className={styles.msgBox}>
-
                   </div>
               </div>
               

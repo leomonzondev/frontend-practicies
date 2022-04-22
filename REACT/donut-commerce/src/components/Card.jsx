@@ -9,37 +9,16 @@ export const Card = ({img,favorite,title,price}) => {
 
 
 
-    const { products, addToCart, quant } = useShop()
+    const { products, addToCart } = useShop()
     const [isInCart, setIsInCart] = useState(false)
 
-    useEffect(() => {
-        const productIsInCart = products.find(product => product.name === title)
-
-        if (productIsInCart) {
-            setIsInCart(true)
-        } else {
-            setIsInCart(false)
-        }
-    },[products, title])
 
 
 
     const [fav, setFav] = useState(true);
     
     const [disable, setDisable] = useState(true);
-    data
     
-
-    useEffect(() => {
-        if (quant <= 1) {
-            setDisable(true)
-        } else {
-            setDisable(false)
-        }
-
-        console.log(quant)
-        
-    },[quant])
 
 
 return (
@@ -55,9 +34,9 @@ return (
         
         <div className='card__footer'>
             <div className='card__quant__container'>
-                <button disabled={disable} onClick={() => quantSubs(quant)} className='card__quant'>-</button>
-                {quant}
-                <button onClick={() => quantPlus(quant)} className='card__quant'>+</button>
+                <button disabled={disable} className='card__quant'>-</button>
+                0
+                <button  className='card__quant'>+</button>
             </div>
             
         </div>

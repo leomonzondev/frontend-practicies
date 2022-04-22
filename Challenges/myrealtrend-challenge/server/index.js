@@ -36,10 +36,24 @@ const products = {
     }
 }
 
+const productsReset = {
+    productA: {
+        title:'',
+        description:'',
+        image:''
+    },
+    productB: {
+        title:'',
+        description:'',
+        image:''
+    }
+}
+
 
 
 io.on('connection', socket => {
-    io.emit('update', candidates)
+
+    
 
     socket.on('vote', index => {
         if(index === 0) {
@@ -56,14 +70,28 @@ io.on('connection', socket => {
     socket.on('reset', () => {
         candidates.voteA = 0
         candidates.voteB = 0
-        console.log(candidates)
+        
+        products = productsReset
+
+
         io.emit('update', candidates)
+        io.emit('update', products)
     })
     
 
-    // socket.on('sugar', data => {
-    //     console.log(data)
-    // })
+    socket.on('loadProduct', (clientProduct) => {
+        const productA = products.productA
+        
+        productA.title = clientProduct.title
+        productA.description = clientProduct.price
+        productA.image = clientProduct.thumbnail
+        
+        console.log('recibido')
+        io.emit('update', products)
+    })
+
+    
+
 
 })
 

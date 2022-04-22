@@ -12,12 +12,9 @@ const cartReducer = (state, action) => {
             return state
         
         case ADD_TO_CART:
-            const item = payload.products.find( prod => prod.id === action.payload.id)
-            const inCart = payload.products.find( item => item.id === action.payload.id ? true : false)
-
             return {
                 ...state,
-                products: inCart ? payload.products.map(item => item.id === product.id ? { ...item, qty: item.qty + 1} : item ) : [...payload.products, {...item, qty: 1}]
+                products: [...state.products, payload]
             }
 
         case REMOVE_ITEM:
@@ -28,7 +25,7 @@ const cartReducer = (state, action) => {
         case TOTAL_PRICE:
             return {
                 ...state,
-                total: payload.total
+                total: total
             }
         case QUANT: 
         return {

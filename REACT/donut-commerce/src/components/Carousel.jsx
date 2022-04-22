@@ -7,94 +7,63 @@ import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 import useShop from '../context/cart/ShopContext';
 
 export const Carousel = () => {
+  
+  const { addToCart } = useShop()
+  
+  const NextArrow = ({onClick}) => {
+      return (
+          <div className='arrow next' onClick={onClick}><FaArrowRight /></div>
+      )
+  }
 
-    // const [selectedIndex, setSelectedIndex] = useState(0);
-    // const [selectedCard, setSelectedCard] = useState(x[0]);
-
-    // const selectNewCard = (index, card, next = true) => {
-    //     const condition = next ? selectedIndex < x.length : selectedIndex > 0
-    //     const nextIndex = 
-    //         next ? condition ? selectedIndex + 1 : 0
-    //         : condition ? selectedIndex - 1 : x.length - 1
-    //     setSelectedCard(x[nextIndex])
-    //     setSelectedIndex(nextIndex)
-    // }
-
-
-    // const previous = () => {
-    //     selectNewCard(selectedIndex, selectedCard, false)
-
-    // }
-
-    // const next = () => {
-    //     selectNewCard(selectedIndex, selectedCard)
-    // }
-
-    const NextArrow = ({onClick}) => {
-        return (
-            <div className='arrow next' onClick={onClick}><FaArrowRight /></div>
-        )
-    }
-
-    const PrevArrow = ({onClick}) => {
-        return (
-            <div className='arrow prev' onClick={onClick}><FaArrowLeft /></div>
-        )
-    }
+  const PrevArrow = ({onClick}) => {
+      return (
+          <div className='arrow prev' onClick={onClick}><FaArrowLeft /></div>
+      )
+  }
 
 
-    var settings = {
-        focusOnSelect: true,
-        className: 'center',
 
-        infinite: true,
-        lazyLoad:true,
-        speed: 300,
-        slidesToShow: 3,
-        centerMode:true,
-        centerPadding:0,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                infinite: true,
+  const settings = {
+      focusOnSelect: true,
+      className: 'center',
 
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
+      infinite: true,
+      lazyLoad:true,
+      speed: 300,
+      slidesToShow: 3,
+      centerMode:true,
+      centerPadding:0,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+
             }
-          ]
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
 
-    }
-
-
-    const { addToCart } = useShop()
-
-
-
-    const handleClick = (card) => {
-    
-      addToCart(card)
-
-    }
-
+  }
     
 
 return (
@@ -113,7 +82,7 @@ return (
                             title={card.title}
                             price={card.price}
                             />
-                            <button className='blueButton' onClick={() => handleClick(card)}> ADD TO CART</button>
+                            <button className='blueButton' onClick={() => addToCart(card)}> ADD TO CART</button>
                     </div>))
             }
 
