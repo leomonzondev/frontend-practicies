@@ -71,11 +71,11 @@ io.on('connection', socket => {
         candidates.voteA = 0
         candidates.voteB = 0
         
-        products = productsReset
+        
 
 
         io.emit('update', candidates)
-        io.emit('update', products)
+        io.emit('update', productsReset)
     })
     
 

@@ -108,23 +108,23 @@ const Home: React.FC = () => {
 
           <div className={styles.wrapper}>
             <button onClick={reset}>RESET</button>
-              <div id={styles.productA}  >
+              <div id={styles.productA}  className={styles.card}>
                   <h1> {}Product A title</h1>
                   <h3>Product A description</h3>
                   <div className={styles.imageContainer} onClick={() => vote(0)} >
-                    <img src={cardProduct ? cardProduct.productA.image : '' }/>
+                    {/* <img src={cardProduct ? cardProduct.productA.image : '' }/> */}
                   </div>
-                  <p>{votacion.voteA} voto(s)</p>
+                  <p>{votacion.voteA > 0 ? votacion.voteA : '0'} voto(s)</p>
                   <div className={styles.msgBox}>
                   </div>
               </div>
               
 
-              <div id={styles.productB}>
+              <div id={styles.productB} className={styles.card}>
                 <h1>Product B title</h1>
                 <h3>Product B description</h3>
                 <div className={styles.imageContainer} onClick={() => vote(1)}></div>
-                <p>{votacion.voteB}  voto(s)</p>
+                <p>{votacion.voteB > 0 ? votacion.voteB : '0'}  voto(s)</p>
                 <div className={styles.msgBox}>
 
                 </div>
