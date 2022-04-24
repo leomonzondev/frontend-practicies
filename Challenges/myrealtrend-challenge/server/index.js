@@ -5,7 +5,7 @@ import http from 'http'
 
 
 const app = express()
-const PORT = 3001
+const PORT = 3002
 
 const server = http.createServer(app)
 

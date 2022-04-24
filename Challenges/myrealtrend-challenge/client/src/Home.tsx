@@ -7,7 +7,7 @@ import CardState, { CardContext } from "./context/State";
 import styles from "./Home.module.css";
 import { Products } from "./Products";
 
-const socket = io("http://localhost:3001");
+const socket = io("http://localhost:3002");
 
 const Home: React.FC = () => {
 
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const [input, setInput] = useState('')
   const [votacion, setVotacion] = useState([])
   const [cardProduct, setcardProduct] = useState('')
-
+  const [percentage, setPercentage] = useState(0)
 
 
     
@@ -42,11 +42,13 @@ const Home: React.FC = () => {
     console.log(lista);
   }
   
+    
   
   useEffect(() => {
-
+    
     socket.on('update', candidates => {
       setVotacion(candidates)
+      
     })
 
     socket.on('update', products => {
@@ -56,7 +58,6 @@ const Home: React.FC = () => {
       console.log(cardProduct);
     })
 
-    
 
   },[socket])
 
@@ -66,9 +67,13 @@ const Home: React.FC = () => {
   }
 
   const selectItem = (clientProduct) => {
-    
     socket.emit('loadProduct', clientProduct)
   }
+
+  useEffect(() => {
+    setPercentage(votacion.voteA / (votacion.voteA + votacion.voteB ) * 100 ) 
+    console.log(percentage);
+  },[votacion])
  
 
   return (
@@ -106,29 +111,34 @@ const Home: React.FC = () => {
         } */}
 
 
-          <div className={styles.wrapper}>
-            <button onClick={reset}>RESET</button>
-              <div id={styles.productA}  className={styles.card}>
-                  <h1> {}Product A title</h1>
-                  <h3>Product A description</h3>
-                  <div className={styles.imageContainer} onClick={() => vote(0)} >
-                    {/* <img src={cardProduct ? cardProduct.productA.image : '' }/> */}
-                  </div>
-                  <p>{votacion.voteA > 0 ? votacion.voteA : '0'} voto(s)</p>
-                  <div className={styles.msgBox}>
-                  </div>
-              </div>
-              
+      <div className={styles.wrapper}>
+        <button onClick={reset}>RESET</button>
+          {percentage}%
 
-              <div id={styles.productB} className={styles.card}>
-                <h1>Product B title</h1>
-                <h3>Product B description</h3>
-                <div className={styles.imageContainer} onClick={() => vote(1)}></div>
-                <p>{votacion.voteB > 0 ? votacion.voteB : '0'}  voto(s)</p>
-                <div className={styles.msgBox}>
-
+            <div className={styles.card}>
+                <h1> {}Product A title</h1>
+                <h3>Product A description</h3>
+                <div className={styles.imageContainer} onClick={() => vote(0)} >
+                  {/* <img src={cardProduct ? cardProduct.productA.image : '' }/> */}
                 </div>
-              </div>
+                <p>{votacion.voteA > 0 ? votacion.voteA : '0'} voto(s)</p>
+                <div className={styles.msgBox}></div>
+            </div>
+      
+          
+          
+
+        
+            
+            <div className={styles.card}>
+
+              <h1>Product B title</h1>
+              <h3>Product B description</h3>
+              <div className={styles.imageContainer} onClick={() => vote(1)}></div>
+              <p>{votacion.voteB > 0 ? votacion.voteB : '0'}  voto(s)</p>
+              <div className={styles.msgBox}></div>
+            </div>
+            
           </div>
       </div>
     </main>
