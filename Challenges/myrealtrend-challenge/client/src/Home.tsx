@@ -7,22 +7,17 @@ import CardState, { CardContext } from "./context/State";
 import styles from "./Home.module.css";
 import { Products } from "./Products";
 
-const socket = io("http://localhost:3002");
+const socket = io("http://localhost:3001");
 
 const Home: React.FC = () => {
 
   const [lista, setLista] = useState('')
   const [input, setInput] = useState('')
-  const [votacion, setVotacion] = useState([])
-  const [cardProduct, setcardProduct] = useState('')
-  const [percentage, setPercentage] = useState(0)
+  const [votacion, setVotacion] = useState({})
+  const [cardProduct, setcardProduct] = useState({})
+  const [percentage, setPercentage] = useState({})
+  const [btnState, setBtnState] = useState(false)
 
-
-    
-  
-  const vote = (index: number) => {
-    socket.emit('vote', index)
-  }
   
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value)
@@ -35,46 +30,70 @@ const Home: React.FC = () => {
       fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}&limit=5`)
       .then(res => res.json())
       .then(obj => setLista(obj.results))
-      
-      
     }
     search()
-    console.log(lista);
+
   }
   
-    
-  
+  /*SOCKET-SOCKET-SOCKET-SOCKET-SOCKET-SOCKET-SOCKET*/
+
+
   useEffect(() => {
+    socket.emit('connection')
     
-    socket.on('update', candidates => {
+    socket.on('vote', candidates => {
       setVotacion(candidates)
-      
+      console.log(votacion.voteA);
     })
 
-    socket.on('update', products => {
-      
+    socket.on('item', products => {
       setcardProduct(products)
-      console.log(products);
-      console.log(cardProduct);
     })
 
+    socket.on('percentage', percentages => {
+      setPercentage(percentages)
+    })
 
+    socket.on('pause', btnState => {
+      setBtnState(btnState)
+    })
+
+    
   },[socket])
+
+
+  /*HANDLERS-HANDLERS-HANDLERS-HANDLERS-HANDLERS-HANDLERS-*/
 
   const reset = () => {
     socket.emit('reset')
-    socket.emit('')
+  }
+
+  const pausa = () => {
+    socket.emit('pause', btnState)
   }
 
   const selectItem = (clientProduct) => {
     socket.emit('loadProduct', clientProduct)
+
   }
 
+  const vote = (index: number) => {
+    if(btnState === false) {
+      socket.emit('vote', index)
+    }
+  }
+
+
+
+
   useEffect(() => {
-    setPercentage(votacion.voteA / (votacion.voteA + votacion.voteB ) * 100 ) 
-    console.log(percentage);
+    setPercentage({perA: votacion.voteA / (votacion.voteA + votacion.voteB ) * 100 , perB: votacion.voteB / (votacion.voteA + votacion.voteB ) * 100 })
+
   },[votacion])
  
+
+
+
 
   return (
     <main className={styles.container}>
@@ -86,8 +105,7 @@ const Home: React.FC = () => {
       </header>
 
 
-      <div className={styles.containerApp}>
-        <form className={styles.form} onSubmit={handleSearch}>
+      <form className={styles.form} onSubmit={handleSearch}>
             <input placeholder='Seleccione producto A' onChange={handleInput} value={input} />
         </form>
 
@@ -102,45 +120,59 @@ const Home: React.FC = () => {
           </div>
         }
 
-
-{/* 
-        {
-          data.length > 0
-          ? data.map(product => <Products img={product.thumbnail} title={product.title} price={product.price} />)
-          : null
-        } */}
+      <div className={styles.containerApp}>
 
 
+
+        <div className={styles.controls}>
+          <button onClick={reset}>RESET</button>
+          <button onClick={pausa}>PAUSA/REANUDAR</button>
+        </div>
+
+        <div className={`${ btnState ? styles.stop : ''  }`}>{ btnState && <h1>VOTACIÓN EN PAUSA</h1>}</div>
       <div className={styles.wrapper}>
-        <button onClick={reset}>RESET</button>
-          {percentage}%
-
+        <div className={styles.full}>
+          <div className={styles.percentage} style={{ height: `${percentage.perA}%`, backgroundColor: `hsl(${percentage.perA}, 100%, 50%)`}} ></div>
             <div className={styles.card}>
-                <h1> {}Product A title</h1>
-                <h3>Product A description</h3>
+            
+                <h1>{cardProduct.productA?.title ? cardProduct.productA?.title : 'Product A title'}</h1>
+                <h3>{cardProduct.productA?.description ? cardProduct.productA?.description : 'Product A description'}</h3>
                 <div className={styles.imageContainer} onClick={() => vote(0)} >
-                  {/* <img src={cardProduct ? cardProduct.productA.image : '' }/> */}
+                  <img src={`${cardProduct ? cardProduct.productA?.image : ''  }`}/>
                 </div>
-                <p>{votacion.voteA > 0 ? votacion.voteA : '0'} voto(s)</p>
-                <div className={styles.msgBox}></div>
+                <p>{votacion ? votacion.voteA : '0'} voto(s)</p>
+                <div className={styles.msgBox}>
+                  <div className={styles.msgBoxMessage}></div>
+                  <form className={styles.msgBoxForm}>
+                    <input placeholder="Escribe tu mensaje" />
+                  </form>
+                </div>
+                
             </div>
-      
+          </div>
           
           
 
         
-            
+          <div className={styles.full}>
+          <div className={styles.percentage}  style={{ height: `${percentage.perB}%`, backgroundColor: `hsl(${percentage.perB}, 100%, 50%)`}} ></div>
             <div className={styles.card}>
 
-              <h1>Product B title</h1>
-              <h3>Product B description</h3>
-              <div className={styles.imageContainer} onClick={() => vote(1)}></div>
+              <h1>{cardProduct.productB?.title ? cardProduct.productB?.title : 'Product B title'}</h1>
+              <h3>{cardProduct.productB?.description ? cardProduct.productB?.description : 'Product B description'}</h3>
+              <div className={styles.imageContainer} onClick={() => vote(1)}>
+              <img src={`${cardProduct ? cardProduct.productB?.image : ''  }`}/>
+              </div>
               <p>{votacion.voteB > 0 ? votacion.voteB : '0'}  voto(s)</p>
               <div className={styles.msgBox}></div>
             </div>
-            
+            </div>
           </div>
       </div>
+
+
+
+
     </main>
   );
 };

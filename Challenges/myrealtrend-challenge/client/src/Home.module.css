@@ -72,22 +72,96 @@
 
 
 .wrapper {
-  gap: 150px;
+  gap: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  background-color: rgb(255, 255, 133);
+
+  padding: 50px;
 
 }
 
+
+.full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .card {
-  padding: 20px;
+  padding: 7px 10px 10px 10px;
+  width: 280px;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  margin: 20px auto;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 
+}
+
+.card h1 {
+  overflow: hidden;
+  height: 75px;
+
+  line-height: 35px;
+  text-align: center;
+}
+
+.card h3 {
+  height: 20px;
+}
+
+.percentage {
+
+  max-width: 345px;
+  max-height: 700px;
+  width: 320px;
+  transition: all 1s;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+
+}
+
+
+.controls {
+ z-index: 3;
+}
+
+.stop{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(109, 109, 109, 0.651);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stop h1 {
+  font-size: 6rem;
+  user-select: none;
+}
+
+
+.msgBox {
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+
+.msgBoxMessage {
+
+
+}
+
+.msgBoxForm input {
+  width: 100%;
 }

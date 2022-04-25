@@ -2,10 +2,11 @@ import express from 'express'
 import cors from 'cors'
 import { Server } from 'socket.io'
 import http from 'http'
+import { isStringObject } from 'util/types'
 
 
 const app = express()
-const PORT = 3002
+const PORT = 3001
 
 const server = http.createServer(app)
 
@@ -27,33 +28,30 @@ const products = {
     productA: {
         title:'',
         description:'',
-        image:''
+        image:'',
+        load:false
     },
     productB: {
         title:'',
         description:'',
-        image:''
+        image:'',
+        load: false
     }
 }
 
-const productsReset = {
-    productA: {
-        title:'',
-        description:'',
-        image:''
-    },
-    productB: {
-        title:'',
-        description:'',
-        image:''
-    }
+const percentages ={
+    perA: 0,
+    perB: 0
 }
 
+let pauseState = false
 
+
+const users = []
 
 io.on('connection', socket => {
 
-    
+    socket.emit('users', socket.id)
 
     socket.on('vote', index => {
         if(index === 0) {
@@ -63,40 +61,74 @@ io.on('connection', socket => {
             candidates.voteB += 1
         }
         
-        io.emit('update', candidates)
-        console.log(candidates)
+        io.emit('vote', candidates)
+
     })
 
     socket.on('reset', () => {
         candidates.voteA = 0
         candidates.voteB = 0
-        
-        
+        percentages.perA = 0
+        percentages.perB = 0
+        products.productA = {
+            title: '',
+            description: '',
+            image: '',
+            load: false
+        }
+        products.productB = {
+            title: '',
+            description: '',
+            image: '',
+            load: false
+        }
 
+        io.emit('vote', candidates)
+        io.emit('item', products)
+        io.emit('percentage', percentages)
+    })
 
-        io.emit('update', candidates)
-        io.emit('update', productsReset)
+    socket.on('pause', btnState => {
+        io.emit('pause', !btnState)
     })
     
 
     socket.on('loadProduct', (clientProduct) => {
-        const productA = products.productA
+        const pA = products.productA
+        const pB = products.productB
+
+        if (pA.load == true) {
+            pB.title = clientProduct.title
+            pB.description = clientProduct.price
+            pB.image = clientProduct.thumbnail
+            pB.load = true
+        } else {
+            pA.title = clientProduct.title
+            pA.description = clientProduct.price
+            pA.image = clientProduct.thumbnail
+            pA.load = true
+        }
         
-        productA.title = clientProduct.title
-        productA.description = clientProduct.price
-        productA.image = clientProduct.thumbnail
-        
-        console.log('recibido')
-        io.emit('update', products)
+        console.log('product recibido')
+        io.emit('item', products)
+        console.log(products)
     })
 
-    
+    socket.on('connection', () => {
+        io.emit('vote',candidates)
+        io.emit('item', products)
+        io.emit('update', percentages)
+        // console.log(socket.id, 'Connected')
+    })
+
+    socket.on('disconnect', () => {
+        // console.log('User Disconnected', socket.id)
+    })
+
+
 
 
 })
-
-
-
 
 // io.on('connection', socket => {
     
