@@ -134,6 +134,10 @@
  z-index: 3;
 }
 
+.controls button {
+  background-color: #c9e9dd;
+}
+
 .stop{
   position: absolute;
   width: 100vw;
