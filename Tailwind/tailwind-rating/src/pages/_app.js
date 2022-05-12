@@ -1,5 +1,5 @@
 import { TaskProvider } from '../context/TaskContext'
-import '../styles/globals.css'
+import '../styles/output.css'
 
 
 
