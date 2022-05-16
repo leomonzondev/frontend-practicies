@@ -71,7 +71,6 @@ export const App = () => {
   return (
     <div className='app'>
 
-
         <div className='title'>
           <h1>IG Monk</h1>
           {/* <GiPowerButton size={22} 
