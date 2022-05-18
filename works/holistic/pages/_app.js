@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
 
       <ThemeProvider attribute='class'>
-        <NavBar />
+        <NavBar  />
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>

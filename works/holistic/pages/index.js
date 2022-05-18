@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div >
       <Head>
-        <title>Holistic Mati</title>
+        <title>Psicoholistica</title>
         <meta name="description" content="Sana tu mente y alma" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
