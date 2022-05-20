@@ -10,8 +10,12 @@ import { Testimonios } from '../components/index/Testimonios'
 import { Ubicacion } from '../components/index/Ubicacion'
 
 
+import dynamic from 'next/dynamic'
+
 
 export default function Home() {
+  // const Ubicacion = dynamic(() => import('../components/index/Ubicacion').then(res => console.log(res)))
+  
   return (
     <div>
       <Head>
@@ -29,7 +33,11 @@ export default function Home() {
         <SobreMi />
         <Testimonios />
         <Contacto />
+
+    
         <Ubicacion />
+      
+        
         
       </div>
 

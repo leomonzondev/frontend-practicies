@@ -10,7 +10,7 @@ const esencias = () => {
 
   return (
     <div className='pt-16'>
-        <h1 className='m-5 font-medium'>Esencias de Bach</h1>
+        <h1 className='m-5 font-medium text-5xl'>Esencias de Bach</h1>
 
         <LayoutCategoria productos={categoriaEsencia}/>
     </div>
