@@ -2,13 +2,16 @@ import '../styles/output.css'
 import { ThemeProvider } from 'next-themes'
 import { NavBar } from '../components/NavBar'
 import { Footer } from '../components/index/Footer'
-import { store } from '../store/store'
+
 import { Provider } from 'react-redux'
+import { Store, StoreProvider } from '../utils/Store'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <Provider store={store}> */}
+  
+
+      <StoreProvider>
 
       
       <ThemeProvider attribute='class'>
@@ -16,7 +19,8 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
-      {/* </Provider> */}
+  
+      </StoreProvider>
     </>
     )
 }

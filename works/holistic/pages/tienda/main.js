@@ -1,25 +1,30 @@
 import React from 'react'
-import { Anuncio } from '../../components/tienda/Anuncio'
-import { Categorias } from '../../components/tienda/Categorias'
-import { Footer } from '../../components/tienda/Footer'
-import { TiendaLayout } from '../../components/tienda/layouts/TiendaLayout'
-import { Productos } from '../../components/tienda/Productos'
-import { Slider } from '../../components/tienda/Slider'
-
-import { BsCreditCard, BsCurrencyDollar, BsTruck } from 'react-icons/bs'
-import { MdOutlineLocalShipping, MdAttachMoney } from 'react-icons/md'
 import { Tienda } from '../../components/tienda/Tienda'
+import db from '../../utils/db'
+import Product from '../../models/Product'
 
-const main = () => {
+const main = (props) => {
 
-  const size = 48
+  const {products}=props
 
 
   return (
     <div>
-      <Tienda />
+      <Tienda products={products}/>
     </div>
   )
 }
 
 export default main
+
+
+export async function getServerSideProps() {
+  await db.connect()
+  const products = await Product.find({}).lean()
+  await db.disconnect()
+  return {
+    props: {
+      products: products.map(db.covertDocToObj)
+    }
+  }
+}
