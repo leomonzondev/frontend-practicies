@@ -1,18 +1,26 @@
-import React, { useContext } from 'react'
+import { Card } from 'components/tienda/cart/Card'
+import { Summary } from 'components/tienda/cart/Summary'
+import React, { useContext, useState } from 'react'
 import { Store } from '../../utils/Store'
 
 const carrito = () => {
 
-    const {state} = useContext(Store)
+    const {state, dispatch} = useContext(Store)
+
+
+
+
 
   return (
-    <div className='pt-20 h-screen'>
+    <div className='pt-24 h-screen '>
 
+      
+      <Summary state={state}/>
         {
             state &&
             state.cart?.cartItems <= 0
             ? "No hay nada que ver aqui, x el momento..."
-            : state.cart?.cartItems.map(item => <div>{item.title}</div>)
+            : state.cart.cartItems.map(item => <Card producto={item} />)
         }
         
     </div>
