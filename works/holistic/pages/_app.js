@@ -5,11 +5,13 @@ import { Footer } from '../components/index/Footer'
 
 import { Provider } from 'react-redux'
 import { Store, StoreProvider } from '../utils/Store'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-  
+
+
 
       <StoreProvider>
 
