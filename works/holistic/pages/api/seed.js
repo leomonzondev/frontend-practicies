@@ -1,7 +1,9 @@
 import nc from 'next-connect';
 import Product from '../../models/Product';
+
 import db from '../../utils/db';
 import { productos } from '../../components/tienda/data';
+import User from 'models/User';
 
 const handler = nc();
 
