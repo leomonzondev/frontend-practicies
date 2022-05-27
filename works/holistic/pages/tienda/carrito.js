@@ -8,18 +8,11 @@ import { Store } from '../../utils/Store'
 const carrito = () => {
 
 
-
-
-
-
-
-
-
   return (
     <div className='pt-24 h-screen '>
 
       <Carrito  />
-      <button onClick={() => console.log(pagarItems)}>MOSTRAR OBJETO</button>
+      {/* <button onClick={() => console.log(pagarItems)}>MOSTRAR OBJETO</button> */}
     </div>
   )
 }

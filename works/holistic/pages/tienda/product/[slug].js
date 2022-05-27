@@ -1,13 +1,17 @@
+import { ProductoView } from "components/tienda/productoView/ProductoView"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import client from "utils/client"
 import { urlFor } from "utils/image"
+import { Store } from "utils/Store"
 
 
 const ProductScreen = (props) => {
 
     const {slug} = props
+
+    const {state: {cart}, dispatch} = useContext(Store)
 
     const [state, setState] = useState({
         product: null,
@@ -18,21 +22,23 @@ const ProductScreen = (props) => {
       const { product, loading, error } = state;
 
       useEffect(() => {
+        
+        const query = `*[_type == "product" && slug == $slug][0]`
         const fetchData = async () => {
           try {
-            const product = await client.fetch(
-              `
-                *[_type == "product" && slug.current == $slug][0]`,
-              { slug }
-            );
+            const product = await client.fetch( query ,{slug} );
             setState({ ...state, product, loading: false });
+    
           } catch (err) {
             setState({ ...state, error: err.message, loading: false });
           }
         };
         fetchData();
-        console.log(slug)
+     
       }, []);
+
+
+
 
 
     return (
@@ -45,14 +51,14 @@ const ProductScreen = (props) => {
                 ? <p>Hubo un error en la carga de productos</p>
                 : (
                     <section>
-                        <Link href="/">
-                            Volver a resultados
+                        <Link href="/tienda">
+                            Volver a la tienda
                         </Link>
-                        <button onClick={() => console.log(state)}>Mostrar state</button>
+                        
+                        <ProductoView producto={state.product} />
+                       
                         <article>
-                            <div>
-                                {/* <Image src={urlFor(product.image)} alt={product.name} layout="responsive" width={640} height={640} /> */}
-                            </div>
+
                         </article>
                     </section>
                 )

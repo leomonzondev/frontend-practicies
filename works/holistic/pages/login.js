@@ -1,23 +1,51 @@
 import Link from 'next/link'
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useContext, useEffect } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import {
+    Button,
+    List,
+    ListItem,
+    TextField,
+    Typography,
+} from '@mui/material';
+import { useSnackbar } from 'notistack';
+import axios from 'axios';
+import { Store } from 'utils/Store'; 
+import { useRouter } from 'next/router';
+import jsCookie from 'js-cookie';
+import { getError } from 'utils/error'; 
 
 const LoginScreen = () => {
 
-
+    const { state, dispatch } = useContext(Store);
+    const { userInfo } = state;
+    const router = useRouter();
+    const { redirect } = router.query;
+    useEffect(() => {
+      if (userInfo) {
+        router.push(redirect || '/');
+      }
+    }, [router, userInfo, redirect]);
     const {
-        handleSubmit,
-        register,
-        formState: { errors },
-     } = useForm()
-
-
-
-     const submitHandler = ({ email, password }) => {
-        console.log(email,password)
-     }
-
-
+      handleSubmit,
+      control,
+      formState: { errors },
+    } = useForm();
+  
+    const { enqueueSnackbar } = useSnackbar();
+    const submitHandler = async ({ email, password }) => {
+      try {
+        const { data } = await axios.post('/api/users/login', {
+          email,
+          password,
+        });
+        dispatch({ type: 'USER_LOGIN', payload: data });
+        jsCookie.set('userInfo', JSON.stringify(data));
+        router.push(redirect || '/');
+      } catch (err) {
+        enqueueSnackbar(getError(err), { variant: 'error' });
+      }
+    };
 
   return (
     <div className='mt-20'>
@@ -25,37 +53,80 @@ const LoginScreen = () => {
     <form className='mx-auto max-w-screen-md' onSubmit={handleSubmit(submitHandler)}>
         <h1 className='mb-4 text-2xl'>Login</h1>
 
-        <div className='mb-4'>
-            <label htmlFor='email'>Email</label> 
-            <input type="email" {...register('email', {required: 'Por favor escribe tu email',
-            pattern: {
-                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
-                message: 'Por favor ingrese un email válido'
-            }})} className='w-full' id='email' autoFocus></input>
-            {errors.email && (<div className='text-red'>{errors.email.message}</div>)}
-        </div>
-
-        <div className='mb-4'>
-            <label htmlFor='password'>Password</label> 
-            <input type="password" {...register('password', {required: 'Por favor escribe tu contraseña',
-            minLength: {
-                value: 6,
-                message: 'La contraseña tiene que ser más de 5 caracteres'
-            }})} className='w-full' id='password' autoFocus></input>
-            {errors.password && (<div className='text-red'>{errors.password.message}</div>)}
-        </div>
-
-        <div className='mb-4'>
-            <button className=' py-2 px-3 primary-button bg-lightAccent-200 dark:bg-darkAccent-200 text-white'>Login</button>
-        </div>
-
+        
+        <List>
+          <ListItem>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="email"
+                  label="Email"
+                  inputProps={{ type: 'email' }}
+                  error={Boolean(errors.email)}
+                  helperText={
+                    errors.email
+                      ? errors.email.type === 'pattern'
+                        ? 'Email is not valid'
+                        : 'Email is required'
+                      : ''
+                  }
+                  {...field}
+                ></TextField>
+              )}
+            ></Controller>
+          </ListItem>
+          <ListItem>
+            <Controller
+              name="password"
+              control={control}
+              defaultValue=""
+              rules={{
+                required: true,
+                minLength: 6,
+              }}
+              render={({ field }) => (
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  inputProps={{ type: 'password' }}
+                  error={Boolean(errors.password)}
+                  helperText={
+                    errors.password
+                      ? errors.password.type === 'minLength'
+                        ? 'Password length is more than 5'
+                        : 'Password is required'
+                      : ''
+                  }
+                  {...field}
+                ></TextField>
+              )}
+            ></Controller>
+          </ListItem>
+          <ListItem>
+            <Button variant="contained" type="submit" fullWidth color="primary">
+              Login
+            </Button>
+          </ListItem>
         <div className='mb-4'>
             No tenés cuenta? &nbsp;
-            <Link href="/register">Registrarme</Link>
+            <Link href="/register">Registrarse</Link>
         </div>
 
-    </form>
+        </List>
 
+
+    </form>
     </div>
   )
 }
