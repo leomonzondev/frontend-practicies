@@ -19,6 +19,7 @@ const LoginScreen = () => {
 
     const { state, dispatch } = useContext(Store);
     const { userInfo } = state;
+
     const router = useRouter();
     const { redirect } = router.query;
     useEffect(() => {
@@ -26,6 +27,7 @@ const LoginScreen = () => {
         router.push(redirect || '/');
       }
     }, [router, userInfo, redirect]);
+
     const {
       handleSubmit,
       control,
@@ -33,18 +35,22 @@ const LoginScreen = () => {
     } = useForm();
   
     const { enqueueSnackbar } = useSnackbar();
+
     const submitHandler = async ({ email, password }) => {
+        
       try {
         const { data } = await axios.post('/api/users/login', {
           email,
           password,
         });
+       
         dispatch({ type: 'USER_LOGIN', payload: data });
         jsCookie.set('userInfo', JSON.stringify(data));
-        router.push(redirect || '/');
+        router.push( redirect || '/');
       } catch (err) {
         enqueueSnackbar(getError(err), { variant: 'error' });
       }
+     
     };
 
   return (

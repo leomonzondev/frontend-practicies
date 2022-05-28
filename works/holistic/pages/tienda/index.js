@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { Tienda } from '../../components/tienda/Tienda'
-import db from '../../utils/db'
-// import Product from '../../models/Product'
+
 import client from 'utils/client'
 
-const main = (props) => {
+const Main = (props) => {
 
   
   const {products} = props
@@ -14,13 +13,13 @@ const main = (props) => {
 
   return (
     <div>
-   
       <Tienda products={products}/>
+      
     </div>
   )
 }
 
-export default main
+export default Main
 
 
 export async function getServerSideProps() {

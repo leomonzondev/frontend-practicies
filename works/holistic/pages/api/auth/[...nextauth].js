@@ -15,6 +15,24 @@ export default NextAuth({
       })
     // ...add more providers here
   ],
+  jwt: {
+    encryption: true
+  },
+  secret: process.env.JWT_SECRET,
+  callbacks: {
+    async jwt(token, account) {
+      if (account?.accesToken) {
+        token.accesToken = account.accessToken
+      }
+      return token
+    },
+    redirect: async (url, _baseUrl) => {
+      if (url === '/perfil') {
+        return Promise.resolve('/')
+      }
+      return Promise.resolve('/')
+    }
+  }
 })
 
 

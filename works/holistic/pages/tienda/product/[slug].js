@@ -14,7 +14,7 @@ const ProductScreen = (props) => {
     const {state: {cart}, dispatch} = useContext(Store)
 
     const [state, setState] = useState({
-        product: null,
+        product: [],
         loading: true,
         error: '',
       });
@@ -34,7 +34,7 @@ const ProductScreen = (props) => {
           }
         };
         fetchData();
-     
+    
       }, []);
 
 
@@ -55,7 +55,7 @@ const ProductScreen = (props) => {
                             Volver a la tienda
                         </Link>
                         
-                        <ProductoView producto={state.product} />
+                        <ProductoView producto={product} />
                        
                         <article>
 
