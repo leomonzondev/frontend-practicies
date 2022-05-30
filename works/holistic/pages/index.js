@@ -24,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className='px-5 md:px-16 overflow-hidden relative'>
+      <div className='px-5 md:px-16 overflow-hidden relative mt-20 md:mt-0'>
         <Hero />
         <Quote />
         <Publicidad />

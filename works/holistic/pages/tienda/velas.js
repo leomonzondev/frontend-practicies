@@ -12,8 +12,8 @@ const Velas = (props) => {
 
 
   return (
-    <div className='pt-16'>
-        <h1 className='m-5 font-medium'>Velas</h1>
+    <div className='pt-16 h-screen'>
+        <h1 className='m-5 font-medium text-5xl'>Velas</h1>
 
         <LayoutCategoria productos={products}/>
     </div>

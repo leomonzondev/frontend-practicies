@@ -15,7 +15,7 @@ const Bach = (props) => {
 
 
   return (
-    <div className='pt-16'>
+    <div className='pt-16 h-screen'>
         <h1 className='m-5 font-medium text-5xl'>Esencias de Bach</h1>
 
         <LayoutCategoria productos={products}/>
