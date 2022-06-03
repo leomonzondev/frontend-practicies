@@ -8,13 +8,23 @@ import { Store, StoreProvider } from '../utils/Store'
 import Head from 'next/head'
 import { SnackbarProvider } from 'notistack'
 import { SessionProvider } from 'next-auth/react'
+import { useContext } from 'react'
 
 function MyApp({ Component, pageProps }) {
+
+  
+
+
+ 
+
   return (
     <>
 
-      <SessionProvider>
-      <SnackbarProvider>
+     
+      <SnackbarProvider maxSnack={3} autoHideDuration={3000} anchorOrigin={{
+    vertical: "bottom",
+    horizontal: "right"
+   }}>
         <StoreProvider>
         <ThemeProvider attribute='class'>
           <NavBar  />
@@ -25,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         </StoreProvider>
       </SnackbarProvider>
 
-      </SessionProvider>
+      
     </>
     )
 }

@@ -1,7 +1,7 @@
 import { DManageStore } from 'components/admin/Store/DManageStore'
 import Product from 'models/Product'
 import React from 'react'
-import db from 'utils/db'
+
 
 const manageStore = (props) => {
 

@@ -1,18 +1,35 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
+import { Store } from 'utils/Store'
 
-const success = () => {
+const Success = () => {
+
+  const router = useRouter()
+  const {state, dispatch} = useContext(Store)
+
+
+
+  useEffect(() => {
+
+    Cookies.set('cartItems',[])
+    dispatch({type:"CART_CLEAR"})
+  },[router.query == "/tienda/thanks/success?*"])
+
+
   return (
-    <div>
+    <div className='pt-20'>
 
-Compra Aprobada
+      La transacción fue realizada con éxito!
+      Gracias por tu compra!
 
 
-<Link href="/tienda" ><p className='cursor-pointer'>Volver a la tienda</p></Link>
+      <Link href="/tienda" ><p className='cursor-pointer'>Volver a la tienda</p></Link>
 
 
     </div>
   )
 }
 
-export default success
+export default Success
