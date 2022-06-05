@@ -11,11 +11,14 @@ import { Ubicacion } from '../components/index/Ubicacion'
 
 
 import dynamic from 'next/dynamic'
+import client from 'utils/client'
 
 
-export default function Home() {
+export default function Home({landing}) {
   // const Ubicacion = dynamic(() => import('../components/index/Ubicacion').then(res => console.log(res)))
   
+  const servicios = landing.map(info => info.seccion == "servicios" ? info : null)
+
   return (
     <div>
       <Head>
@@ -27,8 +30,9 @@ export default function Home() {
       <div className='px-5 md:px-16 overflow-hidden relative mt-20 md:mt-0'>
         <Hero />
         <Quote />
+        
         <Publicidad />
-        <Servicios />
+        <Servicios servicios={servicios}/>
         <Especializaciones />
         <SobreMi />
         <Testimonios />
@@ -43,4 +47,19 @@ export default function Home() {
 
     </div>
   )
+}
+
+export async function getServerSideProps() {
+
+  try {
+    const landing = await client.fetch(`*[_type == "landing"]`)
+    return {
+      props: {landing}
+    }
+  } catch {
+    
+    return {
+      props: {}
+    }
+  }
 }
