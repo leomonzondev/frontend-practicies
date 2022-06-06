@@ -17,7 +17,9 @@ import client from 'utils/client'
 export default function Home({landing}) {
   // const Ubicacion = dynamic(() => import('../components/index/Ubicacion').then(res => console.log(res)))
   
-  const servicios = landing.map(info => info.seccion == "servicios" ? info : null)
+  const servicios = landing.filter(info => info.seccion == "servicios" )
+  const hero = landing.filter(info => info.seccion === "hero")
+  const sobreMi = landing.filter(info => info.seccion === "sobreMi")
 
   return (
     <div>
@@ -28,13 +30,13 @@ export default function Home({landing}) {
       </Head>
       
       <div className='px-5 md:px-16 overflow-hidden relative mt-20 md:mt-0'>
-        <Hero />
+        <Hero hero={hero}/>
         <Quote />
         
         <Publicidad />
         <Servicios servicios={servicios}/>
         <Especializaciones />
-        <SobreMi />
+        <SobreMi sobreMi={sobreMi}/>
         <Testimonios />
         <Contacto />
 
