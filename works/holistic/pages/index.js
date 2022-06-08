@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic'
 import client from 'utils/client'
 
 
-export default function Home({landing}) {
+export default function Home({landing, testimonios}) {
   // const Ubicacion = dynamic(() => import('../components/index/Ubicacion').then(res => console.log(res)))
   
   const servicios = landing.filter(info => info.seccion == "servicios" )
@@ -29,7 +29,7 @@ export default function Home({landing}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className='px-5 md:px-16 overflow-hidden relative mt-20 md:mt-0'>
+      <div className='px-5 md:px-16 overflow-hidden relative pt-20 md:mt-0'>
         <Hero hero={hero}/>
         <Quote />
         
@@ -37,7 +37,7 @@ export default function Home({landing}) {
         <Servicios servicios={servicios}/>
         <Especializaciones />
         <SobreMi sobreMi={sobreMi}/>
-        <Testimonios />
+        <Testimonios testimonios={testimonios}/>
         <Contacto />
 
     
@@ -55,8 +55,9 @@ export async function getServerSideProps() {
 
   try {
     const landing = await client.fetch(`*[_type == "landing"]`)
+    const testimonios = await client.fetch(`*[_type == "testimonios"]`)
     return {
-      props: {landing}
+      props: {landing, testimonios}
     }
   } catch {
     

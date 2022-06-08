@@ -42,7 +42,7 @@ const ProductScreen = (props) => {
 
 
     return (
-        <div className="mt-20">
+        <div className="pt-20">
 
         {
             loading 
@@ -50,16 +50,8 @@ const ProductScreen = (props) => {
             : error 
                 ? <p>Hubo un error en la carga de productos</p>
                 : (
-                    <section>
-                        <Link href="/tienda">
-                            Volver a la tienda
-                        </Link>
-                        
+                    <section>           
                         <ProductoView producto={product} />
-                       
-                        <article>
-
-                        </article>
                     </section>
                 )
         }
