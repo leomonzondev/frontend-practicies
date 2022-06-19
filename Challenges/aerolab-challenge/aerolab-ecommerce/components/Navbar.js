@@ -1,4 +1,6 @@
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
+import { useSnackbar } from 'notistack'
 import React, { useContext } from 'react'
 
 import logo from '../assets/aerolab-logo.svg'
@@ -6,23 +8,33 @@ import coin from '../assets/icons/coin.svg'
 import { UserContext } from '../context/Context'
 
 
+
+
 export const Navbar = () => {
 
+  const { theme, setTheme } = useTheme()
+
  
-    const {state, dispatch} = useContext(UserContext)
+  const {state, dispatch} = useContext(UserContext)
+  const { enqueueSnackbar } = useSnackbar();
 
-    const { user } = state
+  const { user } = state
 
-    const handleAddPoints = () => {
 
-        const current = state.user.points
-        const amount = current + 500
 
-        dispatch({type:"ADD_POINTS", payload: amount})
-    }
+  const handleAddPoints = () => {
+
+      const points = 500
+
+      const current = state.user.points
+      const amount = current + points
+
+      dispatch({type:"ADD_POINTS", payload: amount})
+      enqueueSnackbar(`${points} points added`, { variant: "success" })
+  }
 
   return (
-    <div className='w-full bg-white h-20 flex items-center justify-between px-10'>
+    <div className='w-full bg-white h-20 flex items-center justify-between px-10  drop-shadow-md'>
       <div  >
         <Image src={logo} />
       </div>
@@ -32,6 +44,7 @@ export const Navbar = () => {
           <p className='text-2xl text-black-100 ' onClick={handleAddPoints} >{user.points}</p>
           <Image src={coin} width={28} />
           </div>
+          {/* <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Change theme</button> */}
       </div>
     </div>
   )

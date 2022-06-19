@@ -33,17 +33,17 @@ export const MainLayout = ({ children, title, pageDescription, imageFullUrl }) =
                 <Navbar />
             </nav>
 
-            <div className="w-full  h-[500px] ">
-                <div className="overflow-hidden my-10 mx-10 h-full bg-[url('../assets/header-x2.png')] bg-center bg-cover bg-no-repeat flex items-end">
+            <div className="w-full   h-[500px] ">
+                <div className="overflow-hidden mt-2 md:my-10 md:mx-10 h-full bg-[url('../assets/header-x2.png')] bg-center bg-cover bg-no-repeat flex items-end">
                     {/* <Image src={header}  /> */}
-                <h1 className=" mt-10  p-32  text-7xl font-regular">Electronics</h1>
+                <h1 className=" mt-10 md:p-32 text-white text-7xl font-bold">Electronics</h1>
                 </div>
 
                 
             </div>
 
 
-            <main className="my-[80px] mx-auto max-w-[1440px] py-0 px-8">
+            <main className="md:my-[80px] md:mx-auto max-w-[1440px] py-0 md:px-8">
                 { children }
             </main>
 

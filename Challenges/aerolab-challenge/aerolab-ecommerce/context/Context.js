@@ -3,7 +3,7 @@ import { createContext, useEffect, useReducer, useState } from "react";
 
 const initialState = {
      user:{},
-     products: []
+     products: [],
 }
 
 export const UserContext = createContext()
@@ -19,16 +19,22 @@ const reducer = ( state, action ) => {
         }
 
         case "ADD_PRODUCTS": {
-            console.log('LLAMADA productss')
+            
             return {...state,  products: payload }
         }
 
-        
         case "ADD_POINTS": {
             if( !state.user ) return
 
             return { ...state, user: {...state.user, points: payload }  }
         }
+
+        case "BUY_PRODUCT": {
+            if( state.user.points < payload ) return console.log('No tienes suficientes puntos para canjear el producto')
+
+            return { ...state, user: {...state.user, points: -payload }  }
+        }
+
         default:
             return
     }
@@ -55,9 +61,12 @@ export const Store = ({ children }) => {
                 }),
             })
             .then( resp => resp.json())
-            .then( data => dispatch({type:"ADD_USER", payload: data}) )
+            .then( data => dispatch({type:"ADD_USER" , payload: data}) )
+            
         }
         return getUser()
+        
+    
         },[])
 
         useEffect(() => {
@@ -72,10 +81,11 @@ export const Store = ({ children }) => {
             })
             .then( resp => resp.json())
             .then( data => dispatch({type:"ADD_PRODUCTS", payload: data}) )
+            
         }
-        return getProducts()
-   
+        getProducts()
         },[])
+
 
     const value ={
         state,

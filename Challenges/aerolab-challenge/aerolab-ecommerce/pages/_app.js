@@ -7,7 +7,7 @@ import '../styles/output.css'
 function MyApp({ Component, pageProps }) {
   return (
     
-    <ThemeProvider attribute='class'>
+    // <ThemeProvider attribute='class'>
           
       <SnackbarProvider
         maxSnack={3}
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
 
         </Store>
       </SnackbarProvider>
-    </ThemeProvider>
+    // </ThemeProvider>
     
     )
 }
