@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body > button {
+    background-color: transparent;
+    padding: 5px;
+    font-size: larger;
+}
+
+sidebar {
+    height:100%;
+    background-color: black;
+    width: 400px;
+}
