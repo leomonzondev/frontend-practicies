@@ -1,8 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 
 
 export default function Home() {
+
+const [called, setCalled] = useState('')
+
+  const handleCall = async() => {
+    setCalled('Loading data...')
+    const resp = await fetch('/api/time')
+    const data = await resp.json()
+    setCalled(data)
+
+  }
+
+
   return (
     <div >
       <Head>
@@ -11,10 +24,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='flex flex-col justify-center items-center w-screen h-screen bg-red'>
+      <div className='flex flex-col justify-center items-center w-full h-full bg-black'>
         <input type="text" placeholder='asd' />
         <h1>ASD</h1>
       </div>
+
+      <button onClick={handleCall} className=''>CALL API</button>
+
+      {called}
 
     </div>
   )
