@@ -1,5 +1,7 @@
-export default function getTime(req,res) {
-    fetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires")
-    .then(resp => resp.json())
-    .then(data => res.json(data))
+export default async function getTime(req,res) {
+    const zoneData = await  req.body
+    const getData = await fetch(`http://worldtimeapi.org/api/timezone/${zoneData}`)
+    const response = await getData.json()
+    res.status(200).json(response)
+    console.log(zoneData)
 }
