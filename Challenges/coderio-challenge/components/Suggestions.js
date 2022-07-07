@@ -21,9 +21,9 @@ export const Suggestions = ({zones, inputValue, handleCall }) => {
 
 
   return (
-    <div className='bg-red-500'>
+    <div className='bg-red-500 '>
    
-        <div className='w-96 text-center max-h-screen h-96 overflow-y-auto'>
+        <div className='w-96 text-center max-h-96 overflow-y-auto'>
             {
                 inputValue === '' 
                 ? ''

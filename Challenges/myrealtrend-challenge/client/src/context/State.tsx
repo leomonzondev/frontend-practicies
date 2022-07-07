@@ -1,11 +1,20 @@
 import { createContext, useReducer } from "react";
 import { cardReducer } from "./Reducer";
 
+interface AppContextInterface {
+    listItem: string[];
+    addToVote():any;
+}
 
-export const CardContext = createContext()
+type Props = {
+    children?: JSX.Element | JSX.Element[]
+}
 
 
-const CardState = ({ children }) => {
+export const CardContext = createContext<AppContextInterface | null>(null)
+
+
+const CardState = ({ children }: Props) => {
 
     const initialState = {
         listItems: []
@@ -14,7 +23,7 @@ const CardState = ({ children }) => {
     const [state, dispatch] = useReducer(cardReducer, initialState)
 
 
-    const addToVote = (product) => {
+    const addToVote = (product:any) => {
 
         dispatch({
             type:'ADD_TO_VOTE',

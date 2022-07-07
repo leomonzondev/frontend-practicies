@@ -43,7 +43,7 @@ const Home: React.FC = () => {
     
     socket.on('vote', candidates => {
       setVotacion(candidates)
-      console.log(votacion.voteA);
+
     })
 
     socket.on('item', products => {

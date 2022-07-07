@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 
-
 class Server {
 
     constructor(){
@@ -25,7 +24,6 @@ class Server {
         this.app.use(express.static('public'))
     }
 
-
     routes() {
         this.app.use(this.path, require('../routes/routes'))
 
@@ -38,9 +36,6 @@ class Server {
             console.log('SV RUNNING PORT', this.port)
         })
     }
-
-
-
 }
 
 module.exports = Server
