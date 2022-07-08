@@ -1,15 +1,16 @@
 import React from 'react'
-import design from '../../assets/images/aboutDesign.png'
+import design from '../../assets/images/aboutDesign.webp'
 import profile from '../../assets/images/profile.jpg'
 import Image from 'next/image'
 
 import { MdOutlineZoomOutMap, MdOutlineArrowForward } from 'react-icons/md'
 import { TiArrowShuffle, TiArrowRight } from 'react-icons/ti'
 import { RiUserSharedFill } from 'react-icons/ri'
+import { urlForThumbnail } from 'utils/image'
 
 const size = 68
 
-export const SobreMi = () => {
+export const SobreMi = ({sobreMi}) => {
   return (
     <div className='relative'>
       <h1 className='text-6xl md:text-9xl font-bold text-lightTitles dark:text-darkTitles mb-20'>Sobre mi</h1>
@@ -17,19 +18,16 @@ export const SobreMi = () => {
       <div className='flex md:w-screen flex-wrap flex-col-reverse '>
       <div>
         <p className='text-2xl  md:w-1/2 pb-5'>
-        Soy María Matilde Cueto, graduada como Licenciada en Psicología de la Universidad de Buenos Aires.
-        Matrícula Nacional 632422 expedida por el Ministerio de Salud de la Nación.
+        {sobreMi[0].descripcion[0].children[0].text}
         </p>
-        <p className='text-2xl md:w-1/2'>
-        Cuento con el curso de Acompañante terapéutico con especialización en trastornos neuropsiquiátricos, seminarios con especialización en Autismo y TGD. Especialización en terapia cognitivo conductual (TCC).
-        </p>
+        
       </div>
 
         <div className='hidden md:block md:absolute w-1/2 top-[-100px] right-[-60px]'>
           <Image src={design} alt="Design About me" className='opacity-25 dark:opacity-10' />
         </div>
         <div className='m-auto w-60 md:w-80 md:absolute md:top-[150px] md:right-[225px] pb-10'>
-          <Image src={profile} alt="profile" className="rounded-full " width={400} height={400} />
+          <Image src={sobreMi ? urlForThumbnail(sobreMi[0].image) : profile} alt="profile" className="rounded-full " width={400} height={400} />
         </div>
       </div>
 

@@ -18,7 +18,7 @@ export const LayoutCategoria = ({productos}) => {
   return (
     <>
         <History productos={productos}/>
-        <Filtro />
+        {/* <Filtro /> */}
         <div className='flex justify-center gap-10 flex-wrap'>
             {
                 productos.map(product => <div key={product._id} onClick={() => handleClick(product.slug)} ><Producto data={product} /> </div>)

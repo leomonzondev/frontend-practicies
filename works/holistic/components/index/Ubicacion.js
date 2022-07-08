@@ -3,7 +3,8 @@ import Map from './Map'
 
 
 
-export const Ubicacion = () => {
+const Ubicacion = () => {
+
 
 
 
@@ -19,3 +20,4 @@ export const Ubicacion = () => {
   )
 }
 
+export default Ubicacion

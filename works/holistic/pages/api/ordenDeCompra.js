@@ -14,22 +14,17 @@ handler.post(async (req, res) => {
     {
       create: {
         _type: 'ordenes',
-        name: req.body.name,
+        fullName: req.body.fullName,
+        address: req.body.address,
+        city: req.body.city,
+        postalCode:req.body.postalCode,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password),
-        isAdmin: false,
+
+        estado: req.body.estado,
+        productos:req.body.productos,
       },
     },
   ];
-  const existUser = await client.fetch(
-    `*[_type == "user" && email == $email][0]`,
-    {
-      email: req.body.email,
-    }
-  );
-  if (existUser) {
-    return res.status(401).send({ message: 'Ya existe una cuenta con éste email' });
-  }
   const { data } = await axios.post(
     `https://${projectId}.api.sanity.io/v1/data/mutate/${dataset}?returnIds=true`,
     { mutations: createMutations },
@@ -40,15 +35,6 @@ handler.post(async (req, res) => {
       },
     }
   );
-  const userId = data.results[0].id;
-  const user = {
-    _id: userId,
-    name: req.body.name,
-    email: req.body.email,
-    isAdmin: false,
-  };
-  const token = signToken(user);
-  res.send({ ...user, token });
 });
 
 export default handler;

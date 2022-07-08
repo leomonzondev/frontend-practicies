@@ -8,7 +8,7 @@ export const Categorias = ({products}) => {
 
 
   return (
-    <div className='flex flex-wrap w-full  justify-center gap-5 my-12 overflow-hidden'>
+    <div className='flex flex-wrap w-full justify-center gap-5 my-12 overflow-hidden'>
         {
           categories.map(item => (
             <CategoriaItem key={item.id} item={item} products={products} />

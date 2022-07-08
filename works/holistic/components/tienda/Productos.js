@@ -31,9 +31,37 @@ export const Productos = ({products}) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 8000,
-    cssEase: "linear"
+    dots:false,
+    speed: 8000,
+    autoplaySpeed: 0,
+    pauseOnHover: true,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
   
   return (
@@ -41,10 +69,11 @@ export const Productos = ({products}) => {
     {/* <div className='flex justify-center flex-col items-center'>
     <div className='flex flex-wrap gap-5 justify-center'> */}
     {/* slice(0,cant.cant). */}
+    <div className='w-full overflow-hidden'>
       <Slider {...settings}>
         {products.map(producto => <div key={producto.id} onClick={() => handleClick(producto.slug)} ><Producto data={producto} /></div>)}
-
       </Slider>
+      </div>
     {/* </div>
       <p onClick={handleMas} className='mt-8 cursor-pointer dark:hover:text-lightTextSecondary transition ease duration-300 text-lg'>{cant.val ? 'Ver menos' : 'Ver más... '}</p>
     </div> */}

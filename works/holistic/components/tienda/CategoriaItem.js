@@ -8,9 +8,9 @@ export const CategoriaItem = ({item, products}) => {
 
 
   return (
-    <div className=' h-[600px] relative bg-darkTitles  w-[600px]'>
+    <div className=' md:w-[500px] relative bg-darkTitles'>
       <div className='flex justify-center item-center'>
-        <Image src={item.img} width={790} height={600} layout='fixed' className='' />
+        <Image src={item.img} width={690} height={530} layout='fixed' className='' />
 
       </div>
       <div className='absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center'>

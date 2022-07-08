@@ -1,7 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react'
 import Image from 'next/image'
 
-import contact from '../../assets/images/card3.jpg'
+import contact from '../../assets/images/card3.webp'
 import { BsInstagram, BsWhatsapp } from 'react-icons/bs'
 import { GrFacebook } from 'react-icons/gr'
 import { RiYoutubeLine } from 'react-icons/ri'

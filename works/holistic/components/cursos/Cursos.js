@@ -7,21 +7,24 @@ import { MdOutlineDomainVerification } from 'react-icons/md'
 import { RiParentLine } from 'react-icons/ri'
 
 
-import { FAQ } from '../tienda/data'
+// import { FAQ } from '../tienda/data'
 import { Faq } from './Faq'
 
+export const Cursos = ({props}) => {
 
 
-
-
-export const Cursos = () => {
+    const { faq, infoCursos } = props
 
     const size = 116
+    // substringsArray.some(substring=>yourBigString.includes(substring))
+    const biodescodificacion = infoCursos.filter(info => info.nombre.toLowerCase().includes('biodescodificacion'||'biodescodificación'))
+    const numerologia = infoCursos.filter(info => info.nombre.toLowerCase().includes('numerologia'||'numerología'))
 
 
 
   return (
     <div className='flex flex-col  items-center py-20 '>
+
         <h1 className='text-center text-4xl  mt-8 font-medium brak-words leading-8 px-4 md:text-6xl dark:text-white text-lightBlack'>Aprende <span className='text-lightAccent-300 dark:text-darkAccent-300'>Biodescodificación</span></h1>
         <div className='
             flex
@@ -54,29 +57,29 @@ export const Cursos = () => {
                 Psico Holistica 2022
             </h1>
             <div className='
-              gap-5 md:gap-8 text-center 
+              gap-5 md:gap-8 text-center
             flex flex-col  justify-center items-center '>
                 <p className='text-4xl font-bold'>Formación 100% ONLINE</p>
                 <div className='flex gap-4 md:gap-12 flex-wrap justify-center' >
                     <button className='px-10 py-4 border-2 rounded-sm font-bold  text-xl
-                    border-white 
-                    text-white 
+                    border-white
+                    text-white
                     hover:bg-white
                     hover:text-lightBlack
 
-                    ease-linear duration-300 
+                    ease-linear duration-300
                     '>Compartí</button>
 
                     <button className='px-10 py-4 border-2 rounded-sm font-bold text-xl
-                    
+
                     border-none
-                    bg-white 
-                    text-lightBlack 
+                    bg-white
+                    text-lightBlack
                     hover:dark:bg-darkAccent-200
                     hover:dark:text-lightAccent-300
                     hover:bg-lightAccent-200
                     hover:text-white
-                    ease-linear duration-300 
+                    ease-linear duration-300
                     '>Inscribite</button>
                 </div>
             </div>
@@ -101,7 +104,7 @@ export const Cursos = () => {
                         <AiOutlineLaptop size={size} />
                         <div className='leading-8 '>
                             <p>100% <br/> Virtual</p>
-                            
+
                         </div>
                     </li>
                     <li className='flex items-center flex-col justify-center w-[250px]'>
@@ -126,7 +129,7 @@ export const Cursos = () => {
                         <BiBookBookmark size={size}/>
                         <div className='leading-8 '>
                             <p>Acceso a todo el material de estudio</p>
-                  
+
                         </div>
                     </li>
                     <li className='flex items-center flex-col justify-center w-[250px]'>
@@ -147,35 +150,35 @@ export const Cursos = () => {
                 <article className='md:h-[600px] md:w-[500px] w-[350px] p-5 bg-cardColors '>
                     <div className='border-goldCard border-2 h-full py-1 px-6 justify-between flex flex-col'>
 
-               
-                    <h1 className="md:text-8xl text-6xl font-medium text-white ">4000$<span className='font-medium text-3xl'> /mes</span> </h1>
+                    {/* <button onClick={() => console.log(biodescodificacion)} >BIODESMOSTRAR</button> */}
+                    <h1 className="md:text-8xl text-6xl font-medium text-white ">${biodescodificacion[0].precio}<span className='font-medium text-3xl'> /mes</span> </h1>
 
                     <ul className='h-96 flex flex-col justify-center gap-2 md:gap-5 text-white '>
-                    
+
                         <li>
-                            <p className='text-xl'>💻 Clases grabadas </p>
-                        </li>
-                            
-                        <li>
-                            <p className='text-xl'>🏅 Contenido de calidad </p>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica1}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🏫 Profesionales con amplia experiencia</p>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica2}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🚀 Nuevo contenido cada semana</p>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica3}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🤝‍🧑 Acceso a la comunidad PsicoHolistica</p>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica4}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🎓 Certificado al completar el curso</p>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica5}</p>
                         </li>
-                                
+
+                        <li>
+                            <p className='text-xl'>{biodescodificacion[0].caracteristica6}</p>
+                        </li>
+
                     </ul>
 
                     <button className='px-5 py-2 bg-darkAccent-200 text-3xl font-medium mb-6 text-white'>Empezar</button>
@@ -188,35 +191,35 @@ export const Cursos = () => {
                 <article className='md:h-[600px] md:w-[500px]  p-5 bg-cardColors w-[350px] '>
                     <div className='border-goldCard border-2 h-full py-1 px-6 justify-between flex flex-col'>
 
-               
-                    <h1 className="md:text-8xl text-6xl font-medium text-white ">5000$<span className='font-medium text-3xl'> /taller</span> </h1>
+
+                    <h1 className="md:text-8xl text-6xl font-medium text-white ">${numerologia[0].precio}<span className='font-medium text-3xl'> /taller</span> </h1>
 
                     <ul className='h-96 flex flex-col justify-center gap-2 md:gap-5 text-white '>
-                    
+
                         <li>
-                            <p className='text-xl'>💻 Clases grabadas </p>
-                        </li>
-                            
-                        <li>
-                            <p className='text-xl'>🏅 Contenido de calidad </p>
+                            <p className='text-xl'>{numerologia[0].caracteristica1}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🏫 Profesionales con amplia experiencia</p>
+                            <p className='text-xl'>{numerologia[0].caracteristica2}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🚀 Nuevo contenido cada semana</p>
+                            <p className='text-xl'>{numerologia[0].caracteristica3}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🤝‍🧑 Acceso a la comunidad PsicoHolistica</p>
+                            <p className='text-xl'>{numerologia[0].caracteristica4}</p>
                         </li>
 
                         <li>
-                            <p className='text-xl'>🧑‍🎓 Certificado de asistencia al taller</p>
+                            <p className='text-xl'>{numerologia[0].caracteristica5}</p>
                         </li>
-                                
+
+                        <li>
+                            <p className='text-xl'>{numerologia[0].caracteristica6}</p>
+                        </li>
+
                     </ul>
 
                     <button className='px-5 py-2 bg-darkAccent-200 text-3xl font-medium mb-6 text-white'>Empezar</button>
@@ -226,16 +229,16 @@ export const Cursos = () => {
 
             </section>
 
-            <div>
+            <div className='px-5'>
                 <h2 className='text-7xl dark:text-white text-lightBlack font-medium'>Preguntas frecuentes</h2>
-                <div className='md:w-[1400px] mt-5 flex flex-col gap-2'>
+                <div className='md:w-[1400px] mt-5 flex flex-col gap-2 '>
                     {
-                        FAQ.map((question, i) => <Faq key={question.id} question={question} i={i} />)
+                        faq.map((question, i) => <Faq key={question._id} question={question} i={i} />)
                     }
 
                 </div>
             </div>
-        
+
     </div>
   )
 }

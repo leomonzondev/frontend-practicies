@@ -25,7 +25,7 @@ useEffect(() => {
 
 
   return (
-    <div key={data.slug} className="w-[400px] bg-darkAccent-100 cursor-pointer">
+    <div key={data.slug} className="w-[400px]  bg-darkAccent-100 cursor-pointer">
     {/* {
       srcImg && <img src={srcImg} alt={data.slug}  />
     } */}

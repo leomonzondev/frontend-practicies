@@ -7,7 +7,7 @@ export const History = ({productos, product}) => {
 
   
   return (
-    <ul className='flex gap-2 md:pl-10 items-center'>
+    <ul className='flex gap-2 md:pl-10 items-center pb-10'>
         <Link href={"/tienda"}>
             <li className='cursor-pointer'>Tienda</li>
         </Link>

@@ -40,7 +40,7 @@ export const Summary = ({state}) => {
   const costoEnvio = 600
 
   return (
-    <div className=' text-right px-5 py-5  '>
+    <div className=' text-right md:px-5 py-5  '>
       
       <div>
         <p className='text-2xl font-medium'>Total con envío</p>

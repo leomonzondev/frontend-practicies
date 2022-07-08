@@ -29,7 +29,7 @@ export const BannerTienda = () => {
                 <p className='text-4xl font-bold break-words'>Conseguí productos 100% Naturales</p>
                 <div className='flex '>
 
-                    <Link href="/tienda/main"><button className='px-10 py-4 border-2 rounded-sm font-bold text-xl
+                    <Link href="https://psicoholistica.mitiendanube.com/"><button className='px-10 py-4 border-2 rounded-sm font-bold text-xl
                     border-none
                     bg-white 
                     text-lightBlack 

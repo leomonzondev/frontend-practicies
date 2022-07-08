@@ -42,27 +42,30 @@ export const Card = ({producto}) => {
 
   return (
     
-      <section className='flex h-[200px] justify-between '>
+      <section className='flex items-center justify-between '>
 
           <article className='flex'>
-            <Link href={`/tienda/product/${producto.slug}`} >
-              <Image src={urlFor(producto.image)} alt={producto.name} height={200} width={200} className="cursor-pointer" />
+            <div className='w-32 md:w-auto'>
+              <Link href={`/tienda/product/${producto.slug}`} >
+                <Image src={urlFor(producto.image)} alt={producto.name} height={200} width={200} className="cursor-pointer" />
               </Link>
+            </div>
               
-              <div className='md:ml-5 md:mt-5 flex flex-col justify-between'>
-                  <h2 className='text-xl md:text-3xl font-medium '>{producto.name}</h2>
-                  <p>ml</p>
-            <button className='py-3 px-5 rounded-sm text-white hover:text-lightAccent-200 dark:hover:text-darkAccent-200 transition-all duration-300' onClick={() => handleDelete(producto)}>Eliminar</button>
+              <div className='md:ml-5  py-2 md:mt-5 flex flex-col justify-between'>
+                <h2 className='text-xl md:text-3xl font-medium '>{producto.name}</h2>
+                <button className='md:py-3 md:px-5 rounded-sm text-white hover:text-lightAccent-200 dark:hover:text-darkAccent-200 transition-all duration-300' onClick={() => handleDelete(producto)}>Eliminar</button>
               </div>
           </article>
-            <article className='flex h-1/2  text-center w-32 items-center justify-center '>
-              <button name='sustract' disabled={producto.quantity <= 1 ? true : false} onClick={(e) => updateCartHandler(e)}  className="text-lightAccent-200 dark:text-darkAccent-100 text-6xl">-</button>
-                  <p className='px-20 dark:text-darkAccent-200 text-lightAccent-200 text-3xl font-medium'>{producto.quantity}</p>
-                <button name='plus' disabled={producto.quantity >= 20 ? true : false} onClick={(e) => updateCartHandler(e)}  className="text-lightAccent-200 dark:text-darkAccent-100 text-5xl">+</button>
+            <div className='flex flex-col-reverse items-center'>
+            <article className='flex h-1/2  text-center items-center justify-center '>
+              <button name='sustract' disabled={producto.quantity <= 1 ? true : false} onClick={(e) => updateCartHandler(e)}  className="text-lightAccent-200 dark:text-darkAccent-100 text-5xl md:text-6xl">-</button>
+                  <p className='md:px-20 px-5 dark:text-darkAccent-200 text-lightAccent-200 text-xl md:text-3xl font-medium'>{producto.quantity}</p>
+                <button name='plus' disabled={producto.quantity >= 20 ? true : false} onClick={(e) => updateCartHandler(e)} className="text-lightAccent-200 dark:text-darkAccent-100 text-3xl md:text-5xl">+</button>
             </article>
          
      
-            <p className='text-4xl font-medium'>${producto.quantity * producto.price }</p>
+            <p className='text-2xl md:text-4xl font-medium'>${producto.quantity * producto.price}</p>
+            </div>
       </section>
       
 

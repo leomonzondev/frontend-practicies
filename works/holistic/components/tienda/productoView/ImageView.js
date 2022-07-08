@@ -10,7 +10,7 @@ export const ImageView = ({producto}) => {
   return (
     <div className='flex  flex-wrap-reverse '>
 
-        <div className='md:w-[787px] md:h-[600px] bg-darkTitles mb-5 md:mr-5'>
+        <div className='md:w-[787px] md:h-[600px]  mb-5 md:mr-5'>
            <Image src={urlFor(producto.image)} width={800} height={630}/>  
         </div>
     </div>
