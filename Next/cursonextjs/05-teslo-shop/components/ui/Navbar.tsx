@@ -24,8 +24,6 @@ export const Navbar = () => {
             </NextLink>
 
             <Box flex={1} />
-            
-
             <Box sx={{ display:{ xs: 'none', sm:'block' } }}>
               <NextLink href='/category/men' passHref >
                 <Link>
