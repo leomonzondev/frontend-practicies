@@ -6,7 +6,7 @@ export const Background = () => {
     <View
         style={{
             position:'absolute',
-            backgroundColor:'#5856D6',
+            backgroundColor:'#09111a',
             top:-400,
             width:1000,
             height:1200,

@@ -6,10 +6,12 @@ import { WhiteLogo } from '../components/WhiteLogo'
 import { loginStyles } from '../theme/loginTheme';
 
 export const LoginScreen = () => {
+
   return (
     <>
+       <View style={{backgroundColor:'#D98018', height:1200, width:1000, position:'absolute'}}></View>
        <Background />
-
+      
        <View style={ loginStyles.formContainer}>
 
       
@@ -49,12 +51,10 @@ export const LoginScreen = () => {
           <TouchableOpacity
             activeOpacity={ 0.8 }
             onPress={ () => console.log('press')}
-            style={{width:"100%",display:'flex', justifyContent:'flex-end',alignSelf: 'flex-end', backgroundColor:'red'}}
           >
             <Text style={loginStyles.btnText}>Nueva cuenta</Text>
           </TouchableOpacity>
       </View>
-
       </View>
     </>
   )

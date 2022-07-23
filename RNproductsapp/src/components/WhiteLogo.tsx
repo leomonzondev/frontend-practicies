@@ -6,10 +6,11 @@ export const WhiteLogo = () => {
     <View style={{
         alignItems:'center'
     }}>
-        <Image source={require('../assets/react-logo-white.png')}
+        <Image source={require('../assets/zeniticon.png')}
         style={{
             width: 110,
-            height: 100
+            height: 100,
+            
         }}/>
     </View>
   )

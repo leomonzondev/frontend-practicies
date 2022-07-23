@@ -7,13 +7,15 @@ export const loginStyles = StyleSheet.create({
         paddingHorizontal:30,
         justifyContent:'center',
         height:600,
-        marginBottom: 50
+        marginBottom: 50,
+        
     },
     title:{
         color:'white',
         fontSize:30,
         fontWeight:'bold',
-        marginTop:20
+        marginTop:20,
+        
     },
     label: {
         marginTop:25,
@@ -46,6 +48,7 @@ export const loginStyles = StyleSheet.create({
         color:'white'
     },
     newUserContainer: {
-
+        alignSelf:'flex-end',
+        marginTop:10
     }
 })
