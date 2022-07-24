@@ -7,7 +7,7 @@ export const Background = () => {
         style={{
             position:'absolute',
             backgroundColor:'#09111a',
-            top:-400,
+            top:-350,
             width:1000,
             height:1200,
             transform:[

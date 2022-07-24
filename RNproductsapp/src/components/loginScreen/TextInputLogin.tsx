@@ -13,7 +13,7 @@ export const TextInputLogin = ({placeholder, type,...otherProps}:Props) => {
     <TextInput 
     placeholder="Ingrese su email"
     placeholderTextColor="rgba(255,255,255,.4)"
-    keyboardType={`${type}`}
+  
     underlineColorAndroid="white"
     style={ [loginStyles.inputField,(Platform.OS == 'ios') && loginStyles.inputFieldIOS] }
     selectionColor='white'
